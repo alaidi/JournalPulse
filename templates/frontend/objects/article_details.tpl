@@ -168,7 +168,7 @@
 					<h2 class="label">{translate key="article.subject"}</h2>
 					<ul class="jm_keywords">
 						{foreach from=$publication->getLocalizedData('keywords') item="keyword"}
-							<li>{$keyword.name|escape}</li>
+							<li>{$keyword|escape}</li>
 						{/foreach}
 					</ul>
 				</section>
