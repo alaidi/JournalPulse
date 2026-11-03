@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/JournalMetrics/tests/TemplateSafetyTest.php
+ * @file plugins/themes/journalMetrics/tests/TemplateSafetyTest.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -10,7 +10,7 @@
  * @brief Static checks on the templates and the source files.
  */
 
-namespace APP\plugins\themes\JournalMetrics\tests;
+namespace APP\plugins\themes\journalMetrics\tests;
 
 use PKP\tests\PKPTestCase;
 

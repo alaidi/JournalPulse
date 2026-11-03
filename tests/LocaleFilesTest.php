@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/JournalMetrics/tests/LocaleFilesTest.php
+ * @file plugins/themes/journalMetrics/tests/LocaleFilesTest.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -11,7 +11,7 @@
  *        incomplete file is worse than none.
  */
 
-namespace APP\plugins\themes\JournalMetrics\tests;
+namespace APP\plugins\themes\journalMetrics\tests;
 
 use PKP\tests\PKPTestCase;
 

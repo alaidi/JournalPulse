@@ -8,11 +8,19 @@
 set +e
 status=0
 
-npx cypress run  --headless --browser chrome  --config '{"specPattern":["plugins/themes/JournalMetrics/cypress/tests/functional/*.cy.js"]}'
+# pkp-github-actions installs the theme as plugins/themes/<repository name>
+# (JournalMetrics), but its code and version.xml call it journalMetrics, and on a
+# case-sensitive file system OJS only finds it there. Move it where OJS's
+# "Upload A New Plugin" would put it, then register its version.
+mv plugins/themes/JournalMetrics plugins/themes/journalMetrics
+plugin=plugins/themes/journalMetrics
+php lib/pkp/tools/installPluginVersion.php $plugin/version.xml
+
+npx cypress run  --headless --browser chrome  --config '{"specPattern":["plugins/themes/journalMetrics/cypress/tests/functional/*.cy.js"]}'
 cypress=$?
 [ $cypress -ne 0 ] && status=$cypress
 
-php lib/pkp/lib/vendor/bin/phpunit --configuration lib/pkp/tests/phpunit.xml --no-coverage plugins/themes/JournalMetrics/tests
+php lib/pkp/lib/vendor/bin/phpunit --configuration lib/pkp/tests/phpunit.xml --no-coverage $plugin/tests
 phpunit=$?
 [ $phpunit -ne 0 ] && status=$phpunit
 

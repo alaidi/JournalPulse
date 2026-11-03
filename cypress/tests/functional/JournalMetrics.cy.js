@@ -9,15 +9,15 @@
  *
  * Parameters (--env): contextPath, adminUser, adminPassword, themePath (captcha
  * on login must be off for the run). The defaults match the data set of PKP's
- * continuous integration; themePath is the theme's directory, which there is
- * the repository name.
+ * continuous integration; themePath is the theme directory, named after
+ * version.xml (journalMetrics).
  */
 
 describe('Journal Metrics theme', function() {
 	const contextPath = Cypress.env('contextPath') || 'publicknowledge';
 	const adminUser = Cypress.env('adminUser') || 'admin';
 	const adminPassword = Cypress.env('adminPassword') || 'admin';
-	const themePath = Cypress.env('themePath') || 'JournalMetrics';
+	const themePath = Cypress.env('themePath') || 'journalMetrics';
 
 	const rowName = 'journalmetricsthemeplugin';
 

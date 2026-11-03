@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/JournalMetrics/tests/PluginTest.php
+ * @file plugins/themes/journalMetrics/tests/PluginTest.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -12,7 +12,7 @@
  *        a fatal error that php -l does not catch.
  */
 
-namespace APP\plugins\themes\JournalMetrics\tests;
+namespace APP\plugins\themes\journalMetrics\tests;
 
 use PKP\tests\PKPTestCase;
 use ReflectionClass;
@@ -24,7 +24,7 @@ class PluginTest extends PKPTestCase
     protected function classes(): array
     {
         return [
-            \APP\plugins\themes\JournalMetrics\JournalMetricsThemePlugin::class,
+            \APP\plugins\themes\journalMetrics\JournalMetricsThemePlugin::class,
         ];
     }
 
