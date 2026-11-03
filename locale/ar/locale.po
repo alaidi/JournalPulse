@@ -179,3 +179,75 @@ msgstr "تطوير القالب:"
 
 msgid "plugins.themes.journalMetrics.header.openMenu"
 msgstr "فتح القائمة"
+
+msgid "plugins.themes.journalMetrics.option.info.label"
+msgstr "معلومات المجلة"
+
+msgid "plugins.themes.journalMetrics.option.info.option"
+msgstr "إظهار قسم معلومات المجلة في الصفحة الرئيسية."
+
+msgid "plugins.themes.journalMetrics.option.info.description"
+msgstr "يُؤخذ عنوان المجلة ورقم ISSN وبادئة DOI من إعدادات المجلة. املأ الحقول أدناه؛ الحقول الفارغة لا تظهر."
+
+msgid "plugins.themes.journalMetrics.option.info.field"
+msgstr "معلومات المجلة: {$field}"
+
+msgid "plugins.themes.journalMetrics.info.heading"
+msgstr "معلومات المجلة"
+
+msgid "plugins.themes.journalMetrics.info.journalTitle"
+msgstr "عنوان المجلة"
+
+msgid "plugins.themes.journalMetrics.info.indexing"
+msgstr "الفهرسة"
+
+msgid "plugins.themes.journalMetrics.info.onlineIssn"
+msgstr "ISSN الإلكتروني"
+
+msgid "plugins.themes.journalMetrics.info.printIssn"
+msgstr "ISSN المطبوع"
+
+msgid "plugins.themes.journalMetrics.info.frequency"
+msgstr "دورية الصدور"
+
+msgid "plugins.themes.journalMetrics.info.doiPrefix"
+msgstr "بادئة DOI"
+
+msgid "plugins.themes.journalMetrics.info.editorInChief"
+msgstr "رئيس التحرير"
+
+msgid "plugins.themes.journalMetrics.info.managingEditor"
+msgstr "مدير التحرير"
+
+msgid "plugins.themes.journalMetrics.info.organizedBy"
+msgstr "الجهة المنظِّمة"
+
+msgid "plugins.themes.journalMetrics.info.citationAnalysis"
+msgstr "تحليل الاستشهادات"
+
+msgid "plugins.themes.journalMetrics.info.acceptanceRate"
+msgstr "نسبة القبول"
+
+msgid "plugins.themes.journalMetrics.info.reviewSpeed"
+msgstr "مدة التحكيم"
+
+msgid "plugins.themes.journalMetrics.info.submissionNote"
+msgstr "ملاحظة قبل الإرسال"
+
+msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
+msgstr "الإرسال الإلكتروني"
+
+msgid "plugins.themes.journalMetrics.info.haveAccount"
+msgstr "هل لديك اسم مستخدم وكلمة مرور في {$journal}؟"
+
+msgid "plugins.themes.journalMetrics.info.goToLogin"
+msgstr "انتقل إلى تسجيل الدخول"
+
+msgid "plugins.themes.journalMetrics.info.needAccount"
+msgstr "هل تحتاج إلى اسم مستخدم وكلمة مرور؟"
+
+msgid "plugins.themes.journalMetrics.info.goToRegistration"
+msgstr "انتقل إلى التسجيل"
+
+msgid "plugins.themes.journalMetrics.info.registrationRequired"
+msgstr "التسجيل وتسجيل الدخول مطلوبان لإرسال البحوث إلكترونياً ولمتابعة حالة البحوث المرسلة."

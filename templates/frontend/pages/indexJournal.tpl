@@ -2,7 +2,7 @@
  * templates/frontend/pages/indexJournal.tpl
  *
  * Journal Metrics theme. Home page of a journal, built from full-width bands:
- * hero with usage numbers, editorial workflow line, most read articles,
+ * hero with usage numbers, journal information, editorial workflow line, most read articles,
  * the latest announcement, and the full list of articles of the current issue.
  *
  * @uses $currentJournal Journal This journal
@@ -22,7 +22,7 @@
 		{assign var="jmStats" value=$activeTheme->getIssueStats($publishedSubmissions)}
 	{/if}
 	{assign var="jmIssn" value=$currentJournal->getData('onlineIssn')|default:$currentJournal->getData('printIssn')}
-	{assign var="jmTagline" value=$activeTheme->getHeroTagline()}
+	{assign var="jmTagline" value=$activeTheme->getLocalizedText('heroTagline')}
 
 	{* ---------- Hero: the only <h1> of the page ---------- *}
 	<section class="jm_hero" aria-labelledby="jm-hero-title">
@@ -86,6 +86,47 @@
 				<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}"{if $homepageImage.altText} alt="{$homepageImage.altText|escape}"{/if}>
 			</div>
 		</div>
+	{/if}
+
+	{* ---------- Journal information, edited in Settings > Website > Appearance > Theme ---------- *}
+	{if $activeTheme->getOption('showJournalInfo')}
+		{assign var="jmNote" value=$activeTheme->getLocalizedText('infoSubmissionNote')}
+		<section class="jm_wrap jm_info" aria-labelledby="jm-info-title">
+			<div class="jm_info_grid">
+				<div class="jm_info_main">
+					<h2 id="jm-info-title">{translate key="plugins.themes.journalMetrics.info.heading"}</h2>
+					<dl class="jm_info_list">
+						{foreach from=$activeTheme->getJournalInfo() item=jmRow}
+							<div class="jm_info_row">
+								<dt>{translate key=$jmRow.label}</dt>
+								<dd>{if $jmRow.html}{$jmRow.value|strip_unsafe_html}{else}{$jmRow.value|escape}{/if}</dd>
+							</div>
+						{/foreach}
+					</dl>
+				</div>
+
+				<div class="jm_info_submit">
+					{if $jmNote|strip_tags|trim}
+						<div class="jm_info_note">{$jmNote|strip_unsafe_html}</div>
+					{/if}
+					<h3>{translate key="plugins.themes.journalMetrics.info.onlineSubmissions"}</h3>
+					{if $currentJournal->getData('disableSubmissions')}
+						<p>{translate key="author.submit.notAccepting"}</p>
+					{elseif $isUserLoggedIn}
+						{capture assign="jmNewSubmission"}<a href="{url page="submission"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
+						{capture assign="jmViewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
+						<p>{translate key="about.onlineSubmissions.submissionActions" newSubmission=$jmNewSubmission viewSubmissions=$jmViewSubmissions}</p>
+					{else}
+						{assign var="jmAcronym" value=$currentJournal->getLocalizedAcronym()|default:$currentJournal->getLocalizedName()}
+						<p>{translate key="plugins.themes.journalMetrics.info.haveAccount" journal=$jmAcronym|escape} <a href="{url page="login"}">{translate key="plugins.themes.journalMetrics.info.goToLogin"}</a></p>
+						{if !$currentJournal->getData('disableUserReg')}
+							<p>{translate key="plugins.themes.journalMetrics.info.needAccount"} <a href="{url page="user" op="register"}">{translate key="plugins.themes.journalMetrics.info.goToRegistration"}</a></p>
+						{/if}
+						<p class="jm_source">{translate key="plugins.themes.journalMetrics.info.registrationRequired"}</p>
+					{/if}
+				</div>
+			</div>
+		</section>
 	{/if}
 
 	{* ---------- Editorial workflow line with the stage of the latest submission ---------- *}

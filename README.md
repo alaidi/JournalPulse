@@ -23,6 +23,11 @@ A child theme of the default theme. Implements the "Journal in numbers" variant.
 ### Changing the editorial workflow stages
 Stage names and durations are in `locale/uk/locale.po` and `locale/en/locale.po` (keys `plugins.themes.journalMetrics.workflow.*`). Segment widths are set by the `flex-grow` numbers in `templates/frontend/pages/indexJournal.tpl`.
 
+### Journal information
+A "Journal information" section under the top of the home page lists the journal title, ISSN and DOI prefix (from the journal settings) and the fields filled in Settings → Website → Appearance → Theme: indexing, frequency, Editor-in-Chief, Managing Editor, organizer, citation analysis, acceptance rate, review speed, and a note shown above the login and registration links. Empty fields are not shown; untick "Journal information" to hide the section.
+
+![Journal information section on the home page](docs/journal-information.png)
+
 ### Statistics
 Views come from the OJS statistics service (`publicationStats`) and are cached for 1 hour. If statistics are disabled or empty, the metrics will be zero.
 
@@ -54,6 +59,9 @@ License: GNU GPL v3.
 ### تغيير مراحل سير العمل التحريري
 أسماء المراحل ومددها موجودة في `locale/uk/locale.po` و`locale/en/locale.po` (المفاتيح `plugins.themes.journalMetrics.workflow.*`). يُحدَّد عرض المقاطع بقيم `flex-grow` في `templates/frontend/pages/indexJournal.tpl`.
 
+### معلومات المجلة
+يعرض قسم «معلومات المجلة» أعلى الصفحة الرئيسية عنوان المجلة ورقم ISSN وبادئة DOI (من إعدادات المجلة)، والحقول التي تُملأ في الإعدادات ← الموقع الإلكتروني ← المظهر ← القالب: الفهرسة، ودورية الصدور، ورئيس التحرير، ومدير التحرير، والجهة المنظِّمة، وتحليل الاستشهادات، ونسبة القبول، ومدة التحكيم، وملاحظة تظهر فوق روابط الدخول والتسجيل. الحقول الفارغة لا تظهر؛ ألغِ تحديد «معلومات المجلة» لإخفاء القسم.
+
 ### الإحصاءات
 تُؤخذ المشاهدات من خدمة إحصاءات OJS (`publicationStats`) وتُخزَّن مؤقتًا لمدة ساعة واحدة. إذا كانت الإحصاءات معطّلة أو فارغة، فستظهر المؤشرات أصفارًا.
 
@@ -84,6 +92,9 @@ License: GNU GPL v3.
 
 ### Зміна етапів редакційного процесу
 Назви й терміни етапів — у `locale/uk/locale.po` та `locale/en/locale.po` (ключі `plugins.themes.journalMetrics.workflow.*`). Ширину сегментів задають числа `flex-grow` у `templates/frontend/pages/indexJournal.tpl`.
+
+### Інформація про журнал
+Розділ «Інформація про журнал» угорі головної показує назву журналу, ISSN і префікс DOI (з налаштувань журналу) та поля з Налаштування → Вебсайт → Вигляд → Тема: індексування, періодичність, головний і відповідальний редактори, організатор, аналіз цитувань, частка прийнятих статей, термін рецензування і примітку над посиланнями на вхід і реєстрацію. Порожні поля не показуються; зніміть позначку «Інформація про журнал», щоб приховати розділ.
 
 ### Статистика
 Перегляди беруться зі сервісу статистики OJS (`publicationStats`) і кешуються на 1 годину. Якщо статистика вимкнена або порожня, показники будуть нулями.

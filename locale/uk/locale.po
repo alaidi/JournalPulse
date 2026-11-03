@@ -179,3 +179,75 @@ msgstr "Розробка теми:"
 
 msgid "plugins.themes.journalMetrics.header.openMenu"
 msgstr "Відкрити меню"
+
+msgid "plugins.themes.journalMetrics.option.info.label"
+msgstr "Інформація про журнал"
+
+msgid "plugins.themes.journalMetrics.option.info.option"
+msgstr "Показувати розділ з інформацією про журнал на головній сторінці."
+
+msgid "plugins.themes.journalMetrics.option.info.description"
+msgstr "Назва журналу, ISSN і префікс DOI беруться з налаштувань журналу. Заповніть поля нижче; порожні поля не показуються."
+
+msgid "plugins.themes.journalMetrics.option.info.field"
+msgstr "Інформація про журнал: {$field}"
+
+msgid "plugins.themes.journalMetrics.info.heading"
+msgstr "Інформація про журнал"
+
+msgid "plugins.themes.journalMetrics.info.journalTitle"
+msgstr "Назва журналу"
+
+msgid "plugins.themes.journalMetrics.info.indexing"
+msgstr "Індексування"
+
+msgid "plugins.themes.journalMetrics.info.onlineIssn"
+msgstr "ISSN (онлайн)"
+
+msgid "plugins.themes.journalMetrics.info.printIssn"
+msgstr "ISSN (друкований)"
+
+msgid "plugins.themes.journalMetrics.info.frequency"
+msgstr "Періодичність"
+
+msgid "plugins.themes.journalMetrics.info.doiPrefix"
+msgstr "Префікс DOI"
+
+msgid "plugins.themes.journalMetrics.info.editorInChief"
+msgstr "Головний редактор"
+
+msgid "plugins.themes.journalMetrics.info.managingEditor"
+msgstr "Відповідальний редактор"
+
+msgid "plugins.themes.journalMetrics.info.organizedBy"
+msgstr "Організатор"
+
+msgid "plugins.themes.journalMetrics.info.citationAnalysis"
+msgstr "Аналіз цитувань"
+
+msgid "plugins.themes.journalMetrics.info.acceptanceRate"
+msgstr "Частка прийнятих статей"
+
+msgid "plugins.themes.journalMetrics.info.reviewSpeed"
+msgstr "Термін рецензування"
+
+msgid "plugins.themes.journalMetrics.info.submissionNote"
+msgstr "Примітка перед поданням"
+
+msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
+msgstr "Онлайн-подання"
+
+msgid "plugins.themes.journalMetrics.info.haveAccount"
+msgstr "Вже маєте ім'я користувача та пароль для {$journal}?"
+
+msgid "plugins.themes.journalMetrics.info.goToLogin"
+msgstr "Увійти"
+
+msgid "plugins.themes.journalMetrics.info.needAccount"
+msgstr "Потрібні ім'я користувача та пароль?"
+
+msgid "plugins.themes.journalMetrics.info.goToRegistration"
+msgstr "Зареєструватися"
+
+msgid "plugins.themes.journalMetrics.info.registrationRequired"
+msgstr "Щоб подати статтю онлайн і стежити за її статусом, потрібно зареєструватися та увійти."

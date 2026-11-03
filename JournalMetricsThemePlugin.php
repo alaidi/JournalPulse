@@ -45,6 +45,19 @@ class JournalMetricsThemePlugin extends ThemePlugin
     /** Typical term of each segment of the workflow line, in days */
     public const STAGE_DAYS = [10, 90, 30, 14, 14];
 
+    /** Journal information fields filled in the theme options: option => [label, rich text] */
+    public const INFO_OPTIONS = [
+        'infoIndexing' => ['plugins.themes.journalMetrics.info.indexing', true],
+        'infoFrequency' => ['plugins.themes.journalMetrics.info.frequency', false],
+        'infoEditorInChief' => ['plugins.themes.journalMetrics.info.editorInChief', true],
+        'infoManagingEditor' => ['plugins.themes.journalMetrics.info.managingEditor', true],
+        'infoOrganizedBy' => ['plugins.themes.journalMetrics.info.organizedBy', false],
+        'infoCitationAnalysis' => ['plugins.themes.journalMetrics.info.citationAnalysis', true],
+        'infoAcceptanceRate' => ['plugins.themes.journalMetrics.info.acceptanceRate', false],
+        'infoReviewSpeed' => ['plugins.themes.journalMetrics.info.reviewSpeed', false],
+        'infoSubmissionNote' => ['plugins.themes.journalMetrics.info.submissionNote', true],
+    ];
+
     /**
      * @copydoc ThemePlugin::isActive()
      */
@@ -107,6 +120,25 @@ class JournalMetricsThemePlugin extends ThemePlugin
             ],
             'default' => true,
         ]);
+
+        $this->addOption('showJournalInfo', 'FieldOptions', [
+            'label' => __('plugins.themes.journalMetrics.option.info.label'),
+            'description' => __('plugins.themes.journalMetrics.option.info.description'),
+            'options' => [
+                [
+                    'value' => true,
+                    'label' => __('plugins.themes.journalMetrics.option.info.option'),
+                ],
+            ],
+            'default' => true,
+        ]);
+        foreach (self::INFO_OPTIONS as $name => [$labelKey, $richText]) {
+            $this->addOption($name, $richText ? 'FieldRichTextarea' : 'FieldText', [
+                'label' => __('plugins.themes.journalMetrics.option.info.field', ['field' => __($labelKey)]),
+                'isMultilingual' => true,
+                'default' => '',
+            ]);
+        }
 
         // Re-skin the parent theme through its LESS variables, so that every
         // page (login, search, archive, forms) follows the new look.
@@ -468,16 +500,54 @@ class JournalMetricsThemePlugin extends ThemePlugin
     }
 
     /**
-     * Optional second part of the home page title, in the current locale.
+     * A multilingual theme option (tagline, journal information) in the current
+     * language, else in the journal's primary language.
      */
-    public function getHeroTagline(): string
+    public function getLocalizedText(string $name): string
     {
-        $value = $this->getOption('heroTagline');
+        $value = $this->getOption($name);
         if (is_array($value)) {
-            $locale = Locale::getLocale();
-            $value = $value[$locale] ?? (reset($value) ?: '');
+            $value = $this->getBestLocalizedData($value);
         }
         return trim((string) $value);
+    }
+
+    /**
+     * Rows of the journal information section, in display order: ['label' =>
+     * locale key, 'value' => string, 'html' => bool]. Title, ISSNs and the DOI
+     * prefix come from the journal settings, the rest from the theme options;
+     * empty rows are left out.
+     */
+    public function getJournalInfo(): array
+    {
+        $context = Application::get()->getRequest()->getContext();
+        if (!$context) {
+            return [];
+        }
+        $option = fn (string $name): array => [self::INFO_OPTIONS[$name][0], $this->getLocalizedText($name), self::INFO_OPTIONS[$name][1]];
+        $rows = [
+            ['plugins.themes.journalMetrics.info.journalTitle', $context->getLocalizedName(), false],
+            $option('infoIndexing'),
+            ['plugins.themes.journalMetrics.info.onlineIssn', $context->getData('onlineIssn'), false],
+            ['plugins.themes.journalMetrics.info.printIssn', $context->getData('printIssn'), false],
+            $option('infoFrequency'),
+            ['plugins.themes.journalMetrics.info.doiPrefix', $context->getData('enableDois') ? $context->getData('doiPrefix') : '', false],
+            $option('infoEditorInChief'),
+            $option('infoManagingEditor'),
+            $option('infoOrganizedBy'),
+            $option('infoCitationAnalysis'),
+            $option('infoAcceptanceRate'),
+            $option('infoReviewSpeed'),
+        ];
+        $info = [];
+        foreach ($rows as [$label, $value, $html]) {
+            $value = trim((string) $value);
+            // A cleared rich-text field can still hold empty tags such as <p></p>
+            if (trim(strip_tags($value)) !== '') {
+                $info[] = ['label' => $label, 'value' => $value, 'html' => $html];
+            }
+        }
+        return $info;
     }
 
     /**

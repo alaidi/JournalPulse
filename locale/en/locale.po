@@ -179,3 +179,75 @@ msgstr "Theme developed by"
 
 msgid "plugins.themes.journalMetrics.header.openMenu"
 msgstr "Open Menu"
+
+msgid "plugins.themes.journalMetrics.option.info.label"
+msgstr "Journal information"
+
+msgid "plugins.themes.journalMetrics.option.info.option"
+msgstr "Show the journal information section on the home page."
+
+msgid "plugins.themes.journalMetrics.option.info.description"
+msgstr "The journal title, ISSN and DOI prefix come from the journal settings. Fill in the fields below; empty fields are not shown."
+
+msgid "plugins.themes.journalMetrics.option.info.field"
+msgstr "Journal information: {$field}"
+
+msgid "plugins.themes.journalMetrics.info.heading"
+msgstr "Journal information"
+
+msgid "plugins.themes.journalMetrics.info.journalTitle"
+msgstr "Journal title"
+
+msgid "plugins.themes.journalMetrics.info.indexing"
+msgstr "Indexing"
+
+msgid "plugins.themes.journalMetrics.info.onlineIssn"
+msgstr "Online ISSN"
+
+msgid "plugins.themes.journalMetrics.info.printIssn"
+msgstr "Print ISSN"
+
+msgid "plugins.themes.journalMetrics.info.frequency"
+msgstr "Frequency"
+
+msgid "plugins.themes.journalMetrics.info.doiPrefix"
+msgstr "DOI prefix"
+
+msgid "plugins.themes.journalMetrics.info.editorInChief"
+msgstr "Editor-in-Chief"
+
+msgid "plugins.themes.journalMetrics.info.managingEditor"
+msgstr "Managing Editor"
+
+msgid "plugins.themes.journalMetrics.info.organizedBy"
+msgstr "Organized by"
+
+msgid "plugins.themes.journalMetrics.info.citationAnalysis"
+msgstr "Citation analysis"
+
+msgid "plugins.themes.journalMetrics.info.acceptanceRate"
+msgstr "Acceptance rate"
+
+msgid "plugins.themes.journalMetrics.info.reviewSpeed"
+msgstr "Review speed"
+
+msgid "plugins.themes.journalMetrics.info.submissionNote"
+msgstr "Note before submission"
+
+msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
+msgstr "Online submissions"
+
+msgid "plugins.themes.journalMetrics.info.haveAccount"
+msgstr "Already have a username and password for {$journal}?"
+
+msgid "plugins.themes.journalMetrics.info.goToLogin"
+msgstr "Go to login"
+
+msgid "plugins.themes.journalMetrics.info.needAccount"
+msgstr "Need a username and password?"
+
+msgid "plugins.themes.journalMetrics.info.goToRegistration"
+msgstr "Go to registration"
+
+msgid "plugins.themes.journalMetrics.info.registrationRequired"
+msgstr "Registration and login are required to submit items online and to check the status of current submissions."

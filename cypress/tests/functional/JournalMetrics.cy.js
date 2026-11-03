@@ -131,6 +131,8 @@ describe('Journal Metrics theme', function() {
 	it('Renders the journal home page', function() {
 		cy.visit(pageUrl(''));
 		cy.get('.jm_wrap').should('exist');
+		// Journal information is on by default and always has the journal title row
+		cy.get('.jm_info .jm_info_row').should('have.length.at.least', 1);
 	});
 
 	it('Renders a published article', function() {
