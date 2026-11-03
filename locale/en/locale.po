@@ -175,4 +175,7 @@ msgid "plugins.themes.journalMetrics.header.languageIcon"
 msgstr "Language"
 
 msgid "plugins.themes.journalMetrics.footer.developedBy"
-msgstr "Developed by"
+msgstr "Theme developed by"
+
+msgid "plugins.themes.journalMetrics.header.openMenu"
+msgstr "Open Menu"

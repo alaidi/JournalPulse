@@ -9,6 +9,8 @@
  * and 1359px it moves to its own line under the journal name.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=IBM+Plex+Mono:wght@500&display=swap");
+
 :root {
 	--jm-accent: #C2410C;
 	--jm-ink: #141414;
@@ -287,7 +289,7 @@ button:focus-visible {
 	padding: 0;
 	border: 0;
 	list-style: none;
-	text-align: left;
+	text-align: start;
 }
 
 .jm_topbar .jm_user ul.pkp_navigation_user > li {
@@ -332,8 +334,8 @@ button:focus-visible {
 .jm_topbar .jm_user ul.pkp_navigation_user ul {
 	position: absolute !important;
 	top: 100% !important;
-	right: 0 !important;
-	left: auto !important;
+	inset-inline-end: 0 !important;
+	inset-inline-start: auto !important;
 	transform: none !important;
 	z-index: 2000;
 	display: none;
@@ -409,7 +411,7 @@ button:focus-visible {
 .pkp_navigation_primary_wrapper .jm_cta,
 .jm_cta {
 	display: inline-block;
-	margin-left: 12px;
+	margin-inline-start: 12px;
 	padding: 10px 18px;
 	border-radius: 8px;
 	background: var(--jm-accent);
@@ -453,7 +455,7 @@ button:focus-visible {
 	}
 
 	.pkp_site_nav_menu ul ul a {
-		padding-left: 12px;
+		padding-inline-start: 12px;
 		font-weight: 400;
 	}
 
@@ -505,7 +507,7 @@ button:focus-visible {
 
 	.jm_cta_desktop {
 		flex: 0 0 auto;
-		margin-left: 0;
+		margin-inline-start: 0;
 	}
 
 	.pkp_site_nav_menu {
@@ -536,7 +538,7 @@ button:focus-visible {
 		max-width: none;
 		margin: 0;
 		padding: 0;
-		text-align: left;
+		text-align: start;
 	}
 
 	.pkp_site_nav_menu .pkp_navigation_primary > li {
@@ -574,7 +576,8 @@ button:focus-visible {
 	.pkp_site_nav_menu .pkp_navigation_primary ul {
 		position: absolute !important;
 		top: 100% !important;
-		left: 0 !important;
+		inset-inline-start: 0 !important;
+		inset-inline-end: auto !important;
 		transform: none !important;
 		display: none;
 		z-index: 2000;
@@ -633,7 +636,7 @@ button:focus-visible {
 }
 
 .jm_eyebrow .jm_mono {
-	margin-left: 4px;
+	margin-inline-start: 4px;
 	letter-spacing: 0.06em;
 }
 
@@ -733,6 +736,10 @@ button:focus-visible {
 
 .jm_link_arrow::after {
 	content: " →";
+}
+
+[dir="rtl"] .jm_link_arrow::after {
+	content: " ←";
 }
 
 /* ---------- Home: hero ---------- */
@@ -879,11 +886,15 @@ button:focus-visible {
 }
 
 .jm_flow li:first-child .jm_flow_bar {
-	border-radius: 4px 0 0 4px;
+	border-radius: 0;
+	border-start-start-radius: 4px;
+	border-end-start-radius: 4px;
 }
 
 .jm_flow li:last-child .jm_flow_bar {
-	border-radius: 0 4px 4px 0;
+	border-radius: 0;
+	border-start-end-radius: 4px;
+	border-end-end-radius: 4px;
 }
 
 /* With the stage marker: finished stages dark, current accent, next ones light */
@@ -907,7 +918,7 @@ button:focus-visible {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 0;
+	inset-inline-start: 0;
 	width: calc(var(--jm-p, 0) * 1%);
 	border-radius: inherit;
 	background: var(--jm-accent);
@@ -916,10 +927,11 @@ button:focus-visible {
 .jm_flow_dot {
 	position: absolute;
 	top: 50%;
-	left: calc(var(--jm-p, 0) * 1%);
+	inset-inline-start: calc(var(--jm-p, 0) * 1%);
 	width: var(--jm-dot, 38px);
 	height: var(--jm-dot, 38px);
-	margin: calc(var(--jm-dot, 38px) / -2) 0 0 calc(var(--jm-p, 0) * var(--jm-dot, 38px) * -0.01);
+	margin: calc(var(--jm-dot, 38px) / -2) 0 0;
+	margin-inline-start: calc(var(--jm-p, 0) * var(--jm-dot, 38px) * -0.01);
 	border: 5px solid #fff;
 	border-radius: 50%;
 	background: var(--jm-accent);
@@ -1266,7 +1278,7 @@ button:focus-visible {
 }
 
 .jm_published_label {
-	margin-right: 8px;
+	margin-inline-end: 8px;
 	font-size: 12px;
 	font-weight: 800;
 	letter-spacing: 0.1em;
@@ -1320,7 +1332,7 @@ button:focus-visible {
 }
 
 .jm_doi_label {
-	margin-right: 8px;
+	margin-inline-end: 8px;
 	font-size: 12px;
 	font-weight: 800;
 	letter-spacing: 0.1em;
@@ -1412,7 +1424,7 @@ button:focus-visible {
 
 .jm_keywords li:not(:last-child)::after {
 	content: ";";
-	margin-right: 6px;
+	margin-inline-end: 6px;
 	color: var(--jm-ink-soft);
 }
 
@@ -1657,7 +1669,7 @@ button:focus-visible {
 
 .jm_card:not(.jm_cite) ul {
 	margin: 0;
-	padding-left: 18px;
+	padding-inline-start: 18px;
 }
 
 /* ---------- Text pages, issue pages, forms ---------- */
@@ -1713,7 +1725,7 @@ input[type="submit"] {
 .pkp_structure_footer {
 	padding-top: 48px;
 	padding-bottom: 32px;
-	text-align: left;
+	text-align: start;
 }
 
 .pkp_structure_footer a {
@@ -1812,7 +1824,7 @@ input[type="submit"] {
 .pkp_brand_footer {
 	margin-top: 0;
 	padding: 0;
-	text-align: left;
+	text-align: start;
 }
 
 .pkp_brand_footer img {

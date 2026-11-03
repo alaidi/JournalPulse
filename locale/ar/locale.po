@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.themes.journalMetrics.name"
+msgstr "قالب Journal Metrics"
+
+msgid "plugins.themes.journalMetrics.description"
+msgstr "قالب فرعي مبني على القالب الافتراضي. صفحة رئيسية تتصدّرها الأرقام مع إحصاءات الاستخدام وسير العمل التحريري والقائمة الكاملة لآخر عدد؛ وكتلة الاستخدام في صفحات المقالات؛ وروابط canonical وترميز schema.org لمحركات البحث."
+
+msgid "plugins.themes.journalMetrics.option.accent.label"
+msgstr "اللون المميّز"
+
+msgid "plugins.themes.journalMetrics.option.accent.description"
+msgstr "لون الأزرار والأرقام والأشرطة. استخدم درجة داكنة ليبقى النص الأبيض فوقه مقروءًا."
+
+msgid "plugins.themes.journalMetrics.option.tagline.label"
+msgstr "شعار الصفحة الرئيسية"
+
+msgid "plugins.themes.journalMetrics.option.tagline.description"
+msgstr "جزء ثانٍ اختياري من عنوان الصفحة الرئيسية، يُطبع باللون المميّز بعد اسم المجلة."
+
+msgid "plugins.themes.journalMetrics.option.heroStats.label"
+msgstr "أرقام الاستخدام"
+
+msgid "plugins.themes.journalMetrics.option.heroStats.option"
+msgstr "عرض عدّادات المقالات والمشاهدات وPDF للعدد الحالي في الصفحة الرئيسية."
+
+msgid "plugins.themes.journalMetrics.option.workflow.label"
+msgstr "سير العمل التحريري"
+
+msgid "plugins.themes.journalMetrics.option.workflow.option"
+msgstr "عرض شريط المراحل التحريرية ومددها القصوى في الصفحة الرئيسية."
+
+msgid "plugins.themes.journalMetrics.eyebrow"
+msgstr "وصول مفتوح ماسي"
+
+msgid "plugins.themes.journalMetrics.hero.currentIssue"
+msgstr "العدد الحالي"
+
+msgid "plugins.themes.journalMetrics.hero.forAuthors"
+msgstr "إرشادات للمؤلفين"
+
+msgid "plugins.themes.journalMetrics.header.submit"
+msgstr "إرسال مخطوطة"
+
+msgid "plugins.themes.journalMetrics.header.language"
+msgstr "اللغة"
+
+msgid "plugins.themes.journalMetrics.stats.articles"
+msgstr "مقالة في العدد"
+
+msgid "plugins.themes.journalMetrics.stats.views"
+msgstr "مشاهدة للمقالات"
+
+msgid "plugins.themes.journalMetrics.stats.pdf"
+msgstr "مشاهدة PDF"
+
+msgid "plugins.themes.journalMetrics.stats.source"
+msgstr "المصدر: إحصاءات استخدام هذه المجلة، تُحدَّث كل ساعة."
+
+msgid "plugins.themes.journalMetrics.workflow.eyebrow"
+msgstr "سير العمل التحريري"
+
+msgid "plugins.themes.journalMetrics.workflow.title"
+msgstr "من الإرسال إلى النشر"
+
+msgid "plugins.themes.journalMetrics.workflow.lead"
+msgstr "المدد القصوى للمراحل كما حدّدتها المجلة."
+
+msgid "plugins.themes.journalMetrics.workflow.screening"
+msgstr "الفحص الأولي"
+
+msgid "plugins.themes.journalMetrics.workflow.screening.term"
+msgstr "حتى 10 أيام عمل"
+
+msgid "plugins.themes.journalMetrics.workflow.review"
+msgstr "التحكيم"
+
+msgid "plugins.themes.journalMetrics.workflow.review.term"
+msgstr "حتى 90 يومًا تقويميًا"
+
+msgid "plugins.themes.journalMetrics.workflow.revision"
+msgstr "المراجعة والتعديل"
+
+msgid "plugins.themes.journalMetrics.workflow.revision.term"
+msgstr "حتى 30 يومًا تقويميًا"
+
+msgid "plugins.themes.journalMetrics.workflow.copyediting"
+msgstr "التدقيق اللغوي"
+
+msgid "plugins.themes.journalMetrics.workflow.copyediting.term"
+msgstr "حتى 14 يوم عمل"
+
+msgid "plugins.themes.journalMetrics.workflow.proofreading"
+msgstr "التصحيح والإخراج"
+
+msgid "plugins.themes.journalMetrics.workflow.proofreading.term"
+msgstr "حتى 14 يوم عمل"
+
+msgid "plugins.themes.journalMetrics.workflow.note"
+msgstr "عرض المقاطع متناسب مع عدد الأيام؛ وتُعرض أيام العمل والأيام التقويمية كما تحدّدها المجلة."
+
+msgid "plugins.themes.journalMetrics.list.title"
+msgstr "جميع مقالات العدد"
+
+msgid "plugins.themes.journalMetrics.list.views"
+msgstr "مشاهدة"
+
+msgid "plugins.themes.journalMetrics.list.viewPdf"
+msgstr "عرض PDF"
+
+msgid "plugins.themes.journalMetrics.list.viewPdfFor"
+msgstr "عرض PDF: {$title}"
+
+msgid "plugins.themes.journalMetrics.footer.issn"
+msgstr "ISSN {$issn}"
+
+msgid "plugins.themes.journalMetrics.usage.title"
+msgstr "الاستخدام"
+
+msgid "plugins.themes.journalMetrics.usage.views"
+msgstr "مشاهدات هذه الصفحة"
+
+msgid "plugins.themes.journalMetrics.usage.pdf"
+msgstr "مشاهدات PDF"
+
+msgid "plugins.themes.journalMetrics.usage.html"
+msgstr "مشاهدات HTML"
+
+msgid "plugins.themes.journalMetrics.option.workflowCurrent.label"
+msgstr "مؤشّر المرحلة الحالية"
+
+msgid "plugins.themes.journalMetrics.option.workflowCurrent.option"
+msgstr "الإشارة على خط سير العمل إلى مرحلة أحدث مخطوطة قيد العمل (تُعرض المرحلة فقط، دون العنوان أو المؤلف أبدًا)."
+
+msgid "plugins.themes.journalMetrics.stats.pages"
+msgstr "صفحة في العدد"
+
+msgid "plugins.themes.journalMetrics.workflow.current"
+msgstr "أحدث مخطوطة في هذه المرحلة"
+
+msgid "plugins.themes.journalMetrics.mostRead.eyebrow"
+msgstr "آخر عددين"
+
+msgid "plugins.themes.journalMetrics.mostRead.title"
+msgstr "المقالات الأكثر قراءة"
+
+msgid "plugins.themes.journalMetrics.article.pages"
+msgstr "الصفحات"
+
+msgid "plugins.themes.journalMetrics.article.details"
+msgstr "بيانات المقالة"
+
+msgid "plugins.themes.journalMetrics.article.journal"
+msgstr "المجلة"
+
+msgid "plugins.themes.journalMetrics.workflow.currentMine"
+msgstr "مخطوطتك في هذه المرحلة"
+
+msgid "plugins.themes.journalMetrics.workflow.progress"
+msgstr "اليوم {$day} من {$total} · {$percent}%"
+
+msgid "plugins.themes.journalMetrics.workflow.progressOver"
+msgstr "اليوم {$day} · تم تجاوز المدة المعتادة البالغة {$total} يومًا"
+
+msgid "plugins.themes.journalMetrics.workflow.progressHint"
+msgstr "المدة المعتادة للمرحلة: {$total} يومًا"
+
+msgid "plugins.themes.journalMetrics.header.languageIcon"
+msgstr "اللغة"
+
+msgid "plugins.themes.journalMetrics.footer.developedBy"
+msgstr "تطوير القالب:"
+
+msgid "plugins.themes.journalMetrics.header.openMenu"
+msgstr "فتح القائمة"

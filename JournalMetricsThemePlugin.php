@@ -127,12 +127,7 @@ class JournalMetricsThemePlugin extends ThemePlugin
             '@screen-lg-desktop-container: 1280px;',
         ]));
 
-        // Fonts, accent colour and the theme stylesheet
-        $this->addStyle(
-            'journalMetricsFonts',
-            'https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=IBM+Plex+Mono:wght@500&display=swap',
-            ['baseUrl' => '']
-        );
+        // Accent colour and the theme stylesheet (fonts are imported in the stylesheet)
         $this->addStyle('journalMetricsAccent', ':root{--jm-accent:' . $accent . ';}', ['inline' => true]);
         $this->addStyle('journalMetrics', 'styles/journalMetrics.css');
 

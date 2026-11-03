@@ -31,7 +31,7 @@
 			{* Top bar: ISSN, language switch, user menu *}
 			<div class="jm_topbar">
 				<div class="jm_topbar_inner">
-					{assign var="jmIssn" value=$currentContext->getData('onlineIssn')|default:$currentContext->getData('printIssn')}
+					{if $currentContext}{assign var="jmIssn" value=$currentContext->getData('onlineIssn')|default:$currentContext->getData('printIssn')}{/if}
 					<span class="jm_topbar_issn">{if $currentContext && $jmIssn}ISSN {$jmIssn|escape}{/if}</span>
 					<div class="jm_topbar_right">
 						{if $currentContext}
@@ -60,7 +60,7 @@
 
 				<div class="pkp_site_name_wrapper">
 					<button class="pkp_site_nav_toggle" aria-label="{translate|escape key="common.navigation.site"}">
-						<span>Open Menu</span>
+						<span>{translate key="plugins.themes.journalMetrics.header.openMenu"}</span>
 					</button>
 					<div class="pkp_site_name">
 					{capture assign="homeUrl"}
