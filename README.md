@@ -1,17 +1,17 @@
-# Journal Metrics — OJS 3.5 theme
+# Journal Pulse — OJS 3.5 theme
 
 [English](#english) · [العربية](#arabic)
 
 <a id="english"></a>
 ## English
 
-A child theme of the default theme. Implements the "Journal in numbers" variant.
+A child theme of the default theme. Implements the "Journal in numbers" variant. Developed from [Journal Metrics](https://github.com/Radkevych/JournalMetrics) by Oleksandr Radkevych; the code, folder and package keep the name `journalMetrics`.
 
 ### Installation
 1. Copy the `journalMetrics` folder into `plugins/themes/` of your OJS so you get `plugins/themes/journalMetrics/version.xml`.
 2. Permissions: files must be readable by the web server (`chmod -R a+rX plugins/themes/journalMetrics`).
 3. Clear the template cache: Administration → Site → "Clear Template Cache" and "Clear Data Caches".
-4. Settings → Website → Appearance → Theme → choose "Journal Metrics Theme" → Save.
+4. Settings → Website → Appearance → Theme → choose "Journal Pulse Theme" → Save.
 5. On the same page, set the accent color, tagline, and the "Usage metrics" and "Editorial workflow" toggles.
 
 ### What it does
@@ -43,13 +43,13 @@ License: GNU GPL v3.
 
 ## العربية
 
-قالب فرعي مبني على القالب الافتراضي (default). يطبّق نمط «المجلة بالأرقام».
+«نبض المجلة» قالب فرعي مبني على القالب الافتراضي (default). يطبّق نمط «المجلة بالأرقام». وهو مطوَّر عن [Journal Metrics](https://github.com/Radkevych/JournalMetrics) لـ Oleksandr Radkevych؛ ويحتفظ الكود والمجلد والحزمة بالاسم `journalMetrics`.
 
 ### التثبيت
 1. انسخ مجلد `journalMetrics` إلى `plugins/themes/` في نظام OJS لديك ليصبح المسار `plugins/themes/journalMetrics/version.xml`.
 2. الصلاحيات: يجب أن يتمكن خادم الويب من قراءة الملفات (`chmod -R a+rX plugins/themes/journalMetrics`).
 3. امسح ذاكرة التخزين المؤقت للقوالب: الإدارة ← الموقع (Administration) ← «Clear Template Cache» و«Clear Data Caches».
-4. الإعدادات ← الموقع الإلكتروني ← المظهر (Appearance) ← القالب ← اختر «قالب Journal Metrics» ← حفظ.
+4. الإعدادات ← الموقع الإلكتروني ← المظهر (Appearance) ← القالب ← اختر «قالب نبض المجلة» ← حفظ.
 5. في الصفحة نفسها، حدّد اللون المميّز والشعار ومفتاحي «مؤشرات الاستخدام» و«سير العمل التحريري».
 
 ### ماذا يفعل

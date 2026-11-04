@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "plugins.themes.journalMetrics.name"
-msgstr "Journal Metrics Theme"
+msgstr "Journal Pulse Theme"
 
 msgid "plugins.themes.journalMetrics.description"
 msgstr "A child theme of the default theme. Numbers-first home page with usage statistics, the editorial workflow and the full list of the latest issue; usage block on article pages; canonical links and schema.org markup for search engines."

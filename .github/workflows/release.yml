@@ -42,5 +42,5 @@ jobs:
       - name: Attach package to the Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Journal Metrics ${{ env.VERSION }}
+          name: Journal Pulse ${{ env.VERSION }}
           files: ${{ env.ARCHIVE }}

@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "plugins.themes.journalMetrics.name"
-msgstr "قالب Journal Metrics"
+msgstr "قالب نبض المجلة"
 
 msgid "plugins.themes.journalMetrics.description"
 msgstr "قالب فرعي مبني على القالب الافتراضي. صفحة رئيسية تتصدّرها الأرقام مع إحصاءات الاستخدام وسير العمل التحريري والقائمة الكاملة لآخر عدد؛ وكتلة الاستخدام في صفحات المقالات؛ وروابط canonical وترميز schema.org لمحركات البحث."

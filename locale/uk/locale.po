@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "plugins.themes.journalMetrics.name"
-msgstr "Тема Journal Metrics"
+msgstr "Тема Journal Pulse"
 
 msgid "plugins.themes.journalMetrics.description"
 msgstr "Дочірня тема до теми за замовчуванням. Головна сторінка з акцентом на цифри: статистика переглядів, етапи редакційного процесу та повний список статей останнього випуску; блок використання на сторінці статті; canonical-посилання та розмітка schema.org для пошукових систем."
