@@ -52,10 +52,6 @@
 					<img alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
 				</a>
 			</div>
-			<p class="jm_footer_credit">
-				{translate key="plugins.themes.journalPulse.footer.developedBy"}
-				<a href="https://orcid.org/0000-0002-2648-5726" target="_blank" rel="noopener author"><span class="jm_orcid_icon" aria-hidden="true">iD</span>Oleksandr Radkevych</a>
-			</p>
 		</div>
 	</div>
 </div><!-- pkp_structure_footer_wrapper -->

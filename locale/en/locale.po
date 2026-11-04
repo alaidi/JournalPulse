@@ -171,9 +171,6 @@ msgstr "Typical term of the stage: {$total} days"
 msgid "plugins.themes.journalPulse.header.languageIcon"
 msgstr "Language"
 
-msgid "plugins.themes.journalPulse.footer.developedBy"
-msgstr "Theme developed by"
-
 msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "Open Menu"
 

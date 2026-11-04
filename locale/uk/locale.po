@@ -171,9 +171,6 @@ msgstr "Типовий строк етапу: {$total} днів"
 msgid "plugins.themes.journalPulse.header.languageIcon"
 msgstr "Мова"
 
-msgid "plugins.themes.journalPulse.footer.developedBy"
-msgstr "Розробка теми:"
-
 msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "Відкрити меню"
 

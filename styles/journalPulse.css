@@ -2596,40 +2596,6 @@ input[type="submit"] {
 	margin-top: 24px;
 }
 
-.jm_footer_credit {
-	margin: 0;
-	font-size: 14px;
-	line-height: 1.4;
-	color: rgba(255, 255, 255, 0.6);
-}
-
-.jm_footer_credit a {
-	display: inline-flex;
-	align-items: center;
-	gap: 6px;
-	font-weight: 700;
-	text-decoration: none;
-}
-
-.jm_footer_credit a:hover,
-.jm_footer_credit a:focus {
-	text-decoration: underline;
-}
-
-.jm_orcid_icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	background: #A6CE39;
-	color: #fff;
-	font-size: 9px;
-	font-weight: 800;
-	line-height: 1;
-}
-
 .pkp_brand_footer {
 	margin-top: 0;
 	padding: 0;

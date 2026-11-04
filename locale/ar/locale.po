@@ -171,9 +171,6 @@ msgstr "تنتهي المدة المعتادة للمرحلة في اليوم {$
 msgid "plugins.themes.journalPulse.header.languageIcon"
 msgstr "اللغة"
 
-msgid "plugins.themes.journalPulse.footer.developedBy"
-msgstr "تطوير القالب:"
-
 msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "فتح القائمة"
 
