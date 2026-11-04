@@ -41,11 +41,15 @@ class TemplateSafetyTest extends PKPTestCase
         }
     }
 
-    public function testKeywordsAreReadAsStrings(): void
+    public function testKeywordsAreReadThroughTheTheme(): void
     {
-        // OJS 3.5 keywords are plain strings; $keyword.name (the 3.6 shape) is a fatal TypeError.
+        // OJS 3.5.0-3 returns keywords as strings and 3.5.0.5 as ['name' => ...] entries:
+        // read directly, the entries print "Array", and $keyword.name is a fatal TypeError
+        // on 3.5.0-3. getKeywords() handles both.
         foreach ($this->templates() as $file) {
-            $this->assertStringNotContainsString('$keyword.name', (string) file_get_contents($file), basename($file));
+            $source = (string) file_get_contents($file);
+            $this->assertStringNotContainsString("getLocalizedData('keywords')", $source, basename($file));
+            $this->assertStringNotContainsString('$keyword.name', $source, basename($file));
         }
     }
 

@@ -2166,6 +2166,32 @@ input[type="submit"] {
 	font-weight: 700;
 }
 
+/* Issue table of contents. The default theme pulls each section (and the issue's galleys)
+   20-30px out of the column so its rule runs past the text; this column has no padding for it */
+.obj_issue_toc :is(.galleys, .section) {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* An issue whose section titles are all omitted from the table of contents reads as one list:
+   no rules between unnamed groups, and the same gap between all articles */
+.obj_issue_toc .sections:not(:has(> .section > :is(h2, h3))) > .section {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.obj_issue_toc .sections:not(:has(> .section > :is(h2, h3))) > .section::before {
+	content: none;
+}
+
+.obj_issue_toc .sections:not(:has(> .section > :is(h2, h3))) .articles {
+	margin-top: 0;
+}
+
 /* ---------- Login, registration, lost password ---------- */
 
 /* CSS only: the OJS templates stay as they are, so captcha, ORCID and the

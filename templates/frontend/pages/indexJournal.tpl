@@ -194,12 +194,13 @@
 		</section>
 	{/if}
 
-	{* Journal Description (optional, as in the default theme) *}
-	{if $activeTheme && $activeTheme->getOption('showDescriptionInJournalIndex')}
+	{* Journal Description (optional, as in the default theme), left out while it is empty *}
+	{assign var="jmDescription" value=$currentContext->getLocalizedData('description')}
+	{if $activeTheme && $activeTheme->getOption('showDescriptionInJournalIndex') && $jmDescription|strip_tags|trim}
 		<section class="homepage_about jm_wrap jm_block">
 			<a id="homepageAbout"></a>
 			<h2>{translate key="about.aboutContext"}</h2>
-			{$currentContext->getLocalizedData('description')}
+			{$jmDescription}
 		</section>
 	{/if}
 

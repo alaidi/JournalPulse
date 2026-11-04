@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\issue\Collector as IssueCollector;
 use APP\journal\Journal;
+use APP\publication\Publication;
 use APP\submission\Collector as SubmissionCollector;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Cache;
@@ -259,6 +260,23 @@ class JournalPulseThemePlugin extends ThemePlugin
                 }
             }
         );
+    }
+
+    /**
+     * The keywords of a publication as plain strings. OJS 3.5.0-3 returns each
+     * keyword as a string and 3.5.0.5 as ['name' => ...], which a template
+     * printing it directly shows as "Array".
+     */
+    public static function getKeywords(Publication $publication): array
+    {
+        $keywords = [];
+        foreach ($publication->getLocalizedData('keywords') ?? [] as $keyword) {
+            $name = (string) (is_array($keyword) ? ($keyword['name'] ?? '') : $keyword);
+            if ($name !== '') {
+                $keywords[] = $name;
+            }
+        }
+        return $keywords;
     }
 
     /**

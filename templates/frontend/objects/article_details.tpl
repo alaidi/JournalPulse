@@ -163,11 +163,12 @@
 			{/if}
 
 			{* 5. Keywords *}
-			{if !empty($publication->getLocalizedData('keywords'))}
+			{assign var="jmKeywords" value=$activeTheme->getKeywords($publication)}
+			{if $jmKeywords}
 				<section class="item keywords">
 					<h2 class="label">{translate key="article.subject"}</h2>
 					<ul class="jm_keywords">
-						{foreach from=$publication->getLocalizedData('keywords') item="keyword"}
+						{foreach from=$jmKeywords item="keyword"}
 							<li>{$keyword|escape}</li>
 						{/foreach}
 					</ul>
@@ -242,8 +243,10 @@
 							alt="{$coverImage.altText|escape|default:''}"
 						>
 					{else}
+						{* The image is the link's only content, so its alt text names the link *}
+						{capture assign="jmIssueCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
 						<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-							<img src="{$issue->getLocalizedCoverImageUrl()|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}">
+							<img src="{$issue->getLocalizedCoverImageUrl()|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmIssueCoverAlt|escape}">
 						</a>
 					{/if}
 				</div>
