@@ -195,7 +195,9 @@ class JournalPulseThemePlugin extends ThemePlugin
 
         // Accent colour and the theme stylesheet (fonts are imported in the stylesheet)
         $this->addStyle('journalPulseAccent', ':root{--jm-accent:' . $accent . ';}', ['inline' => true]);
-        $this->addStyle('journalPulse', 'styles/journalPulse.css');
+        // OJS versions stylesheet URLs with its own version (?v=3.5.0.3), which stays the same when the
+        // theme is upgraded, so browsers would keep the old stylesheet with the new templates
+        $this->addStyle('journalPulse', 'styles/journalPulse.css?v=' . filemtime(__DIR__ . '/styles/journalPulse.css'));
 
         // Search-engine markup (canonical links, JSON-LD)
         Hook::add('TemplateManager::display', $this->onTemplateDisplay(...));
