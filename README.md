@@ -34,7 +34,7 @@ A "Journal information" section under the top of the home page lists the journal
 Views come from the OJS statistics service (`publicationStats`) and are cached for 1 hour. If statistics are disabled or empty, the metrics will be zero.
 
 ### For Google indexing (outside the theme)
-Enable the Google Scholar plugin; make sure the journal is "enabled" (not noindex); submit https://jrnls.ivet.edu.ua/index/sitemap in Search Console; check "Manual actions" and "Security issues".
+Enable the Google Scholar plugin; make sure the journal is "enabled" (not noindex); submit https://example.com/index/sitemap in Search Console; check "Manual actions" and "Security issues".
 
 License: GNU GPL v3.
 
@@ -66,11 +66,13 @@ License: GNU GPL v3.
 ### معلومات المجلة
 يعرض قسم «معلومات المجلة» أعلى الصفحة الرئيسية عنوان المجلة ورقم ISSN وبادئة DOI (من إعدادات المجلة)، والحقول التي تُملأ في الإعدادات ← الموقع الإلكتروني ← المظهر ← القالب: الفهرسة، ودورية الصدور، ومواعيد النشر، ورئيس التحرير، ومدير التحرير، والجهة المنظِّمة، وتحليل الاستشهادات، ونسبة القبول، ومدة التحكيم، وملاحظة تظهر فوق زرّي الدخول والتسجيل، وملفات للتنزيل تحت تلك الملاحظة (قوالب، نماذج)، وأدلة الفيديو. ضع كل جهة فهرسة وكل موعد نشر وكل ملف وكل فيديو في سطر مستقل، واربط اسم كل ملف وعنوان كل فيديو به. يمكن استضافة الملفات في الإعدادات ← سير العمل ← مكتبة الناشر مع تفعيل «الوصول العام». الحقول الفارغة لا تظهر؛ ألغِ تحديد «معلومات المجلة» لإخفاء القسم.
 
+![قسم معلومات المجلة في الصفحة الرئيسية](docs/journal-information-ar.png)
+
 ### الإحصاءات
 تُؤخذ المشاهدات من خدمة إحصاءات OJS (`publicationStats`) وتُخزَّن مؤقتًا لمدة ساعة واحدة. إذا كانت الإحصاءات معطّلة أو فارغة، فستظهر المؤشرات أصفارًا.
 
 ### للفهرسة في Google (خارج القالب)
-فعّل إضافة Google Scholar؛ وتأكد من أن المجلة «مفعّلة» (وليست noindex)؛ وأرسل https://jrnls.ivet.edu.ua/index/sitemap في Search Console؛ وتحقق من «الإجراءات اليدوية» و«مشكلات الأمان».
+فعّل إضافة Google Scholar؛ وتأكد من أن المجلة «مفعّلة» (وليست noindex)؛ وأرسل https://example.com/index/sitemap في Search Console؛ وتحقق من «الإجراءات اليدوية» و«مشكلات الأمان».
 
 الترخيص: GNU GPL v3.
 
