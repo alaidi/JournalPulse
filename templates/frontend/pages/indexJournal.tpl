@@ -42,16 +42,18 @@
 				{if $jmLead}
 					<p class="jm_lead">{$jmLead|truncate:320:"…":true}</p>
 				{/if}
-				{if $jmCover}
-					{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
-					<a class="jm_hero_cover" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-						<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
-					</a>
-				{/if}
-				<p class="jm_hero_actions">
-					<a class="jm_btn jm_btn_primary" href="{url page="issue" op="current"}">{translate key="plugins.themes.journalPulse.hero.currentIssue"}</a>
-					<a class="jm_btn jm_btn_ghost" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalPulse.hero.forAuthors"}</a>
-				</p>
+				<div class="jm_hero_feature">
+					{if $jmCover}
+						{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
+						<a class="jm_hero_cover" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+							<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
+						</a>
+					{/if}
+					<p class="jm_hero_actions">
+						<a class="jm_btn jm_btn_primary" href="{url page="issue" op="current"}">{translate key="plugins.themes.journalPulse.hero.currentIssue"}</a>
+						<a class="jm_btn jm_btn_ghost" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalPulse.hero.forAuthors"}</a>
+					</p>
+				</div>
 			</div>
 
 			{if $issue && $activeTheme->getOption('showHeroStats')}
