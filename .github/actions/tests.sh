@@ -9,10 +9,10 @@ set +e
 status=0
 
 # pkp-github-actions installs the theme as plugins/themes/<repository name>
-# (JournalMetrics), but its code and version.xml call it journalMetrics, and on a
+# (JournalPulse), but its code and version.xml call it journalMetrics, and on a
 # case-sensitive file system OJS only finds it there. Move it where OJS's
 # "Upload A New Plugin" would put it, then register its version.
-mv plugins/themes/JournalMetrics plugins/themes/journalMetrics
+mv "plugins/themes/${GITHUB_REPOSITORY#*/}" plugins/themes/journalMetrics
 plugin=plugins/themes/journalMetrics
 php lib/pkp/tools/installPluginVersion.php $plugin/version.xml
 
