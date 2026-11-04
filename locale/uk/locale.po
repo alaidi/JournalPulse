@@ -70,40 +70,31 @@ msgid "plugins.themes.journalMetrics.workflow.title"
 msgstr "Від подання до публікації"
 
 msgid "plugins.themes.journalMetrics.workflow.lead"
-msgstr "Максимальна тривалість етапів за даними журналу."
+msgstr "Звичайна тривалість кожного етапу, обчислена за рукописами журналу останніх двох років."
+
+msgid "plugins.themes.journalMetrics.workflow.term"
+msgstr "до {$days} днів"
+
+msgid "plugins.themes.journalMetrics.workflow.termOneDay"
+msgstr "протягом одного дня"
+
+msgid "plugins.themes.journalMetrics.workflow.note"
+msgstr "Це типові строки, а не гарантія: 80 % рукописів пройшли кожен етап за вказаний час, решта 20 % — довше."
 
 msgid "plugins.themes.journalMetrics.workflow.screening"
 msgstr "Попередня оцінка"
 
-msgid "plugins.themes.journalMetrics.workflow.screening.term"
-msgstr "до 10 робочих днів"
-
 msgid "plugins.themes.journalMetrics.workflow.review"
 msgstr "Рецензування"
-
-msgid "plugins.themes.journalMetrics.workflow.review.term"
-msgstr "до 90 календарних днів"
 
 msgid "plugins.themes.journalMetrics.workflow.revision"
 msgstr "Доопрацювання"
 
-msgid "plugins.themes.journalMetrics.workflow.revision.term"
-msgstr "до 30 календарних днів"
-
 msgid "plugins.themes.journalMetrics.workflow.copyediting"
 msgstr "Редагування"
 
-msgid "plugins.themes.journalMetrics.workflow.copyediting.term"
-msgstr "до 14 робочих днів"
-
 msgid "plugins.themes.journalMetrics.workflow.proofreading"
 msgstr "Верстка"
-
-msgid "plugins.themes.journalMetrics.workflow.proofreading.term"
-msgstr "до 14 робочих днів"
-
-msgid "plugins.themes.journalMetrics.workflow.note"
-msgstr "Ширина сегментів пропорційна кількості днів; робочі та календарні дні вказано так, як їх визначає журнал."
 
 msgid "plugins.themes.journalMetrics.list.title"
 msgstr "Усі статті випуску"
@@ -192,6 +183,15 @@ msgstr "Назва журналу, ISSN і префікс DOI беруться �
 msgid "plugins.themes.journalMetrics.option.info.field"
 msgstr "Інформація про журнал: {$field}"
 
+msgid "plugins.themes.journalMetrics.option.info.onePerLine"
+msgstr "Кожен пункт — з нового рядка."
+
+msgid "plugins.themes.journalMetrics.option.info.videoGuides"
+msgstr "Кожне відео — з нового рядка; зробіть його назву посиланням на відео, наприклад на YouTube."
+
+msgid "plugins.themes.journalMetrics.option.info.downloads"
+msgstr "Кожен файл — з нового рядка; зробіть його назву посиланням на файл. Щоб розмістити файл, завантажте його в Налаштування → Робочий процес → Бібліотека видавця, увімкніть «Публічний доступ» і скопіюйте посилання для завантаження."
+
 msgid "plugins.themes.journalMetrics.info.heading"
 msgstr "Інформація про журнал"
 
@@ -209,6 +209,9 @@ msgstr "ISSN (друкований)"
 
 msgid "plugins.themes.journalMetrics.info.frequency"
 msgstr "Періодичність"
+
+msgid "plugins.themes.journalMetrics.info.publicationDates"
+msgstr "Дати виходу"
 
 msgid "plugins.themes.journalMetrics.info.doiPrefix"
 msgstr "Префікс DOI"
@@ -234,20 +237,20 @@ msgstr "Термін рецензування"
 msgid "plugins.themes.journalMetrics.info.submissionNote"
 msgstr "Примітка перед поданням"
 
+msgid "plugins.themes.journalMetrics.info.downloads"
+msgstr "Шаблони та форми"
+
 msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
 msgstr "Онлайн-подання"
 
-msgid "plugins.themes.journalMetrics.info.haveAccount"
-msgstr "Вже маєте ім'я користувача та пароль для {$journal}?"
-
 msgid "plugins.themes.journalMetrics.info.goToLogin"
 msgstr "Увійти"
-
-msgid "plugins.themes.journalMetrics.info.needAccount"
-msgstr "Потрібні ім'я користувача та пароль?"
 
 msgid "plugins.themes.journalMetrics.info.goToRegistration"
 msgstr "Зареєструватися"
 
 msgid "plugins.themes.journalMetrics.info.registrationRequired"
-msgstr "Щоб подати статтю онлайн і стежити за її статусом, потрібно зареєструватися та увійти."
+msgstr "Щоб подати статтю й стежити за її статусом, потрібен обліковий запис."
+
+msgid "plugins.themes.journalMetrics.info.videoGuides"
+msgstr "Відеоінструкції"

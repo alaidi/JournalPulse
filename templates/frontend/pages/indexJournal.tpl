@@ -91,38 +91,57 @@
 	{* ---------- Journal information, edited in Settings > Website > Appearance > Theme ---------- *}
 	{if $activeTheme->getOption('showJournalInfo')}
 		{assign var="jmNote" value=$activeTheme->getLocalizedText('infoSubmissionNote')}
+		{assign var="jmVideos" value=$activeTheme->getLocalizedText('infoVideoGuides')}
+		{assign var="jmFiles" value=$activeTheme->getLocalizedText('infoDownloads')}
 		<section class="jm_wrap jm_info" aria-labelledby="jm-info-title">
 			<div class="jm_info_grid">
-				<div class="jm_info_main">
-					<h2 id="jm-info-title">{translate key="plugins.themes.journalMetrics.info.heading"}</h2>
-					<dl class="jm_info_list">
-						{foreach from=$activeTheme->getJournalInfo() item=jmRow}
-							<div class="jm_info_row">
-								<dt>{translate key=$jmRow.label}</dt>
-								<dd>{if $jmRow.html}{$jmRow.value|strip_unsafe_html}{else}{$jmRow.value|escape}{/if}</dd>
-							</div>
-						{/foreach}
-					</dl>
+				<h2 id="jm-info-title">{translate key="plugins.themes.journalMetrics.info.heading"}</h2>
+
+				{* One sheet of facts in groups: title, identifiers, key figures, publication dates, indexing, people *}
+				<div class="jm_info_sheet">
+					{foreach from=$activeTheme->getJournalInfo() key=jmGroup item=jmRows}
+						<dl class="jm_info_group jm_info_{$jmGroup|escape}">
+							{foreach from=$jmRows item=jmRow}
+								<div class="jm_info_row">
+									<dt>{translate key=$jmRow.label}</dt>
+									<dd>{if $jmGroup == 'figures'}<span class="jm_info_number">{$jmRow.figure|escape}</span> {$jmRow.unit|escape}{elseif $jmRow.html}{$jmRow.value|strip_unsafe_html}{else}{$jmRow.value|escape}{/if}</dd>
+								</div>
+							{/foreach}
+						</dl>
+					{/foreach}
 				</div>
 
 				<div class="jm_info_submit">
-					{if $jmNote|strip_tags|trim}
-						<div class="jm_info_note">{$jmNote|strip_unsafe_html}</div>
-					{/if}
 					<h3>{translate key="plugins.themes.journalMetrics.info.onlineSubmissions"}</h3>
+					{if $jmNote|strip_tags|trim || $jmFiles|strip_tags|trim}
+						<div class="jm_info_note">
+							{$jmNote|strip_unsafe_html}
+							{if $jmFiles|strip_tags|trim}
+								<div class="jm_info_files" role="group" aria-label="{translate|escape key="plugins.themes.journalMetrics.info.downloads"}">{$jmFiles|strip_unsafe_html}</div>
+							{/if}
+						</div>
+					{/if}
 					{if $currentJournal->getData('disableSubmissions')}
 						<p>{translate key="author.submit.notAccepting"}</p>
 					{elseif $isUserLoggedIn}
-						{capture assign="jmNewSubmission"}<a href="{url page="submission"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
-						{capture assign="jmViewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
-						<p>{translate key="about.onlineSubmissions.submissionActions" newSubmission=$jmNewSubmission viewSubmissions=$jmViewSubmissions}</p>
+						<p class="jm_info_buttons">
+							<a class="jm_btn jm_btn_primary" href="{url page="submission"}">{translate key="user.login.registrationComplete.newSubmission"}</a>
+							<a class="jm_btn jm_btn_ghost" href="{url page="submissions"}">{translate key="user.login.registrationComplete.manageSubmissions"}</a>
+						</p>
 					{else}
-						{assign var="jmAcronym" value=$currentJournal->getLocalizedAcronym()|default:$currentJournal->getLocalizedName()}
-						<p>{translate key="plugins.themes.journalMetrics.info.haveAccount" journal=$jmAcronym|escape} <a href="{url page="login"}">{translate key="plugins.themes.journalMetrics.info.goToLogin"}</a></p>
-						{if !$currentJournal->getData('disableUserReg')}
-							<p>{translate key="plugins.themes.journalMetrics.info.needAccount"} <a href="{url page="user" op="register"}">{translate key="plugins.themes.journalMetrics.info.goToRegistration"}</a></p>
-						{/if}
-						<p class="jm_source">{translate key="plugins.themes.journalMetrics.info.registrationRequired"}</p>
+						<p class="jm_info_buttons">
+							<a class="jm_btn jm_btn_primary" href="{url page="login"}">{translate key="plugins.themes.journalMetrics.info.goToLogin"}</a>
+							{if !$currentJournal->getData('disableUserReg')}
+								<a class="jm_btn jm_btn_ghost" href="{url page="user" op="register"}">{translate key="plugins.themes.journalMetrics.info.goToRegistration"}</a>
+							{/if}
+						</p>
+						<p class="jm_info_fine">{translate key="plugins.themes.journalMetrics.info.registrationRequired"}</p>
+					{/if}
+					{if $jmVideos|strip_tags|trim}
+						<div class="jm_info_videos">
+							<h3>{translate key="plugins.themes.journalMetrics.info.videoGuides"}</h3>
+							{$jmVideos|strip_unsafe_html}
+						</div>
 					{/if}
 				</div>
 			</div>
@@ -145,13 +164,14 @@
 					<p class="jm_band_lead">{translate key="plugins.themes.journalMetrics.workflow.lead"}</p>
 				</div>
 
+				{assign var="jmStageDays" value=$activeTheme->getStageDays()}
 				<ol class="jm_flow{if $jmStage} jm_flow_tracked{/if}">
-					{foreach from=['screening'=>10,'review'=>90,'revision'=>30,'copyediting'=>14,'proofreading'=>14] key=jmKey item=jmDays name=jmFlow}
-						{assign var="jmIdx" value=$smarty.foreach.jmFlow.index}
+					{foreach from=['screening','review','revision','copyediting','proofreading'] key=jmIdx item=jmKey}
+						{assign var="jmDays" value=$jmStageDays[$jmIdx]}
 						<li style="flex-grow:{$jmDays}"{if $jmStage && $jmStage.index == $jmIdx} class="is_current" aria-current="step"{elseif $jmStage && $jmStage.index > $jmIdx} class="is_done"{/if}>
 							<span class="jm_flow_bar"{if $jmStage && $jmStage.index == $jmIdx} style="--jm-p:{$jmStage.percent|intval}"{/if}>{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_fill" aria-hidden="true"></span><span class="jm_flow_dot" aria-hidden="true"></span>{/if}</span>
 							<span class="jm_flow_name">{translate key="plugins.themes.journalMetrics.workflow.`$jmKey`"}</span>
-							<span class="jm_flow_term">{translate key="plugins.themes.journalMetrics.workflow.`$jmKey`.term"}</span>
+							<span class="jm_flow_term">{if $jmDays == 1}{translate key="plugins.themes.journalMetrics.workflow.termOneDay"}{else}{translate key="plugins.themes.journalMetrics.workflow.term" days=$jmDays}{/if}</span>
 							{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_now">{if $jmStage.mine}{translate key="plugins.themes.journalMetrics.workflow.currentMine"}{else}{translate key="plugins.themes.journalMetrics.workflow.current"}{/if}</span>
 								<span class="jm_flow_progress" title="{translate|escape key="plugins.themes.journalMetrics.workflow.progressHint" total=$jmStage.total}">{if $jmStage.over}{translate key="plugins.themes.journalMetrics.workflow.progressOver" day=$jmStage.day total=$jmStage.total}{else}{translate key="plugins.themes.journalMetrics.workflow.progress" day=$jmStage.day total=$jmStage.total percent=$jmStage.percent}{/if}</span>{/if}
 						</li>

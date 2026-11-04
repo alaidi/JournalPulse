@@ -63,11 +63,13 @@ button:focus-visible {
 	border: 0;
 }
 
-/* Skip links: invisible, shown only to keyboard users */
+/* Skip links: invisible, shown only to keyboard users. Parked past the start
+   edge: on right-to-left pages a box past the left edge widens the page and
+   phones zoom out to fit it. */
 .cmp_skip_to_content {
 	position: absolute;
 	top: 0;
-	left: -9999px;
+	inset-inline-start: -9999px;
 	z-index: 10000;
 	padding: 8px;
 	background: #fff;
@@ -75,7 +77,7 @@ button:focus-visible {
 }
 
 .cmp_skip_to_content:focus-within {
-	left: 8px;
+	inset-inline-start: 8px;
 	top: 8px;
 }
 
@@ -670,6 +672,12 @@ button:focus-visible {
 	color: #5A5A5A;
 }
 
+/* IBM Plex Mono has no Arabic or Hebrew letters, which then fall back to a
+   typewriter face: right-to-left notes use the text font */
+[dir="rtl"] .jm_source {
+	font-family: inherit;
+}
+
 .jm_btn {
 	display: inline-block;
 	padding: 14px 24px;
@@ -840,33 +848,53 @@ button:focus-visible {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;
-	gap: 32px 56px;
+	gap: 28px 40px;
 	padding-top: clamp(40px, 6vw, 72px);
 	border-top: 1px solid var(--jm-line);
 }
 
-.jm_info_main {
-	flex: 2 1 560px;
-	min-width: 0;
+.jm_info_grid > h2 {
+	flex: 1 0 100%;
 }
 
-.jm_info_list {
-	margin: 28px 0 0;
+/* The fact sheet: one panel whose groups are divided by hairlines */
+.jm_info_sheet {
+	flex: 2 1 560px;
+	min-width: 0;
+	border: 1px solid var(--jm-line);
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.jm_info_group {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	overflow: hidden;
+}
+
+.jm_info_group + .jm_info_group {
 	border-top: 1px solid var(--jm-line);
 }
 
+/* Every cell draws the hairline on its start and top edges. On the outer edges
+   those lines sit 1px outside the group and are clipped, so the dividers stay
+   right however the cells wrap. */
 .jm_info_row {
-	display: grid;
-	grid-template-columns: minmax(140px, 220px) minmax(0, 1fr);
-	gap: 4px 24px;
-	padding: 14px 0;
-	border-bottom: 1px solid var(--jm-line);
+	flex: 1 1 15rem;
+	min-width: 0;
+	margin: -1px 0 0;
+	margin-inline-start: -1px;
+	padding: 20px 24px;
+	border-top: 1px solid var(--jm-line);
+	border-inline-start: 1px solid var(--jm-line);
 }
 
 .jm_info_row dt {
+	margin: 0 0 6px;
 	font-size: 14px;
-	font-weight: 700;
-	line-height: 1.5;
+	font-weight: 600;
+	line-height: 1.4;
 	color: var(--jm-ink-soft);
 }
 
@@ -877,51 +905,346 @@ button:focus-visible {
 	overflow-wrap: anywhere;
 }
 
-.jm_info_row dd p,
-.jm_info_note p {
+.jm_info_row dd p {
 	margin: 0;
 }
 
-.jm_info_submit {
-	flex: 1 1 320px;
-	min-width: 0;
-	padding: 28px;
-	border: 1px solid var(--jm-line);
-	border-radius: 12px;
-	font-size: 15px;
-	line-height: 1.6;
-}
-
-.jm_info_note {
-	margin-bottom: 24px;
-	padding: 16px 18px;
-	border-inline-start: 4px solid var(--jm-accent);
-	border-radius: 4px;
-	background: var(--jm-neutral);
-}
-
-.jm_home .jm_info_submit h3 {
-	margin: 0 0 12px;
+.jm_info_title dd {
 	font-size: 20px;
 	font-weight: 800;
 	line-height: 1.3;
 }
 
-.jm_info_submit > p {
-	margin: 0 0 8px;
+/* ISSN and DOI prefix are identifiers: set like the ISSN in the header */
+.jm_info_identity .jm_info_row {
+	flex-basis: 10rem;
 }
 
-.jm_info_submit .jm_source {
-	margin: 16px 0 0;
+.jm_info_identity dd {
+	font-family: var(--jm-mono);
+	font-size: 18px;
+	font-weight: 500;
+}
+
+/* Key figures for authors: a large number followed by its words. The cells
+   share their rows (subgrid), so the numbers stay level when a label wraps. */
+.jm_info_figures {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+	background: var(--jm-neutral);
+	background: color-mix(in srgb, var(--jm-accent) 6%, #fff);
+}
+
+.jm_info_figures .jm_info_row {
+	display: grid;
+	grid-row: span 2;
+	grid-template-rows: subgrid;
+}
+
+.jm_info_figures dd {
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.35;
+	color: var(--jm-ink-soft);
+}
+
+.jm_info_number {
+	font-size: clamp(30px, 3vw, 40px);
+	font-weight: 800;
+	line-height: 1.1;
+	color: var(--jm-ink);
+}
+
+/* Publication dates: every line of the field is a stop on one line through
+   the year, in the order typed */
+.jm_info_dates dd {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+	row-gap: 18px;
+	padding-top: 8px;
+}
+
+.jm_info_dates dd ul,
+.jm_info_dates dd ol {
+	display: contents;
+}
+
+.jm_info_dates dd p,
+.jm_info_dates dd li {
+	position: relative;
+	margin: 0;
+	padding-top: 24px;
+	padding-inline-end: 12px;
+	font-weight: 700;
+	list-style: none;
+}
+
+.jm_info_dates dd p::before,
+.jm_info_dates dd li::before {
+	content: "";
+	position: absolute;
+	top: 5px;
+	inset-inline: 0;
+	border-top: 2px solid var(--jm-line);
+}
+
+.jm_info_dates dd p::after,
+.jm_info_dates dd li::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	inset-inline-start: 0;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: var(--jm-accent);
+}
+
+/* Indexing and citation analysis: every line of the field is a tag */
+.jm_info_indexing dd {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.jm_info_indexing dd ul,
+.jm_info_indexing dd ol {
+	display: contents;
+}
+
+.jm_info_indexing dd p,
+.jm_info_indexing dd li {
+	margin: 0;
+	padding: 4px 12px;
+	border-radius: 6px;
+	background: var(--jm-neutral);
+	font-size: 15px;
+	font-weight: 600;
+	list-style: none;
+}
+
+/* Editors and organizer: the first line (the name) leads, the rest is quieter */
+.jm_info_people dd p + p {
+	font-size: 15px;
+	color: var(--jm-ink-soft);
+}
+
+/* Online submissions */
+.jm_info_submit {
+	flex: 1 1 320px;
+	min-width: 0;
+	padding: 28px;
+	border-radius: 12px;
+	background: var(--jm-neutral);
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.jm_home .jm_info_submit h3 {
+	margin: 0 0 16px;
+	font-size: 20px;
+	font-weight: 800;
+	line-height: 1.3;
+}
+
+.jm_info_note {
+	margin-bottom: 24px;
+	padding: 14px 16px;
+	border-inline-start: 4px solid var(--jm-accent);
+	border-radius: 4px;
+	background: #fff;
+}
+
+.jm_info_note p {
+	margin: 0;
+}
+
+.jm_info_note p + p {
+	margin-top: 8px;
+}
+
+/* Files to download under the note (templates, forms): every line of the
+   field is a button */
+.jm_info_files {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.jm_info_files:first-child {
+	margin-top: 0;
+}
+
+.jm_info_files ul,
+.jm_info_files ol {
+	display: contents;
+}
+
+.jm_info_note .jm_info_files p,
+.jm_info_note .jm_info_files li {
+	margin: 0;
+	list-style: none;
+}
+
+.jm_info_files a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	border-radius: 8px;
+	background: var(--jm-neutral);
+	color: var(--jm-ink);
+	font-size: 14px;
+	line-height: 1.3;
+	text-decoration: none;
+}
+
+/* Download symbol, drawn in the colour of the text */
+.jm_info_files a::before {
+	content: "";
+	flex: none;
+	width: 16px;
+	height: 16px;
+	background: currentColor;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v8M4.5 6.5 8 10l3.5-3.5M3 14h10'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v8M4.5 6.5 8 10l3.5-3.5M3 14h10'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.jm_info_files a:hover,
+.jm_info_files a:focus {
+	background: var(--jm-ink);
+	color: #fff;
+}
+
+.jm_info_submit > p {
+	margin: 0 0 10px;
+}
+
+.jm_info_submit > .jm_info_buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 14px;
+}
+
+.jm_info_submit > .jm_info_fine {
+	margin: 0;
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--jm-ink-soft);
+}
+
+.jm_info_submit > :last-child {
+	margin-bottom: 0;
 }
 
 .jm_info_submit a {
 	font-weight: 700;
 }
 
+/* Video guides: every line of the field is one video, and its link covers the
+   whole row */
+.jm_info_videos {
+	margin-top: 24px;
+	padding-top: 22px;
+	border-top: 1px solid var(--jm-line);
+}
+
+.jm_info_videos ul,
+.jm_info_videos ol {
+	margin: 0;
+	padding: 0;
+}
+
+.jm_info_videos p,
+.jm_info_videos li {
+	position: relative;
+	margin: 0 0 8px;
+	padding: 14px 16px;
+	padding-inline-start: 62px;
+	border-radius: 8px;
+	background: #fff;
+	line-height: 1.4;
+	list-style: none;
+}
+
+.jm_info_videos p:last-child,
+.jm_info_videos li:last-child {
+	margin-bottom: 0;
+}
+
+/* Play button; media symbols keep their direction on right-to-left pages */
+.jm_info_videos p::before,
+.jm_info_videos li::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	inset-inline-start: 16px;
+	width: 32px;
+	height: 32px;
+	margin-top: -16px;
+	border-radius: 50%;
+	background: var(--jm-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12'%3E%3Cpath d='M0 0l10 6-10 6z' fill='%23fff'/%3E%3C/svg%3E") 55% 50% / 10px 12px no-repeat;
+}
+
+.jm_info_videos a {
+	color: var(--jm-ink);
+	text-decoration: none;
+}
+
+.jm_info_videos a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 8px;
+}
+
+.jm_info_videos p:hover a,
+.jm_info_videos li:hover a {
+	text-decoration: underline;
+}
+
+.jm_info_videos p:hover::before,
+.jm_info_videos li:hover::before {
+	background-color: var(--jm-ink);
+}
+
+/* The keyboard focus ring goes round the whole row */
+.jm_info_videos a:focus-visible {
+	outline: none;
+}
+
+.jm_info_videos a:focus-visible::after {
+	outline: 2px solid var(--jm-accent);
+	outline-offset: 2px;
+}
+
+/* Arabic letters look smaller than Latin ones set at the same size */
+[dir="rtl"] .jm_info_row dt,
+[dir="rtl"] .jm_info_files a,
+[dir="rtl"] .jm_info_submit > .jm_info_fine {
+	font-size: 15px;
+}
+
+[dir="rtl"] .jm_info_submit,
+[dir="rtl"] .jm_info_figures dd,
+[dir="rtl"] .jm_info_people dd p + p {
+	font-size: 16px;
+}
+
 @media (max-width: 600px) {
 	.jm_info_row {
-		grid-template-columns: minmax(0, 1fr);
+		padding: 16px 18px;
+	}
+
+	.jm_info_submit {
+		padding: 22px;
+	}
+
+	.jm_info_submit > .jm_info_buttons .jm_btn {
+		flex: 1 1 auto;
+		text-align: center;
 	}
 }
 

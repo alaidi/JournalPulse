@@ -70,40 +70,31 @@ msgid "plugins.themes.journalMetrics.workflow.title"
 msgstr "From submission to publication"
 
 msgid "plugins.themes.journalMetrics.workflow.lead"
-msgstr "Maximum stage durations stated by the journal."
+msgstr "How long each stage usually takes, measured from the journal's manuscripts of the last two years."
+
+msgid "plugins.themes.journalMetrics.workflow.term"
+msgstr "up to {$days} days"
+
+msgid "plugins.themes.journalMetrics.workflow.termOneDay"
+msgstr "within a day"
+
+msgid "plugins.themes.journalMetrics.workflow.note"
+msgstr "These are typical times, not guarantees: 80% of manuscripts finished each stage within the time shown, and the other 20% took longer."
 
 msgid "plugins.themes.journalMetrics.workflow.screening"
 msgstr "Initial screening"
 
-msgid "plugins.themes.journalMetrics.workflow.screening.term"
-msgstr "up to 10 business days"
-
 msgid "plugins.themes.journalMetrics.workflow.review"
 msgstr "Peer review"
-
-msgid "plugins.themes.journalMetrics.workflow.review.term"
-msgstr "up to 90 calendar days"
 
 msgid "plugins.themes.journalMetrics.workflow.revision"
 msgstr "Revision"
 
-msgid "plugins.themes.journalMetrics.workflow.revision.term"
-msgstr "up to 30 calendar days"
-
 msgid "plugins.themes.journalMetrics.workflow.copyediting"
 msgstr "Copyediting"
 
-msgid "plugins.themes.journalMetrics.workflow.copyediting.term"
-msgstr "up to 14 business days"
-
 msgid "plugins.themes.journalMetrics.workflow.proofreading"
 msgstr "Proofreading and layout"
-
-msgid "plugins.themes.journalMetrics.workflow.proofreading.term"
-msgstr "up to 14 business days"
-
-msgid "plugins.themes.journalMetrics.workflow.note"
-msgstr "Segment widths are proportional to the number of days; business and calendar days are shown as the journal states them."
 
 msgid "plugins.themes.journalMetrics.list.title"
 msgstr "All articles in the issue"
@@ -192,6 +183,15 @@ msgstr "The journal title, ISSN and DOI prefix come from the journal settings. F
 msgid "plugins.themes.journalMetrics.option.info.field"
 msgstr "Journal information: {$field}"
 
+msgid "plugins.themes.journalMetrics.option.info.onePerLine"
+msgstr "Put each item on its own line."
+
+msgid "plugins.themes.journalMetrics.option.info.videoGuides"
+msgstr "Put each video on its own line and link its title to the video, for example on YouTube."
+
+msgid "plugins.themes.journalMetrics.option.info.downloads"
+msgstr "Put each file on its own line and link its name to the file. To host a file, upload it in Settings → Workflow → Publisher Library, turn on Public Access and copy its download link."
+
 msgid "plugins.themes.journalMetrics.info.heading"
 msgstr "Journal information"
 
@@ -209,6 +209,9 @@ msgstr "Print ISSN"
 
 msgid "plugins.themes.journalMetrics.info.frequency"
 msgstr "Frequency"
+
+msgid "plugins.themes.journalMetrics.info.publicationDates"
+msgstr "Publication dates"
 
 msgid "plugins.themes.journalMetrics.info.doiPrefix"
 msgstr "DOI prefix"
@@ -234,20 +237,20 @@ msgstr "Review speed"
 msgid "plugins.themes.journalMetrics.info.submissionNote"
 msgstr "Note before submission"
 
+msgid "plugins.themes.journalMetrics.info.downloads"
+msgstr "Templates and forms"
+
 msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
 msgstr "Online submissions"
 
-msgid "plugins.themes.journalMetrics.info.haveAccount"
-msgstr "Already have a username and password for {$journal}?"
-
 msgid "plugins.themes.journalMetrics.info.goToLogin"
-msgstr "Go to login"
-
-msgid "plugins.themes.journalMetrics.info.needAccount"
-msgstr "Need a username and password?"
+msgstr "Log in"
 
 msgid "plugins.themes.journalMetrics.info.goToRegistration"
-msgstr "Go to registration"
+msgstr "Register"
 
 msgid "plugins.themes.journalMetrics.info.registrationRequired"
-msgstr "Registration and login are required to submit items online and to check the status of current submissions."
+msgstr "You need an account to submit a paper and to follow its progress."
+
+msgid "plugins.themes.journalMetrics.info.videoGuides"
+msgstr "Video guides"

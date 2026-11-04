@@ -22,6 +22,7 @@ use APP\journal\Journal;
 use APP\submission\Collector as SubmissionCollector;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
 use PKP\core\PKPSessionGuard;
 use PKP\db\DAORegistry;
@@ -29,6 +30,7 @@ use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\plugins\ThemePlugin;
 use PKP\decision\Collector as DecisionCollector;
+use PKP\decision\Decision;
 use PKP\security\Role;
 
 class JournalMetricsThemePlugin extends ThemePlugin
@@ -42,20 +44,52 @@ class JournalMetricsThemePlugin extends ThemePlugin
     /** Seconds to keep the current editorial stage in the cache */
     public const STAGE_CACHE_TTL = 600;
 
-    /** Typical term of each segment of the workflow line, in days */
-    public const STAGE_DAYS = [10, 90, 30, 14, 14];
+    /** Seconds to keep the measured terms of the workflow stages in the cache */
+    public const STAGE_DAYS_CACHE_TTL = 86400;
 
-    /** Journal information fields filled in the theme options: option => [label, rich text] */
+    /**
+     * Term of each segment of the workflow line, in calendar days, for the
+     * stages the journal has too little history to measure (see getStageDays())
+     */
+    public const STAGE_DAYS = [14, 90, 30, 20, 20];
+
+    /**
+     * Segment of the workflow line that a decision moves the manuscript into
+     * (null: out of the line). Recommendations and the rare decisions whose
+     * target depends on the history (revert a decline, back from copyediting,
+     * cancel a review round) leave it where it is.
+     */
+    private const DECISION_STAGE = [
+        Decision::REVERT_INITIAL_DECLINE => 0,
+        Decision::EXTERNAL_REVIEW => 1,
+        Decision::NEW_EXTERNAL_ROUND => 1,
+        Decision::PENDING_REVISIONS => 2,
+        Decision::RESUBMIT => 2,
+        Decision::ACCEPT => 3,
+        Decision::SKIP_EXTERNAL_REVIEW => 3,
+        Decision::BACK_FROM_PRODUCTION => 3,
+        Decision::SEND_TO_PRODUCTION => 4,
+        Decision::DECLINE => null,
+        Decision::INITIAL_DECLINE => null,
+    ];
+
+    /**
+     * Journal information fields filled in the theme options:
+     * option => [label, rich text, description of the field (optional)]
+     */
     public const INFO_OPTIONS = [
-        'infoIndexing' => ['plugins.themes.journalMetrics.info.indexing', true],
+        'infoIndexing' => ['plugins.themes.journalMetrics.info.indexing', true, 'plugins.themes.journalMetrics.option.info.onePerLine'],
         'infoFrequency' => ['plugins.themes.journalMetrics.info.frequency', false],
+        'infoPublicationDates' => ['plugins.themes.journalMetrics.info.publicationDates', true, 'plugins.themes.journalMetrics.option.info.onePerLine'],
         'infoEditorInChief' => ['plugins.themes.journalMetrics.info.editorInChief', true],
         'infoManagingEditor' => ['plugins.themes.journalMetrics.info.managingEditor', true],
         'infoOrganizedBy' => ['plugins.themes.journalMetrics.info.organizedBy', false],
-        'infoCitationAnalysis' => ['plugins.themes.journalMetrics.info.citationAnalysis', true],
+        'infoCitationAnalysis' => ['plugins.themes.journalMetrics.info.citationAnalysis', true, 'plugins.themes.journalMetrics.option.info.onePerLine'],
         'infoAcceptanceRate' => ['plugins.themes.journalMetrics.info.acceptanceRate', false],
         'infoReviewSpeed' => ['plugins.themes.journalMetrics.info.reviewSpeed', false],
         'infoSubmissionNote' => ['plugins.themes.journalMetrics.info.submissionNote', true],
+        'infoDownloads' => ['plugins.themes.journalMetrics.info.downloads', true, 'plugins.themes.journalMetrics.option.info.downloads'],
+        'infoVideoGuides' => ['plugins.themes.journalMetrics.info.videoGuides', true, 'plugins.themes.journalMetrics.option.info.videoGuides'],
     ];
 
     /**
@@ -132,12 +166,12 @@ class JournalMetricsThemePlugin extends ThemePlugin
             ],
             'default' => true,
         ]);
-        foreach (self::INFO_OPTIONS as $name => [$labelKey, $richText]) {
-            $this->addOption($name, $richText ? 'FieldRichTextarea' : 'FieldText', [
-                'label' => __('plugins.themes.journalMetrics.option.info.field', ['field' => __($labelKey)]),
+        foreach (self::INFO_OPTIONS as $name => $field) {
+            $this->addOption($name, $field[1] ? 'FieldRichTextarea' : 'FieldText', [
+                'label' => __('plugins.themes.journalMetrics.option.info.field', ['field' => __($field[0])]),
                 'isMultilingual' => true,
                 'default' => '',
-            ]);
+            ] + (isset($field[2]) ? ['description' => __($field[2])] : []));
         }
 
         // Re-skin the parent theme through its LESS variables, so that every
@@ -415,7 +449,7 @@ class JournalMetricsThemePlugin extends ThemePlugin
      */
     private function stageProgress(Submission $submission, int $index): array
     {
-        $total = self::STAGE_DAYS[$index] ?? 30;
+        $total = $this->getStageDays()[$index] ?? 30;
         $start = $submission->getData('dateSubmitted');
         if ($index > 0) {
             try {
@@ -432,7 +466,7 @@ class JournalMetricsThemePlugin extends ThemePlugin
             }
         }
         $startTime = $start ? strtotime((string) $start) : false;
-        $elapsed = $startTime ? max(0, (int) floor((time() - $startTime) / 86400)) : 0;
+        $elapsed = $startTime ? self::dayNumber($startTime, time()) - 1 : 0;
         $percent = (int) round($elapsed / $total * 100);
         return [
             'day' => $elapsed + 1,
@@ -440,6 +474,130 @@ class JournalMetricsThemePlugin extends ThemePlugin
             'percent' => min(100, max(1, $percent)),
             'over' => $elapsed >= $total,
         ];
+    }
+
+    /**
+     * Term of each segment of the workflow line, in days, measured from the
+     * journal's own manuscripts of the last two years: the day of the stage by
+     * which 80% of them had left it (the share OJS uses for its "days to first
+     * decision"). Recalculated once a day.
+     *
+     * @return int[] five numbers, in the order of the workflow line
+     */
+    public function getStageDays(): array
+    {
+        $contextId = Application::get()->getRequest()->getContext()?->getId();
+        if (!$contextId) {
+            return self::STAGE_DAYS;
+        }
+        return Cache::remember(
+            "jm_stage_days_{$contextId}",
+            self::STAGE_DAYS_CACHE_TTL,
+            function () use ($contextId): array {
+                try {
+                    return self::typicalStageDays($this->journalStageSpans((int) $contextId));
+                } catch (\Throwable $e) {
+                    return self::STAGE_DAYS;
+                }
+            }
+        );
+    }
+
+    /**
+     * Stage spans of the journal's manuscripts submitted in the last two years
+     *
+     * @return array[] see stageSpans()
+     */
+    private function journalStageSpans(int $contextId): array
+    {
+        $decisions = DB::table('submissions as s')
+            ->join('edit_decisions as d', 'd.submission_id', '=', 's.submission_id')
+            ->where('s.context_id', $contextId)
+            ->where('s.date_submitted', '>=', date('Y-m-d', strtotime('-2 years')))
+            ->orderBy('d.date_decided')
+            ->orderBy('d.edit_decision_id')
+            ->get(['s.submission_id', 's.date_submitted', 'd.decision', 'd.date_decided'])
+            ->groupBy('submission_id');
+        $published = DB::table('publications as p')
+            ->join('submissions as s', 's.submission_id', '=', 'p.submission_id')
+            ->where('s.context_id', $contextId)
+            ->where('p.status', Submission::STATUS_PUBLISHED)
+            ->groupBy('p.submission_id')
+            ->selectRaw('p.submission_id, MIN(p.date_published) AS date_published')
+            ->pluck('date_published', 'submission_id');
+
+        $spans = [];
+        foreach ($decisions as $submissionId => $rows) {
+            array_push($spans, ...self::stageSpans(
+                (string) $rows->first()->date_submitted,
+                $rows->map(fn ($row) => [(int) $row->decision, (string) $row->date_decided])->all(),
+                $published[$submissionId] ?? null
+            ));
+        }
+        return $spans;
+    }
+
+    /**
+     * Splits the history of one manuscript into segments of the workflow line.
+     * A segment starts with the decision that moved the manuscript into it (the
+     * submission itself for screening) and ends with the next decision that
+     * moved it out; production ends at publication.
+     *
+     * @param array $decisions [[decision, date], ...] in date order
+     * @return array[] [[segment index, start, end], ...] as Unix times; end is
+     *  null while the manuscript is still in the segment
+     */
+    public static function stageSpans(string $dateSubmitted, array $decisions, ?string $datePublished): array
+    {
+        $spans = [];
+        $index = 0;
+        $start = strtotime($dateSubmitted);
+        foreach ($decisions as [$decision, $date]) {
+            if (!array_key_exists($decision, self::DECISION_STAGE) || self::DECISION_STAGE[$decision] === $index) {
+                continue;
+            }
+            $time = strtotime($date);
+            if ($index !== null) {
+                $spans[] = [$index, $start, $time];
+            }
+            [$index, $start] = [self::DECISION_STAGE[$decision], $time];
+        }
+        if ($index !== null) {
+            $spans[] = [$index, $start, $index === 4 && $datePublished ? strtotime($datePublished) : null];
+        }
+        return $spans;
+    }
+
+    /**
+     * Term of each segment from the finished spans: the day of the stage by
+     * which 80% of the manuscripts had left it, or the default term while
+     * fewer than 5 manuscripts have.
+     *
+     * @param array[] $spans see stageSpans()
+     * @return int[]
+     */
+    public static function typicalStageDays(array $spans): array
+    {
+        $days = array_fill(0, count(self::STAGE_DAYS), []);
+        foreach ($spans as [$index, $start, $end]) {
+            if ($end !== null) {
+                $days[$index][] = self::dayNumber($start, $end);
+            }
+        }
+        $typical = self::STAGE_DAYS;
+        foreach ($days as $index => $list) {
+            if (count($list) >= 5) {
+                sort($list);
+                $typical[$index] = $list[(int) ceil(count($list) * 0.8) - 1];
+            }
+        }
+        return $typical;
+    }
+
+    /** Day of a stage at the given time; the day it started is day 1 */
+    private static function dayNumber(int $start, int $time): int
+    {
+        return max(0, (int) floor(($time - $start) / 86400)) + 1;
     }
 
     private function resolveStage(Submission $submission): ?array
@@ -513,10 +671,11 @@ class JournalMetricsThemePlugin extends ThemePlugin
     }
 
     /**
-     * Rows of the journal information section, in display order: ['label' =>
-     * locale key, 'value' => string, 'html' => bool]. Title, ISSNs and the DOI
-     * prefix come from the journal settings, the rest from the theme options;
-     * empty rows are left out.
+     * The journal information section as groups of rows in display order:
+     * group => [['label' => locale key, 'value' => string, 'html' => bool], ...].
+     * Title, ISSNs and the DOI prefix come from the journal settings, the rest
+     * from the theme options; empty rows and groups are left out. Rows of the
+     * "figures" group also carry the parts of splitFigure().
      */
     public function getJournalInfo(): array
     {
@@ -525,29 +684,46 @@ class JournalMetricsThemePlugin extends ThemePlugin
             return [];
         }
         $option = fn (string $name): array => [self::INFO_OPTIONS[$name][0], $this->getLocalizedText($name), self::INFO_OPTIONS[$name][1]];
-        $rows = [
-            ['plugins.themes.journalMetrics.info.journalTitle', $context->getLocalizedName(), false],
-            $option('infoIndexing'),
-            ['plugins.themes.journalMetrics.info.onlineIssn', $context->getData('onlineIssn'), false],
-            ['plugins.themes.journalMetrics.info.printIssn', $context->getData('printIssn'), false],
-            $option('infoFrequency'),
-            ['plugins.themes.journalMetrics.info.doiPrefix', $context->getData('enableDois') ? $context->getData('doiPrefix') : '', false],
-            $option('infoEditorInChief'),
-            $option('infoManagingEditor'),
-            $option('infoOrganizedBy'),
-            $option('infoCitationAnalysis'),
-            $option('infoAcceptanceRate'),
-            $option('infoReviewSpeed'),
+        $groups = [
+            'title' => [
+                ['plugins.themes.journalMetrics.info.journalTitle', $context->getLocalizedName(), false],
+            ],
+            'identity' => [
+                ['plugins.themes.journalMetrics.info.onlineIssn', $context->getData('onlineIssn'), false],
+                ['plugins.themes.journalMetrics.info.printIssn', $context->getData('printIssn'), false],
+                ['plugins.themes.journalMetrics.info.doiPrefix', $context->getData('enableDois') ? $context->getData('doiPrefix') : '', false],
+            ],
+            'figures' => [$option('infoFrequency'), $option('infoAcceptanceRate'), $option('infoReviewSpeed')],
+            'dates' => [$option('infoPublicationDates')],
+            'indexing' => [$option('infoIndexing'), $option('infoCitationAnalysis')],
+            'people' => [$option('infoEditorInChief'), $option('infoManagingEditor'), $option('infoOrganizedBy')],
         ];
         $info = [];
-        foreach ($rows as [$label, $value, $html]) {
-            $value = trim((string) $value);
-            // A cleared rich-text field can still hold empty tags such as <p></p>
-            if (trim(strip_tags($value)) !== '') {
-                $info[] = ['label' => $label, 'value' => $value, 'html' => $html];
+        foreach ($groups as $group => $rows) {
+            foreach ($rows as [$label, $value, $html]) {
+                $value = trim((string) $value);
+                // A cleared rich-text field can still hold empty tags such as <p></p>
+                if (trim(strip_tags($value)) !== '') {
+                    $info[$group][] = ['label' => $label, 'value' => $value, 'html' => $html]
+                        + ($group === 'figures' ? self::splitFigure($value) : []);
+                }
             }
         }
         return $info;
+    }
+
+    /**
+     * A key figure split into its leading number and the words after it, so
+     * "90 days" is shown as a large "90" and a small "days": ['figure' => '90',
+     * 'unit' => 'days']. A value that does not start with a number keeps all
+     * of its text in 'unit'.
+     */
+    public static function splitFigure(string $value): array
+    {
+        if (preg_match('/^(\p{Nd}(?:[\p{Nd}.,٫٬–-]*\p{Nd})?(?:\s?[%٪])?)\s*(.*)$/su', $value, $m)) {
+            return ['figure' => $m[1], 'unit' => $m[2]];
+        }
+        return ['figure' => '', 'unit' => $value];
     }
 
     /**

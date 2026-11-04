@@ -70,40 +70,31 @@ msgid "plugins.themes.journalMetrics.workflow.title"
 msgstr "من الإرسال إلى النشر"
 
 msgid "plugins.themes.journalMetrics.workflow.lead"
-msgstr "المدد القصوى للمراحل كما حدّدتها المجلة."
+msgstr "المدة المعتادة لكل مرحلة، محسوبة من مخطوطات المجلة في السنتين الأخيرتين."
+
+msgid "plugins.themes.journalMetrics.workflow.term"
+msgstr "حتى {$days} يومًا"
+
+msgid "plugins.themes.journalMetrics.workflow.termOneDay"
+msgstr "خلال يوم واحد"
+
+msgid "plugins.themes.journalMetrics.workflow.note"
+msgstr "هذه مدد معتادة وليست مضمونة: أنهى 80% من المخطوطات كل مرحلة خلال المدة المبيّنة، واستغرقت الـ 20% الباقية وقتًا أطول."
 
 msgid "plugins.themes.journalMetrics.workflow.screening"
 msgstr "الفحص الأولي"
 
-msgid "plugins.themes.journalMetrics.workflow.screening.term"
-msgstr "حتى 10 أيام عمل"
-
 msgid "plugins.themes.journalMetrics.workflow.review"
 msgstr "التحكيم"
-
-msgid "plugins.themes.journalMetrics.workflow.review.term"
-msgstr "حتى 90 يومًا تقويميًا"
 
 msgid "plugins.themes.journalMetrics.workflow.revision"
 msgstr "المراجعة والتعديل"
 
-msgid "plugins.themes.journalMetrics.workflow.revision.term"
-msgstr "حتى 30 يومًا تقويميًا"
-
 msgid "plugins.themes.journalMetrics.workflow.copyediting"
 msgstr "التدقيق اللغوي"
 
-msgid "plugins.themes.journalMetrics.workflow.copyediting.term"
-msgstr "حتى 14 يوم عمل"
-
 msgid "plugins.themes.journalMetrics.workflow.proofreading"
 msgstr "التصحيح والإخراج"
-
-msgid "plugins.themes.journalMetrics.workflow.proofreading.term"
-msgstr "حتى 14 يوم عمل"
-
-msgid "plugins.themes.journalMetrics.workflow.note"
-msgstr "عرض المقاطع متناسب مع عدد الأيام؛ وتُعرض أيام العمل والأيام التقويمية كما تحدّدها المجلة."
 
 msgid "plugins.themes.journalMetrics.list.title"
 msgstr "جميع مقالات العدد"
@@ -192,6 +183,15 @@ msgstr "يُؤخذ عنوان المجلة ورقم ISSN وبادئة DOI من �
 msgid "plugins.themes.journalMetrics.option.info.field"
 msgstr "معلومات المجلة: {$field}"
 
+msgid "plugins.themes.journalMetrics.option.info.onePerLine"
+msgstr "ضع كل عنصر في سطر مستقل."
+
+msgid "plugins.themes.journalMetrics.option.info.videoGuides"
+msgstr "ضع كل فيديو في سطر مستقل، واجعل عنوانه رابطاً إلى الفيديو (على YouTube مثلاً)."
+
+msgid "plugins.themes.journalMetrics.option.info.downloads"
+msgstr "ضع كل ملف في سطر مستقل واجعل اسمه رابطاً إلى الملف. لاستضافة ملف، ارفعه في المكتبة الناشرة (الإعدادات، ثم المخطط الانسيابي)، وفعّل الإتاحة للعامة، ثم انسخ رابط تنزيله."
+
 msgid "plugins.themes.journalMetrics.info.heading"
 msgstr "معلومات المجلة"
 
@@ -209,6 +209,9 @@ msgstr "ISSN المطبوع"
 
 msgid "plugins.themes.journalMetrics.info.frequency"
 msgstr "دورية الصدور"
+
+msgid "plugins.themes.journalMetrics.info.publicationDates"
+msgstr "مواعيد الصدور"
 
 msgid "plugins.themes.journalMetrics.info.doiPrefix"
 msgstr "بادئة DOI"
@@ -234,20 +237,20 @@ msgstr "مدة التحكيم"
 msgid "plugins.themes.journalMetrics.info.submissionNote"
 msgstr "ملاحظة قبل الإرسال"
 
+msgid "plugins.themes.journalMetrics.info.downloads"
+msgstr "القوالب والنماذج"
+
 msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
 msgstr "الإرسال الإلكتروني"
 
-msgid "plugins.themes.journalMetrics.info.haveAccount"
-msgstr "هل لديك اسم مستخدم وكلمة مرور في {$journal}؟"
-
 msgid "plugins.themes.journalMetrics.info.goToLogin"
-msgstr "انتقل إلى تسجيل الدخول"
-
-msgid "plugins.themes.journalMetrics.info.needAccount"
-msgstr "هل تحتاج إلى اسم مستخدم وكلمة مرور؟"
+msgstr "تسجيل الدخول"
 
 msgid "plugins.themes.journalMetrics.info.goToRegistration"
-msgstr "انتقل إلى التسجيل"
+msgstr "إنشاء حساب"
 
 msgid "plugins.themes.journalMetrics.info.registrationRequired"
-msgstr "التسجيل وتسجيل الدخول مطلوبان لإرسال البحوث إلكترونياً ولمتابعة حالة البحوث المرسلة."
+msgstr "تحتاج إلى حساب لإرسال بحثك ومتابعة حالته."
+
+msgid "plugins.themes.journalMetrics.info.videoGuides"
+msgstr "شروحات بالفيديو"
