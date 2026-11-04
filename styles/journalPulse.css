@@ -1295,6 +1295,12 @@ button:focus-visible {
 	padding: 0;
 }
 
+/* Short stages get only the minimum width: the current one widens to keep its
+   badge and day line on one line, and shrinks back when the line runs out of room */
+.jm_flow li.is_current {
+	flex-basis: auto;
+}
+
 .jm_flow_bar {
 	position: relative;
 	display: block;

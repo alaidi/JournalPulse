@@ -474,13 +474,14 @@ class JournalPulseThemePlugin extends ThemePlugin
             }
         }
         $startTime = $start ? strtotime((string) $start) : false;
-        $elapsed = $startTime ? self::dayNumber($startTime, time()) - 1 : 0;
-        $percent = (int) round($elapsed / $total * 100);
+        $day = $startTime ? self::dayNumber($startTime, time()) : 1;
+        // Same numbers as the "Day {day} of {total}" label: day 2 of 2 is 100%, not 50%
+        $percent = (int) round($day / $total * 100);
         return [
-            'day' => $elapsed + 1,
+            'day' => $day,
             'total' => $total,
             'percent' => min(100, max(1, $percent)),
-            'over' => $elapsed >= $total,
+            'over' => $day > $total,
         ];
     }
 
