@@ -796,6 +796,20 @@ button:focus-visible {
 	color: var(--jm-ink-soft);
 }
 
+/* The current issue's cover, between the journal name and the buttons */
+.jm_hero_cover {
+	display: inline-block;
+	margin: 0 0 28px;
+}
+
+.jm_hero_cover img {
+	display: block;
+	max-width: 100%;
+	max-height: clamp(160px, 16vw, 240px);
+	border-radius: 6px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.14);
+}
+
 .jm_hero_actions {
 	display: flex;
 	flex-wrap: wrap;
@@ -1277,32 +1291,6 @@ button:focus-visible {
 	font-size: 15px;
 	line-height: 1.5;
 	color: var(--jm-ink-soft);
-}
-
-/* Workflow band: the cover of the current issue at the end of the line, beside
-   it on wide screens and under it when the line needs the room */
-.jm_workflow_grid {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 32px clamp(32px, 4vw, 64px);
-}
-
-.jm_workflow_main {
-	flex: 1 1 640px;
-	min-width: 0;
-}
-
-.jm_workflow_cover {
-	flex: 0 1 auto;
-}
-
-.jm_workflow_cover img {
-	display: block;
-	max-width: 100%;
-	max-height: clamp(160px, 16vw, 240px);
-	border-radius: 6px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.14);
 }
 
 /* Workflow line */

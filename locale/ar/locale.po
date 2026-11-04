@@ -36,7 +36,19 @@ msgstr "سير العمل التحريري"
 msgid "plugins.themes.journalPulse.option.workflow.option"
 msgstr "عرض شريط المراحل التحريرية ومددها القصوى في الصفحة الرئيسية."
 
-msgid "plugins.themes.journalPulse.eyebrow"
+msgid "plugins.themes.journalPulse.option.openAccess.label"
+msgstr "نموذج الوصول المفتوح"
+
+msgid "plugins.themes.journalPulse.option.openAccess.description"
+msgstr "يظهر فوق اسم المجلة في الصفحة الرئيسية إذا كانت المجلة مفتوحة الوصول. الذهبي: القراءة مجانية، وقد يدفع المؤلفون رسوم نشر. الماسي: القراءة والنشر مجانيان."
+
+msgid "plugins.themes.journalPulse.eyebrow.open"
+msgstr "وصول مفتوح"
+
+msgid "plugins.themes.journalPulse.eyebrow.gold"
+msgstr "وصول مفتوح ذهبي"
+
+msgid "plugins.themes.journalPulse.eyebrow.diamond"
 msgstr "وصول مفتوح ماسي"
 
 msgid "plugins.themes.journalPulse.hero.currentIssue"

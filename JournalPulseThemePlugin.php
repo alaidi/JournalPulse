@@ -124,6 +124,18 @@ class JournalPulseThemePlugin extends ThemePlugin
             'isMultilingual' => true,
             'default' => '',
         ]);
+        // OJS only records that a journal is open access, not which model, so the journal chooses
+        $this->addOption('openAccessModel', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.journalPulse.option.openAccess.label'),
+            'description' => __('plugins.themes.journalPulse.option.openAccess.description'),
+            'options' => [
+                ['value' => 'open', 'label' => __('plugins.themes.journalPulse.eyebrow.open')],
+                ['value' => 'gold', 'label' => __('plugins.themes.journalPulse.eyebrow.gold')],
+                ['value' => 'diamond', 'label' => __('plugins.themes.journalPulse.eyebrow.diamond')],
+            ],
+            'default' => 'open',
+        ]);
         $this->addOption('showHeroStats', 'FieldOptions', [
             'label' => __('plugins.themes.journalPulse.option.heroStats.label'),
             'options' => [

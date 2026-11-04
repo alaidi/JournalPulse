@@ -36,7 +36,19 @@ msgstr "Редакційний процес"
 msgid "plugins.themes.journalPulse.option.workflow.option"
 msgstr "Показувати на головній сторінці смугу з етапами редакційного процесу та їх максимальною тривалістю."
 
-msgid "plugins.themes.journalPulse.eyebrow"
+msgid "plugins.themes.journalPulse.option.openAccess.label"
+msgstr "Модель відкритого доступу"
+
+msgid "plugins.themes.journalPulse.option.openAccess.description"
+msgstr "Показується над назвою журналу на головній сторінці, якщо журнал має відкритий доступ. Золотий: читання безкоштовне, автори можуть сплачувати внесок за публікацію. Діамантовий: читання й публікація безкоштовні."
+
+msgid "plugins.themes.journalPulse.eyebrow.open"
+msgstr "Відкритий доступ"
+
+msgid "plugins.themes.journalPulse.eyebrow.gold"
+msgstr "Золотий відкритий доступ"
+
+msgid "plugins.themes.journalPulse.eyebrow.diamond"
 msgstr "Діамантовий відкритий доступ"
 
 msgid "plugins.themes.journalPulse.hero.currentIssue"

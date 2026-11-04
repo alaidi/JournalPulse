@@ -36,7 +36,19 @@ msgstr "Editorial workflow"
 msgid "plugins.themes.journalPulse.option.workflow.option"
 msgstr "Show the strip with editorial stages and their maximum durations on the home page."
 
-msgid "plugins.themes.journalPulse.eyebrow"
+msgid "plugins.themes.journalPulse.option.openAccess.label"
+msgstr "Open access model"
+
+msgid "plugins.themes.journalPulse.option.openAccess.description"
+msgstr "Shown above the journal name on the home page when the journal is open access. Gold: free to read; authors may pay a publication fee. Diamond: free to read and free to publish."
+
+msgid "plugins.themes.journalPulse.eyebrow.open"
+msgstr "Open access"
+
+msgid "plugins.themes.journalPulse.eyebrow.gold"
+msgstr "Gold open access"
+
+msgid "plugins.themes.journalPulse.eyebrow.diamond"
 msgstr "Diamond open access"
 
 msgid "plugins.themes.journalPulse.hero.currentIssue"
