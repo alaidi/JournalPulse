@@ -796,29 +796,22 @@ button:focus-visible {
 	color: var(--jm-ink-soft);
 }
 
-/* The current issue's cover under the journal name fills the row, with the buttons stacked
-   beside it (after it in the DOM: right in LTR, left in RTL); on narrow screens they drop under it */
-.jm_hero_feature {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 24px 32px;
-}
-
+/* The current issue's cover under the journal name: as wide as the column allows, up to 320px tall */
 .jm_hero_cover {
-	flex: 1 1 280px;
-	min-width: 0;
-	max-width: fit-content; /* no wider than the image, so the buttons stay beside a portrait cover */
+	display: block;
+	width: fit-content; /* the link is no wider than the image */
+	max-width: 100%;
 }
 
 .jm_hero_cover img {
 	display: block;
 	max-width: 100%;
-	max-height: 320px; /* a portrait cover stays this tall instead of growing with the width */
+	max-height: 320px;
 	border-radius: 6px;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.14);
 }
 
+/* The buttons follow the usage numbers' source line, or the cover when those are off */
 .jm_hero_actions {
 	display: flex;
 	flex-wrap: wrap;
@@ -826,9 +819,8 @@ button:focus-visible {
 	margin: 0;
 }
 
-.jm_hero_cover + .jm_hero_actions {
-	flex-direction: column;
-	text-align: center;
+:is(.jm_hero_cover, .jm_source) + .jm_hero_actions {
+	margin-top: 24px;
 }
 
 .jm_stats {

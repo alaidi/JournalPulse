@@ -42,21 +42,27 @@
 				{if $jmLead}
 					<p class="jm_lead">{$jmLead|truncate:320:"…":true}</p>
 				{/if}
-				<div class="jm_hero_feature">
-					{if $jmCover}
-						{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
-						<a class="jm_hero_cover" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-							<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
-						</a>
-					{/if}
+				{if $jmCover}
+					{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
+					<a class="jm_hero_cover" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+						<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
+					</a>
+				{/if}
+				{* The buttons sit under the usage numbers; without them, under the cover *}
+				{capture assign="jmHeroActions"}
 					<p class="jm_hero_actions">
 						<a class="jm_btn jm_btn_primary" href="{url page="issue" op="current"}">{translate key="plugins.themes.journalPulse.hero.currentIssue"}</a>
 						<a class="jm_btn jm_btn_ghost" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalPulse.hero.forAuthors"}</a>
 					</p>
-				</div>
+				{/capture}
+				{assign var="jmShowStats" value=false}
+				{if $issue && $activeTheme->getOption('showHeroStats')}
+					{assign var="jmShowStats" value=true}
+				{/if}
+				{if !$jmShowStats}{$jmHeroActions}{/if}
 			</div>
 
-			{if $issue && $activeTheme->getOption('showHeroStats')}
+			{if $jmShowStats}
 				<div class="jm_hero_stats">
 					<ul class="jm_stats">
 						<li>
@@ -79,6 +85,7 @@
 						{/if}
 					</ul>
 					<p class="jm_source">{translate key="plugins.themes.journalPulse.stats.source"}</p>
+					{$jmHeroActions}
 				</div>
 			{/if}
 		</div>
