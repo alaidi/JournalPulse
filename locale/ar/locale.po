@@ -78,6 +78,12 @@ msgstr "حتى {$days} يومًا"
 msgid "plugins.themes.journalMetrics.workflow.termOneDay"
 msgstr "خلال يوم واحد"
 
+msgid "plugins.themes.journalMetrics.workflow.termTwoDays"
+msgstr "حتى يومين"
+
+msgid "plugins.themes.journalMetrics.workflow.termFewDays"
+msgstr "حتى {$days} أيام"
+
 msgid "plugins.themes.journalMetrics.workflow.note"
 msgstr "هذه مدد معتادة وليست مضمونة: أنهى 80% من المخطوطات كل مرحلة خلال المدة المبيّنة، واستغرقت الـ 20% الباقية وقتًا أطول."
 
@@ -157,10 +163,10 @@ msgid "plugins.themes.journalMetrics.workflow.progress"
 msgstr "اليوم {$day} من {$total} · {$percent}%"
 
 msgid "plugins.themes.journalMetrics.workflow.progressOver"
-msgstr "اليوم {$day} · تم تجاوز المدة المعتادة البالغة {$total} يومًا"
+msgstr "اليوم {$day} · تجاوز المدة المعتادة التي تنتهي في اليوم {$total}"
 
 msgid "plugins.themes.journalMetrics.workflow.progressHint"
-msgstr "المدة المعتادة للمرحلة: {$total} يومًا"
+msgstr "تنتهي المدة المعتادة للمرحلة في اليوم {$total}"
 
 msgid "plugins.themes.journalMetrics.header.languageIcon"
 msgstr "اللغة"

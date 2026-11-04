@@ -78,6 +78,12 @@ msgstr "up to {$days} days"
 msgid "plugins.themes.journalMetrics.workflow.termOneDay"
 msgstr "within a day"
 
+msgid "plugins.themes.journalMetrics.workflow.termTwoDays"
+msgstr "up to 2 days"
+
+msgid "plugins.themes.journalMetrics.workflow.termFewDays"
+msgstr "up to {$days} days"
+
 msgid "plugins.themes.journalMetrics.workflow.note"
 msgstr "These are typical times, not guarantees: 80% of manuscripts finished each stage within the time shown, and the other 20% took longer."
 

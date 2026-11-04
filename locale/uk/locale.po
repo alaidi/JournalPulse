@@ -78,6 +78,12 @@ msgstr "до {$days} днів"
 msgid "plugins.themes.journalMetrics.workflow.termOneDay"
 msgstr "протягом одного дня"
 
+msgid "plugins.themes.journalMetrics.workflow.termTwoDays"
+msgstr "до 2 днів"
+
+msgid "plugins.themes.journalMetrics.workflow.termFewDays"
+msgstr "до {$days} днів"
+
 msgid "plugins.themes.journalMetrics.workflow.note"
 msgstr "Це типові строки, а не гарантія: 80 % рукописів пройшли кожен етап за вказаний час, решта 20 % — довше."
 
