@@ -163,7 +163,8 @@ button:focus-visible {
 	padding: 0;
 }
 
-/* Text pages keep a readable line length; list pages use the full width */
+/* Text pages keep a readable line length; list pages use the full width. The editorial
+   team (a static page at about/editorialTeam since OJS 3.5 dropped it) lists people */
 .pkp_structure_main > .page {
 	max-width: 1080px;
 }
@@ -171,7 +172,8 @@ button:focus-visible {
 .pkp_page_article .pkp_structure_main > .page,
 .pkp_page_issue .pkp_structure_main > .page,
 .pkp_page_search .pkp_structure_main > .page,
-.pkp_page_catalog .pkp_structure_main > .page {
+.pkp_page_catalog .pkp_structure_main > .page,
+.pkp_op_editorialTeam .pkp_structure_main > .page {
 	max-width: none;
 }
 
