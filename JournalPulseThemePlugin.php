@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @file plugins/themes/journalMetrics/JournalMetricsThemePlugin.php
+ * @file plugins/themes/journalMetrics/JournalPulseThemePlugin.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class JournalMetricsThemePlugin
+ * @class JournalPulseThemePlugin
  *
  * @brief Child theme of the OJS 3.5 default theme. It adds a numbers-first
  *  home page (usage statistics, editorial workflow, list of the latest issue),
@@ -33,7 +33,7 @@ use PKP\decision\Collector as DecisionCollector;
 use PKP\decision\Decision;
 use PKP\security\Role;
 
-class JournalMetricsThemePlugin extends ThemePlugin
+class JournalPulseThemePlugin extends ThemePlugin
 {
     /** Default accent colour (passes WCAG AA contrast with white text) */
     public const DEFAULT_ACCENT = '#C2410C';
@@ -199,6 +199,16 @@ class JournalMetricsThemePlugin extends ThemePlugin
 
         // Search-engine markup (canonical links, JSON-LD)
         Hook::add('TemplateManager::display', $this->onTemplateDisplay(...));
+    }
+
+    /**
+     * The name OJS stores the theme options and the "enabled" flag under. It
+     * stays the class's name before the rename to Journal Pulse, so journals
+     * keep their theme and its settings.
+     */
+    public function getName()
+    {
+        return 'JournalMetricsThemePlugin';
     }
 
     /**
@@ -939,6 +949,10 @@ class JournalMetricsThemePlugin extends ThemePlugin
     }
 }
 
+// Installs set up before the rename still name the old class in OJS's
+// versions table, and OJS checks the loaded theme against that name.
+class_alias(JournalPulseThemePlugin::class, __NAMESPACE__ . '\JournalMetricsThemePlugin');
+
 if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\themes\journalMetrics\JournalMetricsThemePlugin', '\JournalMetricsThemePlugin');
+    class_alias('\APP\plugins\themes\journalMetrics\JournalPulseThemePlugin', '\JournalPulseThemePlugin');
 }

@@ -5,7 +5,7 @@
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Wrapper for the Journal Metrics theme plugin.
+ * @brief Wrapper for the Journal Pulse theme plugin.
  */
 
-return new \APP\plugins\themes\journalMetrics\JournalMetricsThemePlugin();
+return new \APP\plugins\themes\journalMetrics\JournalPulseThemePlugin();

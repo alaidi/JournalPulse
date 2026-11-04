@@ -14,7 +14,7 @@
 
 namespace APP\plugins\themes\journalMetrics\tests;
 
-use APP\plugins\themes\journalMetrics\JournalMetricsThemePlugin;
+use APP\plugins\themes\journalMetrics\JournalPulseThemePlugin;
 use PKP\tests\PKPTestCase;
 
 class JournalInfoTest extends PKPTestCase
@@ -32,7 +32,7 @@ class JournalInfoTest extends PKPTestCase
             'Quarterly' => ['', 'Quarterly'],
         ];
         foreach ($cases as $value => [$figure, $unit]) {
-            $this->assertSame(['figure' => $figure, 'unit' => $unit], JournalMetricsThemePlugin::splitFigure($value), $value);
+            $this->assertSame(['figure' => $figure, 'unit' => $unit], JournalPulseThemePlugin::splitFigure($value), $value);
         }
     }
 }

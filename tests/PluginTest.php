@@ -24,7 +24,7 @@ class PluginTest extends PKPTestCase
     protected function classes(): array
     {
         return [
-            \APP\plugins\themes\journalMetrics\JournalMetricsThemePlugin::class,
+            \APP\plugins\themes\journalMetrics\JournalPulseThemePlugin::class,
         ];
     }
 
@@ -80,5 +80,14 @@ class PluginTest extends PKPTestCase
                 $this->assertSame((string) $parent->getProperty($property->getName())->getType(), (string) $property->getType(), "{$class}::\${$property->getName()}");
             }
         }
+    }
+
+    public function testJournalsKeepTheThemeAfterTheRenameToJournalPulse(): void
+    {
+        // Theme options and the "enabled" flag are stored under the plugin's name,
+        // and older installs name the old class in OJS's versions table.
+        $plugin = new \APP\plugins\themes\journalMetrics\JournalPulseThemePlugin();
+        $this->assertSame('JournalMetricsThemePlugin', $plugin->getName());
+        $this->assertInstanceOf('APP\plugins\themes\journalMetrics\JournalMetricsThemePlugin', $plugin);
     }
 }
