@@ -6,257 +6,257 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "plugins.themes.journalMetrics.name"
+msgid "plugins.themes.journalPulse.name"
 msgstr "Journal Pulse Theme"
 
-msgid "plugins.themes.journalMetrics.description"
+msgid "plugins.themes.journalPulse.description"
 msgstr "A child theme of the default theme. Numbers-first home page with usage statistics, the editorial workflow and the full list of the latest issue; usage block on article pages; canonical links and schema.org markup for search engines."
 
-msgid "plugins.themes.journalMetrics.option.accent.label"
+msgid "plugins.themes.journalPulse.option.accent.label"
 msgstr "Accent colour"
 
-msgid "plugins.themes.journalMetrics.option.accent.description"
+msgid "plugins.themes.journalPulse.option.accent.description"
 msgstr "Colour of buttons, numbers and bars. Use a dark shade so that white text on it stays readable."
 
-msgid "plugins.themes.journalMetrics.option.tagline.label"
+msgid "plugins.themes.journalPulse.option.tagline.label"
 msgstr "Home page tagline"
 
-msgid "plugins.themes.journalMetrics.option.tagline.description"
+msgid "plugins.themes.journalPulse.option.tagline.description"
 msgstr "Optional second part of the home page title, printed in the accent colour after the journal name."
 
-msgid "plugins.themes.journalMetrics.option.heroStats.label"
+msgid "plugins.themes.journalPulse.option.heroStats.label"
 msgstr "Usage numbers"
 
-msgid "plugins.themes.journalMetrics.option.heroStats.option"
+msgid "plugins.themes.journalPulse.option.heroStats.option"
 msgstr "Show article, view and PDF counters of the current issue on the home page."
 
-msgid "plugins.themes.journalMetrics.option.workflow.label"
+msgid "plugins.themes.journalPulse.option.workflow.label"
 msgstr "Editorial workflow"
 
-msgid "plugins.themes.journalMetrics.option.workflow.option"
+msgid "plugins.themes.journalPulse.option.workflow.option"
 msgstr "Show the strip with editorial stages and their maximum durations on the home page."
 
-msgid "plugins.themes.journalMetrics.eyebrow"
+msgid "plugins.themes.journalPulse.eyebrow"
 msgstr "Diamond open access"
 
-msgid "plugins.themes.journalMetrics.hero.currentIssue"
+msgid "plugins.themes.journalPulse.hero.currentIssue"
 msgstr "Current issue"
 
-msgid "plugins.themes.journalMetrics.hero.forAuthors"
+msgid "plugins.themes.journalPulse.hero.forAuthors"
 msgstr "Instructions for authors"
 
-msgid "plugins.themes.journalMetrics.header.submit"
+msgid "plugins.themes.journalPulse.header.submit"
 msgstr "Submit manuscript"
 
-msgid "plugins.themes.journalMetrics.header.language"
+msgid "plugins.themes.journalPulse.header.language"
 msgstr "Language"
 
-msgid "plugins.themes.journalMetrics.stats.articles"
+msgid "plugins.themes.journalPulse.stats.articles"
 msgstr "articles in the issue"
 
-msgid "plugins.themes.journalMetrics.stats.views"
+msgid "plugins.themes.journalPulse.stats.views"
 msgstr "article views"
 
-msgid "plugins.themes.journalMetrics.stats.pdf"
+msgid "plugins.themes.journalPulse.stats.pdf"
 msgstr "PDF views"
 
-msgid "plugins.themes.journalMetrics.stats.source"
+msgid "plugins.themes.journalPulse.stats.source"
 msgstr "Source: usage statistics of this journal, refreshed hourly."
 
-msgid "plugins.themes.journalMetrics.workflow.eyebrow"
+msgid "plugins.themes.journalPulse.workflow.eyebrow"
 msgstr "Editorial workflow"
 
-msgid "plugins.themes.journalMetrics.workflow.title"
+msgid "plugins.themes.journalPulse.workflow.title"
 msgstr "From submission to publication"
 
-msgid "plugins.themes.journalMetrics.workflow.lead"
+msgid "plugins.themes.journalPulse.workflow.lead"
 msgstr "How long each stage usually takes, measured from the journal's manuscripts of the last two years."
 
-msgid "plugins.themes.journalMetrics.workflow.term"
+msgid "plugins.themes.journalPulse.workflow.term"
 msgstr "up to {$days} days"
 
-msgid "plugins.themes.journalMetrics.workflow.termOneDay"
+msgid "plugins.themes.journalPulse.workflow.termOneDay"
 msgstr "within a day"
 
-msgid "plugins.themes.journalMetrics.workflow.termTwoDays"
+msgid "plugins.themes.journalPulse.workflow.termTwoDays"
 msgstr "up to 2 days"
 
-msgid "plugins.themes.journalMetrics.workflow.termFewDays"
+msgid "plugins.themes.journalPulse.workflow.termFewDays"
 msgstr "up to {$days} days"
 
-msgid "plugins.themes.journalMetrics.workflow.note"
+msgid "plugins.themes.journalPulse.workflow.note"
 msgstr "These are typical times, not guarantees: 80% of manuscripts finished each stage within the time shown, and the other 20% took longer."
 
-msgid "plugins.themes.journalMetrics.workflow.screening"
+msgid "plugins.themes.journalPulse.workflow.screening"
 msgstr "Initial screening"
 
-msgid "plugins.themes.journalMetrics.workflow.review"
+msgid "plugins.themes.journalPulse.workflow.review"
 msgstr "Peer review"
 
-msgid "plugins.themes.journalMetrics.workflow.revision"
+msgid "plugins.themes.journalPulse.workflow.revision"
 msgstr "Revision"
 
-msgid "plugins.themes.journalMetrics.workflow.copyediting"
+msgid "plugins.themes.journalPulse.workflow.copyediting"
 msgstr "Copyediting"
 
-msgid "plugins.themes.journalMetrics.workflow.proofreading"
+msgid "plugins.themes.journalPulse.workflow.proofreading"
 msgstr "Proofreading and layout"
 
-msgid "plugins.themes.journalMetrics.list.title"
+msgid "plugins.themes.journalPulse.list.title"
 msgstr "All articles in the issue"
 
-msgid "plugins.themes.journalMetrics.list.views"
+msgid "plugins.themes.journalPulse.list.views"
 msgstr "views"
 
-msgid "plugins.themes.journalMetrics.list.viewPdf"
+msgid "plugins.themes.journalPulse.list.viewPdf"
 msgstr "View PDF"
 
-msgid "plugins.themes.journalMetrics.list.viewPdfFor"
+msgid "plugins.themes.journalPulse.list.viewPdfFor"
 msgstr "View PDF: {$title}"
 
-msgid "plugins.themes.journalMetrics.footer.issn"
+msgid "plugins.themes.journalPulse.footer.issn"
 msgstr "ISSN {$issn}"
 
-msgid "plugins.themes.journalMetrics.usage.title"
+msgid "plugins.themes.journalPulse.usage.title"
 msgstr "Usage"
 
-msgid "plugins.themes.journalMetrics.usage.views"
+msgid "plugins.themes.journalPulse.usage.views"
 msgstr "Views of this page"
 
-msgid "plugins.themes.journalMetrics.usage.pdf"
+msgid "plugins.themes.journalPulse.usage.pdf"
 msgstr "PDF views"
 
-msgid "plugins.themes.journalMetrics.usage.html"
+msgid "plugins.themes.journalPulse.usage.html"
 msgstr "HTML views"
 
-msgid "plugins.themes.journalMetrics.option.workflowCurrent.label"
+msgid "plugins.themes.journalPulse.option.workflowCurrent.label"
 msgstr "Current stage marker"
 
-msgid "plugins.themes.journalMetrics.option.workflowCurrent.option"
+msgid "plugins.themes.journalPulse.option.workflowCurrent.option"
 msgstr "Mark on the workflow line the stage of the most recent manuscript in progress (only the stage is shown, never the title or author)."
 
-msgid "plugins.themes.journalMetrics.stats.pages"
+msgid "plugins.themes.journalPulse.stats.pages"
 msgstr "pages in the issue"
 
-msgid "plugins.themes.journalMetrics.workflow.current"
+msgid "plugins.themes.journalPulse.workflow.current"
 msgstr "The latest submission is at this stage"
 
-msgid "plugins.themes.journalMetrics.mostRead.eyebrow"
+msgid "plugins.themes.journalPulse.mostRead.eyebrow"
 msgstr "Two latest issues"
 
-msgid "plugins.themes.journalMetrics.mostRead.title"
+msgid "plugins.themes.journalPulse.mostRead.title"
 msgstr "Most read articles"
 
-msgid "plugins.themes.journalMetrics.article.pages"
+msgid "plugins.themes.journalPulse.article.pages"
 msgstr "Pages"
 
-msgid "plugins.themes.journalMetrics.article.details"
+msgid "plugins.themes.journalPulse.article.details"
 msgstr "Article details"
 
-msgid "plugins.themes.journalMetrics.article.journal"
+msgid "plugins.themes.journalPulse.article.journal"
 msgstr "Journal"
 
-msgid "plugins.themes.journalMetrics.workflow.currentMine"
+msgid "plugins.themes.journalPulse.workflow.currentMine"
 msgstr "Your submission is at this stage"
 
-msgid "plugins.themes.journalMetrics.workflow.progress"
+msgid "plugins.themes.journalPulse.workflow.progress"
 msgstr "Day {$day} of {$total} · {$percent}%"
 
-msgid "plugins.themes.journalMetrics.workflow.progressOver"
+msgid "plugins.themes.journalPulse.workflow.progressOver"
 msgstr "Day {$day} · typical term of {$total} days exceeded"
 
-msgid "plugins.themes.journalMetrics.workflow.progressHint"
+msgid "plugins.themes.journalPulse.workflow.progressHint"
 msgstr "Typical term of the stage: {$total} days"
 
-msgid "plugins.themes.journalMetrics.header.languageIcon"
+msgid "plugins.themes.journalPulse.header.languageIcon"
 msgstr "Language"
 
-msgid "plugins.themes.journalMetrics.footer.developedBy"
+msgid "plugins.themes.journalPulse.footer.developedBy"
 msgstr "Theme developed by"
 
-msgid "plugins.themes.journalMetrics.header.openMenu"
+msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "Open Menu"
 
-msgid "plugins.themes.journalMetrics.option.info.label"
+msgid "plugins.themes.journalPulse.option.info.label"
 msgstr "Journal information"
 
-msgid "plugins.themes.journalMetrics.option.info.option"
+msgid "plugins.themes.journalPulse.option.info.option"
 msgstr "Show the journal information section on the home page."
 
-msgid "plugins.themes.journalMetrics.option.info.description"
+msgid "plugins.themes.journalPulse.option.info.description"
 msgstr "The journal title, ISSN and DOI prefix come from the journal settings. Fill in the fields below; empty fields are not shown."
 
-msgid "plugins.themes.journalMetrics.option.info.field"
+msgid "plugins.themes.journalPulse.option.info.field"
 msgstr "Journal information: {$field}"
 
-msgid "plugins.themes.journalMetrics.option.info.onePerLine"
+msgid "plugins.themes.journalPulse.option.info.onePerLine"
 msgstr "Put each item on its own line."
 
-msgid "plugins.themes.journalMetrics.option.info.videoGuides"
+msgid "plugins.themes.journalPulse.option.info.videoGuides"
 msgstr "Put each video on its own line and link its title to the video, for example on YouTube."
 
-msgid "plugins.themes.journalMetrics.option.info.downloads"
+msgid "plugins.themes.journalPulse.option.info.downloads"
 msgstr "Put each file on its own line and link its name to the file. To host a file, upload it in Settings → Workflow → Publisher Library, turn on Public Access and copy its download link."
 
-msgid "plugins.themes.journalMetrics.info.heading"
+msgid "plugins.themes.journalPulse.info.heading"
 msgstr "Journal information"
 
-msgid "plugins.themes.journalMetrics.info.journalTitle"
+msgid "plugins.themes.journalPulse.info.journalTitle"
 msgstr "Journal title"
 
-msgid "plugins.themes.journalMetrics.info.indexing"
+msgid "plugins.themes.journalPulse.info.indexing"
 msgstr "Indexing"
 
-msgid "plugins.themes.journalMetrics.info.onlineIssn"
+msgid "plugins.themes.journalPulse.info.onlineIssn"
 msgstr "Online ISSN"
 
-msgid "plugins.themes.journalMetrics.info.printIssn"
+msgid "plugins.themes.journalPulse.info.printIssn"
 msgstr "Print ISSN"
 
-msgid "plugins.themes.journalMetrics.info.frequency"
+msgid "plugins.themes.journalPulse.info.frequency"
 msgstr "Frequency"
 
-msgid "plugins.themes.journalMetrics.info.publicationDates"
+msgid "plugins.themes.journalPulse.info.publicationDates"
 msgstr "Publication dates"
 
-msgid "plugins.themes.journalMetrics.info.doiPrefix"
+msgid "plugins.themes.journalPulse.info.doiPrefix"
 msgstr "DOI prefix"
 
-msgid "plugins.themes.journalMetrics.info.editorInChief"
+msgid "plugins.themes.journalPulse.info.editorInChief"
 msgstr "Editor-in-Chief"
 
-msgid "plugins.themes.journalMetrics.info.managingEditor"
+msgid "plugins.themes.journalPulse.info.managingEditor"
 msgstr "Managing Editor"
 
-msgid "plugins.themes.journalMetrics.info.organizedBy"
+msgid "plugins.themes.journalPulse.info.organizedBy"
 msgstr "Organized by"
 
-msgid "plugins.themes.journalMetrics.info.citationAnalysis"
+msgid "plugins.themes.journalPulse.info.citationAnalysis"
 msgstr "Citation analysis"
 
-msgid "plugins.themes.journalMetrics.info.acceptanceRate"
+msgid "plugins.themes.journalPulse.info.acceptanceRate"
 msgstr "Acceptance rate"
 
-msgid "plugins.themes.journalMetrics.info.reviewSpeed"
+msgid "plugins.themes.journalPulse.info.reviewSpeed"
 msgstr "Review speed"
 
-msgid "plugins.themes.journalMetrics.info.submissionNote"
+msgid "plugins.themes.journalPulse.info.submissionNote"
 msgstr "Note before submission"
 
-msgid "plugins.themes.journalMetrics.info.downloads"
+msgid "plugins.themes.journalPulse.info.downloads"
 msgstr "Templates and forms"
 
-msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
+msgid "plugins.themes.journalPulse.info.onlineSubmissions"
 msgstr "Online submissions"
 
-msgid "plugins.themes.journalMetrics.info.goToLogin"
+msgid "plugins.themes.journalPulse.info.goToLogin"
 msgstr "Log in"
 
-msgid "plugins.themes.journalMetrics.info.goToRegistration"
+msgid "plugins.themes.journalPulse.info.goToRegistration"
 msgstr "Register"
 
-msgid "plugins.themes.journalMetrics.info.registrationRequired"
+msgid "plugins.themes.journalPulse.info.registrationRequired"
 msgstr "You need an account to submit a paper and to follow its progress."
 
-msgid "plugins.themes.journalMetrics.info.videoGuides"
+msgid "plugins.themes.journalPulse.info.videoGuides"
 msgstr "Video guides"

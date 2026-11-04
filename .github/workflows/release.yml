@@ -4,7 +4,7 @@ name: Package plugin
 # installable plugin package and attach it to the matching GitHub Release,
 # creating the Release when it does not exist yet.
 #
-# The tarball unpacks as `journalMetrics/…`, so it can be installed straight
+# The tarball unpacks as `journalPulse/…`, so it can be installed straight
 # through OJS "Upload A New Plugin". Files marked export-ignore in
 # .gitattributes (tests, CI, cypress) are left out.
 
@@ -25,8 +25,8 @@ jobs:
 
       - name: Build installable tarball
         run: |
-          # The directory OJS expects is the application name in version.xml, not the
-          # repository name (journalMetrics vs JournalMetrics).
+          # The directory OJS expects is the application name in version.xml
+          # (journalPulse), not the repository name (JournalPulse).
           NAME=$(grep -oP '(?<=<application>)[^<]+' version.xml)
           VERSION="${GITHUB_REF_NAME#v}"
           RELEASE=$(grep -oP '(?<=<release>)[^<]+' version.xml)

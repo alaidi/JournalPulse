@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/journalMetrics/tests/JournalInfoTest.php
+ * @file plugins/themes/journalPulse/tests/JournalInfoTest.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -12,9 +12,9 @@
  *        words after it.
  */
 
-namespace APP\plugins\themes\journalMetrics\tests;
+namespace APP\plugins\themes\journalPulse\tests;
 
-use APP\plugins\themes\journalMetrics\JournalPulseThemePlugin;
+use APP\plugins\themes\journalPulse\JournalPulseThemePlugin;
 use PKP\tests\PKPTestCase;
 
 class JournalInfoTest extends PKPTestCase

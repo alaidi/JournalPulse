@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/functional/JournalMetrics.cy.js
+ * @file cypress/tests/functional/JournalPulse.cy.js
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -10,16 +10,16 @@
  * Parameters (--env): contextPath, adminUser, adminPassword, themePath (captcha
  * on login must be off for the run). The defaults match the data set of PKP's
  * continuous integration; themePath is the theme directory, named after
- * version.xml (journalMetrics).
+ * version.xml (journalPulse).
  */
 
-describe('Journal Metrics theme', function() {
+describe('Journal Pulse theme', function() {
 	const contextPath = Cypress.env('contextPath') || 'publicknowledge';
 	const adminUser = Cypress.env('adminUser') || 'admin';
 	const adminPassword = Cypress.env('adminPassword') || 'admin';
-	const themePath = Cypress.env('themePath') || 'journalMetrics';
+	const themePath = Cypress.env('themePath') || 'journalPulse';
 
-	const rowName = 'journalmetricsthemeplugin';
+	const rowName = 'journalpulsethemeplugin';
 
 	// ---- helpers from OJSBR/viewcounter: work on OJS 3.3, 3.4 and 3.5 and in PKP's CI ----
 

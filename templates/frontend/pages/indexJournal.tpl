@@ -1,7 +1,7 @@
 {**
  * templates/frontend/pages/indexJournal.tpl
  *
- * Journal Metrics theme. Home page of a journal, built from full-width bands:
+ * Journal Pulse theme. Home page of a journal, built from full-width bands:
  * hero with usage numbers, journal information, editorial workflow line, most read articles,
  * the latest announcement, and the full list of articles of the current issue.
  *
@@ -29,7 +29,7 @@
 		<div class="jm_wrap jm_hero_grid">
 			<div class="jm_hero_text">
 				<p class="jm_eyebrow">
-					{if $currentJournal->getData('publishingMode') == APP\journal\Journal::PUBLISHING_MODE_OPEN}{translate key="plugins.themes.journalMetrics.eyebrow"}{/if}
+					{if $currentJournal->getData('publishingMode') == APP\journal\Journal::PUBLISHING_MODE_OPEN}{translate key="plugins.themes.journalPulse.eyebrow"}{/if}
 					{if $jmIssn}<span class="jm_mono">· ISSN {$jmIssn|escape}</span>{/if}
 				</p>
 				<h1 id="jm-hero-title">
@@ -41,8 +41,8 @@
 					<p class="jm_lead">{$jmLead|truncate:320:"…":true}</p>
 				{/if}
 				<p class="jm_hero_actions">
-					<a class="jm_btn jm_btn_primary" href="{url page="issue" op="current"}">{translate key="plugins.themes.journalMetrics.hero.currentIssue"}</a>
-					<a class="jm_btn jm_btn_ghost" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalMetrics.hero.forAuthors"}</a>
+					<a class="jm_btn jm_btn_primary" href="{url page="issue" op="current"}">{translate key="plugins.themes.journalPulse.hero.currentIssue"}</a>
+					<a class="jm_btn jm_btn_ghost" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalPulse.hero.forAuthors"}</a>
 				</p>
 			</div>
 
@@ -51,24 +51,24 @@
 					<ul class="jm_stats">
 						<li>
 							<span class="jm_stat_value">{$jmStats.views|escape}</span>
-							<span class="jm_stat_label">{translate key="plugins.themes.journalMetrics.stats.views"} · {$issue->getIssueIdentification()|escape}</span>
+							<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.views"} · {$issue->getIssueIdentification()|escape}</span>
 						</li>
 						<li>
 							<span class="jm_stat_value jm_accent">{$jmStats.pdf|escape}</span>
-							<span class="jm_stat_label">{translate key="plugins.themes.journalMetrics.stats.pdf"}</span>
+							<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.pdf"}</span>
 						</li>
 						<li>
 							<span class="jm_stat_value">{$jmStats.count|escape}</span>
-							<span class="jm_stat_label">{translate key="plugins.themes.journalMetrics.stats.articles"}</span>
+							<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.articles"}</span>
 						</li>
 						{if $jmStats.pages}
 							<li>
 								<span class="jm_stat_value">{$jmStats.pages|escape}</span>
-								<span class="jm_stat_label">{translate key="plugins.themes.journalMetrics.stats.pages"} ({$jmStats.firstPage|escape}–{$jmStats.lastPage|escape})</span>
+								<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.pages"} ({$jmStats.firstPage|escape}–{$jmStats.lastPage|escape})</span>
 							</li>
 						{/if}
 					</ul>
-					<p class="jm_source">{translate key="plugins.themes.journalMetrics.stats.source"}</p>
+					<p class="jm_source">{translate key="plugins.themes.journalPulse.stats.source"}</p>
 				</div>
 			{/if}
 		</div>
@@ -95,7 +95,7 @@
 		{assign var="jmFiles" value=$activeTheme->getLocalizedText('infoDownloads')}
 		<section class="jm_wrap jm_info" aria-labelledby="jm-info-title">
 			<div class="jm_info_grid">
-				<h2 id="jm-info-title">{translate key="plugins.themes.journalMetrics.info.heading"}</h2>
+				<h2 id="jm-info-title">{translate key="plugins.themes.journalPulse.info.heading"}</h2>
 
 				{* One sheet of facts in groups: title, identifiers, key figures, publication dates, indexing, people *}
 				<div class="jm_info_sheet">
@@ -112,12 +112,12 @@
 				</div>
 
 				<div class="jm_info_submit">
-					<h3>{translate key="plugins.themes.journalMetrics.info.onlineSubmissions"}</h3>
+					<h3>{translate key="plugins.themes.journalPulse.info.onlineSubmissions"}</h3>
 					{if $jmNote|strip_tags|trim || $jmFiles|strip_tags|trim}
 						<div class="jm_info_note">
 							{$jmNote|strip_unsafe_html}
 							{if $jmFiles|strip_tags|trim}
-								<div class="jm_info_files" role="group" aria-label="{translate|escape key="plugins.themes.journalMetrics.info.downloads"}">{$jmFiles|strip_unsafe_html}</div>
+								<div class="jm_info_files" role="group" aria-label="{translate|escape key="plugins.themes.journalPulse.info.downloads"}">{$jmFiles|strip_unsafe_html}</div>
 							{/if}
 						</div>
 					{/if}
@@ -130,16 +130,16 @@
 						</p>
 					{else}
 						<p class="jm_info_buttons">
-							<a class="jm_btn jm_btn_primary" href="{url page="login"}">{translate key="plugins.themes.journalMetrics.info.goToLogin"}</a>
+							<a class="jm_btn jm_btn_primary" href="{url page="login"}">{translate key="plugins.themes.journalPulse.info.goToLogin"}</a>
 							{if !$currentJournal->getData('disableUserReg')}
-								<a class="jm_btn jm_btn_ghost" href="{url page="user" op="register"}">{translate key="plugins.themes.journalMetrics.info.goToRegistration"}</a>
+								<a class="jm_btn jm_btn_ghost" href="{url page="user" op="register"}">{translate key="plugins.themes.journalPulse.info.goToRegistration"}</a>
 							{/if}
 						</p>
-						<p class="jm_info_fine">{translate key="plugins.themes.journalMetrics.info.registrationRequired"}</p>
+						<p class="jm_info_fine">{translate key="plugins.themes.journalPulse.info.registrationRequired"}</p>
 					{/if}
 					{if $jmVideos|strip_tags|trim}
 						<div class="jm_info_videos">
-							<h3>{translate key="plugins.themes.journalMetrics.info.videoGuides"}</h3>
+							<h3>{translate key="plugins.themes.journalPulse.info.videoGuides"}</h3>
 							{$jmVideos|strip_unsafe_html}
 						</div>
 					{/if}
@@ -158,10 +158,10 @@
 			<div class="jm_wrap">
 				<div class="jm_band_head">
 					<div>
-						<p class="jm_eyebrow jm_eyebrow_muted">{translate key="plugins.themes.journalMetrics.workflow.eyebrow"}</p>
-						<h2 id="jm-workflow-title">{translate key="plugins.themes.journalMetrics.workflow.title"}</h2>
+						<p class="jm_eyebrow jm_eyebrow_muted">{translate key="plugins.themes.journalPulse.workflow.eyebrow"}</p>
+						<h2 id="jm-workflow-title">{translate key="plugins.themes.journalPulse.workflow.title"}</h2>
 					</div>
-					<p class="jm_band_lead">{translate key="plugins.themes.journalMetrics.workflow.lead"}</p>
+					<p class="jm_band_lead">{translate key="plugins.themes.journalPulse.workflow.lead"}</p>
 				</div>
 
 				{assign var="jmStageDays" value=$activeTheme->getStageDays()}
@@ -170,14 +170,14 @@
 						{assign var="jmDays" value=$jmStageDays[$jmIdx]}
 						<li style="flex-grow:{$jmDays}"{if $jmStage && $jmStage.index == $jmIdx} class="is_current" aria-current="step"{elseif $jmStage && $jmStage.index > $jmIdx} class="is_done"{/if}>
 							<span class="jm_flow_bar"{if $jmStage && $jmStage.index == $jmIdx} style="--jm-p:{$jmStage.percent|intval}"{/if}>{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_fill" aria-hidden="true"></span><span class="jm_flow_dot" aria-hidden="true"></span>{/if}</span>
-							<span class="jm_flow_name">{translate key="plugins.themes.journalMetrics.workflow.`$jmKey`"}</span>
-							<span class="jm_flow_term">{* Arabic counts days differently for 1, 2, 3-10 and 11 or more *}{if $jmDays == 1}{translate key="plugins.themes.journalMetrics.workflow.termOneDay"}{elseif $jmDays == 2}{translate key="plugins.themes.journalMetrics.workflow.termTwoDays"}{elseif $jmDays <= 10}{translate key="plugins.themes.journalMetrics.workflow.termFewDays" days=$jmDays}{else}{translate key="plugins.themes.journalMetrics.workflow.term" days=$jmDays}{/if}</span>
-							{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_now">{if $jmStage.mine}{translate key="plugins.themes.journalMetrics.workflow.currentMine"}{else}{translate key="plugins.themes.journalMetrics.workflow.current"}{/if}</span>
-								<span class="jm_flow_progress" title="{translate|escape key="plugins.themes.journalMetrics.workflow.progressHint" total=$jmStage.total}">{if $jmStage.over}{translate key="plugins.themes.journalMetrics.workflow.progressOver" day=$jmStage.day total=$jmStage.total}{else}{translate key="plugins.themes.journalMetrics.workflow.progress" day=$jmStage.day total=$jmStage.total percent=$jmStage.percent}{/if}</span>{/if}
+							<span class="jm_flow_name">{translate key="plugins.themes.journalPulse.workflow.`$jmKey`"}</span>
+							<span class="jm_flow_term">{* Arabic counts days differently for 1, 2, 3-10 and 11 or more *}{if $jmDays == 1}{translate key="plugins.themes.journalPulse.workflow.termOneDay"}{elseif $jmDays == 2}{translate key="plugins.themes.journalPulse.workflow.termTwoDays"}{elseif $jmDays <= 10}{translate key="plugins.themes.journalPulse.workflow.termFewDays" days=$jmDays}{else}{translate key="plugins.themes.journalPulse.workflow.term" days=$jmDays}{/if}</span>
+							{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_now">{if $jmStage.mine}{translate key="plugins.themes.journalPulse.workflow.currentMine"}{else}{translate key="plugins.themes.journalPulse.workflow.current"}{/if}</span>
+								<span class="jm_flow_progress" title="{translate|escape key="plugins.themes.journalPulse.workflow.progressHint" total=$jmStage.total}">{if $jmStage.over}{translate key="plugins.themes.journalPulse.workflow.progressOver" day=$jmStage.day total=$jmStage.total}{else}{translate key="plugins.themes.journalPulse.workflow.progress" day=$jmStage.day total=$jmStage.total percent=$jmStage.percent}{/if}</span>{/if}
 						</li>
 					{/foreach}
 				</ol>
-				<p class="jm_source">{translate key="plugins.themes.journalMetrics.workflow.note"}</p>
+				<p class="jm_source">{translate key="plugins.themes.journalPulse.workflow.note"}</p>
 			</div>
 		</section>
 	{/if}
@@ -195,8 +195,8 @@
 	{assign var="jmMostRead" value=$activeTheme->getMostRead(3, 2)}
 	{if $jmMostRead}
 		<section class="jm_wrap jm_block jm_mostread" aria-labelledby="jm-mostread-title">
-			<p class="jm_eyebrow jm_eyebrow_muted">{translate key="plugins.themes.journalMetrics.mostRead.eyebrow"}</p>
-			<h2 id="jm-mostread-title">{translate key="plugins.themes.journalMetrics.mostRead.title"}</h2>
+			<p class="jm_eyebrow jm_eyebrow_muted">{translate key="plugins.themes.journalPulse.mostRead.eyebrow"}</p>
+			<h2 id="jm-mostread-title">{translate key="plugins.themes.journalPulse.mostRead.title"}</h2>
 			<ol class="jm_mostread_list">
 				{foreach from=$jmMostRead item=jmItem name=jmMost}
 					<li>
@@ -204,8 +204,8 @@
 						<h3><a href="{$jmItem.url|escape}">{$jmItem.title|escape}</a></h3>
 						{if $jmItem.authors}<p class="jm_mostread_authors">{$jmItem.authors|escape}</p>{/if}
 						<p class="jm_mostread_numbers">
-							<span><strong>{$jmItem.views|escape}</strong> {translate key="plugins.themes.journalMetrics.list.views"}</span>
-							{if $jmItem.pdfUrl}<a href="{$jmItem.pdfUrl|escape}">{translate key="plugins.themes.journalMetrics.list.viewPdf"} ({$jmItem.pdf|escape})<span class="jm_screen_reader">: {$jmItem.title|escape}</span></a>{/if}
+							<span><strong>{$jmItem.views|escape}</strong> {translate key="plugins.themes.journalPulse.list.views"}</span>
+							{if $jmItem.pdfUrl}<a href="{$jmItem.pdfUrl|escape}">{translate key="plugins.themes.journalPulse.list.viewPdf"} ({$jmItem.pdf|escape})<span class="jm_screen_reader">: {$jmItem.title|escape}</span></a>{/if}
 						</p>
 					</li>
 				{/foreach}
@@ -226,7 +226,7 @@
 							<div class="jm_cta_text">{$jmAnnouncement->getLocalizedData('descriptionShort')|strip_unsafe_html}</div>
 						</div>
 						<p class="jm_cta_actions">
-							<a class="jm_btn jm_btn_accent" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalMetrics.hero.forAuthors"}</a>
+							<a class="jm_btn jm_btn_accent" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalPulse.hero.forAuthors"}</a>
 							<a class="jm_btn jm_btn_light" href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$jmAnnouncement->id}">{translate key="common.readMore"}</a>
 						</p>
 					</div>
@@ -240,7 +240,7 @@
 		<section class="jm_wrap jm_block jm_issue current_issue" aria-labelledby="jm-issue-title">
 			<a id="homepageIssue"></a>
 			<p class="jm_eyebrow jm_eyebrow_muted">{translate key="journal.currentIssue"} · {$issue->getIssueIdentification()|escape}{if $issue->getDatePublished()} · <time datetime="{$issue->getDatePublished()|date_format:"%Y-%m-%d"}">{$issue->getDatePublished()|date_format:$dateFormatShort}</time>{/if}</p>
-			<h2 id="jm-issue-title">{translate key="plugins.themes.journalMetrics.list.title"}</h2>
+			<h2 id="jm-issue-title">{translate key="plugins.themes.journalPulse.list.title"}</h2>
 
 			{assign var="jmN" value=0}
 			<ol class="jm_articles">
@@ -269,12 +269,12 @@
 								</div>
 								<div class="jm_article_views">
 									<span class="jm_article_views_value">{$jmRow.views|escape}</span>
-									<span class="jm_article_views_label">{translate key="plugins.themes.journalMetrics.list.views"}</span>
+									<span class="jm_article_views_label">{translate key="plugins.themes.journalPulse.list.views"}</span>
 								</div>
 								{foreach from=$publication->getData('galleys') item=galley}
 									{if $galley->isPdfGalley()}
 										{assign var="jmPdfPath" value=$articlePath|to_array:$galley->getBestGalleyId()}
-										<a class="jm_article_pdf" href="{url page="article" op="view" path=$jmPdfPath}">{translate key="plugins.themes.journalMetrics.list.viewPdf"}<span class="jm_screen_reader">: {$publication->getLocalizedTitle(null, 'text')|escape}</span></a>
+										<a class="jm_article_pdf" href="{url page="article" op="view" path=$jmPdfPath}">{translate key="plugins.themes.journalPulse.list.viewPdf"}<span class="jm_screen_reader">: {$publication->getLocalizedTitle(null, 'text')|escape}</span></a>
 										{break}
 									{/if}
 								{/foreach}
@@ -285,7 +285,7 @@
 			</ol>
 
 			<p class="jm_issue_links">
-				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}" class="jm_link_arrow">{translate key="plugins.themes.journalMetrics.hero.currentIssue"}: {$issue->getIssueIdentification()|escape}</a>
+				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}" class="jm_link_arrow">{translate key="plugins.themes.journalPulse.hero.currentIssue"}: {$issue->getIssueIdentification()|escape}</a>
 				<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}" class="jm_link_arrow">{translate key="journal.viewAllIssues"}</a>
 			</p>
 		</section>

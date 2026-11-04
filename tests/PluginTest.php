@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/journalMetrics/tests/PluginTest.php
+ * @file plugins/themes/journalPulse/tests/PluginTest.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -12,8 +12,11 @@
  *        a fatal error that php -l does not catch.
  */
 
-namespace APP\plugins\themes\journalMetrics\tests;
+namespace APP\plugins\themes\journalPulse\tests;
 
+use APP\core\Application;
+use APP\plugins\themes\journalPulse\JournalPulseMigration;
+use Illuminate\Support\Facades\DB;
 use PKP\tests\PKPTestCase;
 use ReflectionClass;
 use ReflectionNamedType;
@@ -24,7 +27,8 @@ class PluginTest extends PKPTestCase
     protected function classes(): array
     {
         return [
-            \APP\plugins\themes\journalMetrics\JournalPulseThemePlugin::class,
+            \APP\plugins\themes\journalPulse\JournalPulseThemePlugin::class,
+            JournalPulseMigration::class,
         ];
     }
 
@@ -82,12 +86,41 @@ class PluginTest extends PKPTestCase
         }
     }
 
-    public function testJournalsKeepTheThemeAfterTheRenameToJournalPulse(): void
+    public function testInstallMovesJournalsOverFromTheFormerName(): void
     {
-        // Theme options and the "enabled" flag are stored under the plugin's name,
-        // and older installs name the old class in OJS's versions table.
-        $plugin = new \APP\plugins\themes\journalMetrics\JournalPulseThemePlugin();
-        $this->assertSame('JournalMetricsThemePlugin', $plugin->getName());
-        $this->assertInstanceOf('APP\plugins\themes\journalMetrics\JournalMetricsThemePlugin', $plugin);
+        $dao = Application::getContextDAO();
+        DB::beginTransaction(); // rolled back: the test leaves no rows behind
+        try {
+            // context_id must be a journal (foreign key), or NULL for site-wide settings
+            $journalId = DB::table($dao->tableName)->value($dao->primaryKeyColumn);
+            foreach (array_unique([$journalId, null]) as $contextId) {
+                DB::table('plugin_settings')->insert([
+                    'plugin_name' => JournalPulseMigration::FORMER_NAME, 'context_id' => $contextId,
+                    'setting_name' => 'migrationTest', 'setting_value' => '#123456', 'setting_type' => 'string',
+                ]);
+            }
+            if ($journalId) {
+                DB::table($dao->settingsTableName)->updateOrInsert(
+                    [$dao->primaryKeyColumn => $journalId, 'locale' => '', 'setting_name' => 'themePluginPath'],
+                    ['setting_value' => JournalPulseMigration::FORMER_PATH]
+                );
+            }
+
+            (new JournalPulseMigration())->up();
+            (new JournalPulseMigration())->up(); // OJS runs it on every upgrade: nothing is copied twice
+
+            foreach (array_unique([$journalId, null]) as $contextId) {
+                $this->assertSame(['#123456'], DB::table('plugin_settings')
+                    ->where('plugin_name', 'journalpulsethemeplugin')->where('context_id', $contextId)
+                    ->where('setting_name', 'migrationTest')->pluck('setting_value')->all());
+            }
+            if ($journalId) {
+                $this->assertSame('journalPulse', DB::table($dao->settingsTableName)
+                    ->where($dao->primaryKeyColumn, $journalId)->where('setting_name', 'themePluginPath')
+                    ->value('setting_value'));
+            }
+        } finally {
+            DB::rollBack();
+        }
     }
 }

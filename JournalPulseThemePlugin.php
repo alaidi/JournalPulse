@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/journalMetrics/JournalPulseThemePlugin.php
+ * @file plugins/themes/journalPulse/JournalPulseThemePlugin.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -13,7 +13,7 @@
  *  (canonical links, schema.org JSON-LD).
  */
 
-namespace APP\plugins\themes\journalMetrics;
+namespace APP\plugins\themes\journalPulse;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -78,18 +78,18 @@ class JournalPulseThemePlugin extends ThemePlugin
      * option => [label, rich text, description of the field (optional)]
      */
     public const INFO_OPTIONS = [
-        'infoIndexing' => ['plugins.themes.journalMetrics.info.indexing', true, 'plugins.themes.journalMetrics.option.info.onePerLine'],
-        'infoFrequency' => ['plugins.themes.journalMetrics.info.frequency', false],
-        'infoPublicationDates' => ['plugins.themes.journalMetrics.info.publicationDates', true, 'plugins.themes.journalMetrics.option.info.onePerLine'],
-        'infoEditorInChief' => ['plugins.themes.journalMetrics.info.editorInChief', true],
-        'infoManagingEditor' => ['plugins.themes.journalMetrics.info.managingEditor', true],
-        'infoOrganizedBy' => ['plugins.themes.journalMetrics.info.organizedBy', false],
-        'infoCitationAnalysis' => ['plugins.themes.journalMetrics.info.citationAnalysis', true, 'plugins.themes.journalMetrics.option.info.onePerLine'],
-        'infoAcceptanceRate' => ['plugins.themes.journalMetrics.info.acceptanceRate', false],
-        'infoReviewSpeed' => ['plugins.themes.journalMetrics.info.reviewSpeed', false],
-        'infoSubmissionNote' => ['plugins.themes.journalMetrics.info.submissionNote', true],
-        'infoDownloads' => ['plugins.themes.journalMetrics.info.downloads', true, 'plugins.themes.journalMetrics.option.info.downloads'],
-        'infoVideoGuides' => ['plugins.themes.journalMetrics.info.videoGuides', true, 'plugins.themes.journalMetrics.option.info.videoGuides'],
+        'infoIndexing' => ['plugins.themes.journalPulse.info.indexing', true, 'plugins.themes.journalPulse.option.info.onePerLine'],
+        'infoFrequency' => ['plugins.themes.journalPulse.info.frequency', false],
+        'infoPublicationDates' => ['plugins.themes.journalPulse.info.publicationDates', true, 'plugins.themes.journalPulse.option.info.onePerLine'],
+        'infoEditorInChief' => ['plugins.themes.journalPulse.info.editorInChief', true],
+        'infoManagingEditor' => ['plugins.themes.journalPulse.info.managingEditor', true],
+        'infoOrganizedBy' => ['plugins.themes.journalPulse.info.organizedBy', false],
+        'infoCitationAnalysis' => ['plugins.themes.journalPulse.info.citationAnalysis', true, 'plugins.themes.journalPulse.option.info.onePerLine'],
+        'infoAcceptanceRate' => ['plugins.themes.journalPulse.info.acceptanceRate', false],
+        'infoReviewSpeed' => ['plugins.themes.journalPulse.info.reviewSpeed', false],
+        'infoSubmissionNote' => ['plugins.themes.journalPulse.info.submissionNote', true],
+        'infoDownloads' => ['plugins.themes.journalPulse.info.downloads', true, 'plugins.themes.journalPulse.option.info.downloads'],
+        'infoVideoGuides' => ['plugins.themes.journalPulse.info.videoGuides', true, 'plugins.themes.journalPulse.option.info.videoGuides'],
     ];
 
     /**
@@ -113,62 +113,62 @@ class JournalPulseThemePlugin extends ThemePlugin
 
         // Theme options (Settings > Website > Appearance)
         $this->addOption('accentColour', 'FieldColor', [
-            'label' => __('plugins.themes.journalMetrics.option.accent.label'),
-            'description' => __('plugins.themes.journalMetrics.option.accent.description'),
+            'label' => __('plugins.themes.journalPulse.option.accent.label'),
+            'description' => __('plugins.themes.journalPulse.option.accent.description'),
             'default' => self::DEFAULT_ACCENT,
         ]);
         $this->addOption('heroTagline', 'FieldText', [
-            'label' => __('plugins.themes.journalMetrics.option.tagline.label'),
-            'description' => __('plugins.themes.journalMetrics.option.tagline.description'),
+            'label' => __('plugins.themes.journalPulse.option.tagline.label'),
+            'description' => __('plugins.themes.journalPulse.option.tagline.description'),
             'isMultilingual' => true,
             'default' => '',
         ]);
         $this->addOption('showHeroStats', 'FieldOptions', [
-            'label' => __('plugins.themes.journalMetrics.option.heroStats.label'),
+            'label' => __('plugins.themes.journalPulse.option.heroStats.label'),
             'options' => [
                 [
                     'value' => true,
-                    'label' => __('plugins.themes.journalMetrics.option.heroStats.option'),
+                    'label' => __('plugins.themes.journalPulse.option.heroStats.option'),
                 ],
             ],
             'default' => true,
         ]);
         $this->addOption('showWorkflowStrip', 'FieldOptions', [
-            'label' => __('plugins.themes.journalMetrics.option.workflow.label'),
+            'label' => __('plugins.themes.journalPulse.option.workflow.label'),
             'options' => [
                 [
                     'value' => true,
-                    'label' => __('plugins.themes.journalMetrics.option.workflow.option'),
+                    'label' => __('plugins.themes.journalPulse.option.workflow.option'),
                 ],
             ],
             'default' => true,
         ]);
 
         $this->addOption('showWorkflowCurrent', 'FieldOptions', [
-            'label' => __('plugins.themes.journalMetrics.option.workflowCurrent.label'),
+            'label' => __('plugins.themes.journalPulse.option.workflowCurrent.label'),
             'options' => [
                 [
                     'value' => true,
-                    'label' => __('plugins.themes.journalMetrics.option.workflowCurrent.option'),
+                    'label' => __('plugins.themes.journalPulse.option.workflowCurrent.option'),
                 ],
             ],
             'default' => true,
         ]);
 
         $this->addOption('showJournalInfo', 'FieldOptions', [
-            'label' => __('plugins.themes.journalMetrics.option.info.label'),
-            'description' => __('plugins.themes.journalMetrics.option.info.description'),
+            'label' => __('plugins.themes.journalPulse.option.info.label'),
+            'description' => __('plugins.themes.journalPulse.option.info.description'),
             'options' => [
                 [
                     'value' => true,
-                    'label' => __('plugins.themes.journalMetrics.option.info.option'),
+                    'label' => __('plugins.themes.journalPulse.option.info.option'),
                 ],
             ],
             'default' => true,
         ]);
         foreach (self::INFO_OPTIONS as $name => $field) {
             $this->addOption($name, $field[1] ? 'FieldRichTextarea' : 'FieldText', [
-                'label' => __('plugins.themes.journalMetrics.option.info.field', ['field' => __($field[0])]),
+                'label' => __('plugins.themes.journalPulse.option.info.field', ['field' => __($field[0])]),
                 'isMultilingual' => true,
                 'default' => '',
             ] + (isset($field[2]) ? ['description' => __($field[2])] : []));
@@ -194,21 +194,19 @@ class JournalPulseThemePlugin extends ThemePlugin
         ]));
 
         // Accent colour and the theme stylesheet (fonts are imported in the stylesheet)
-        $this->addStyle('journalMetricsAccent', ':root{--jm-accent:' . $accent . ';}', ['inline' => true]);
-        $this->addStyle('journalMetrics', 'styles/journalMetrics.css');
+        $this->addStyle('journalPulseAccent', ':root{--jm-accent:' . $accent . ';}', ['inline' => true]);
+        $this->addStyle('journalPulse', 'styles/journalPulse.css');
 
         // Search-engine markup (canonical links, JSON-LD)
         Hook::add('TemplateManager::display', $this->onTemplateDisplay(...));
     }
 
     /**
-     * The name OJS stores the theme options and the "enabled" flag under. It
-     * stays the class's name before the rename to Journal Pulse, so journals
-     * keep their theme and its settings.
+     * Moves journals over from the theme's former name; see JournalPulseMigration.
      */
-    public function getName()
+    public function getInstallMigration()
     {
-        return 'JournalMetricsThemePlugin';
+        return new JournalPulseMigration();
     }
 
     /**
@@ -216,7 +214,7 @@ class JournalPulseThemePlugin extends ThemePlugin
      */
     public function getDisplayName()
     {
-        return __('plugins.themes.journalMetrics.name');
+        return __('plugins.themes.journalPulse.name');
     }
 
     /**
@@ -224,7 +222,7 @@ class JournalPulseThemePlugin extends ThemePlugin
      */
     public function getDescription()
     {
-        return __('plugins.themes.journalMetrics.description');
+        return __('plugins.themes.journalPulse.description');
     }
 
     //
@@ -696,12 +694,12 @@ class JournalPulseThemePlugin extends ThemePlugin
         $option = fn (string $name): array => [self::INFO_OPTIONS[$name][0], $this->getLocalizedText($name), self::INFO_OPTIONS[$name][1]];
         $groups = [
             'title' => [
-                ['plugins.themes.journalMetrics.info.journalTitle', $context->getLocalizedName(), false],
+                ['plugins.themes.journalPulse.info.journalTitle', $context->getLocalizedName(), false],
             ],
             'identity' => [
-                ['plugins.themes.journalMetrics.info.onlineIssn', $context->getData('onlineIssn'), false],
-                ['plugins.themes.journalMetrics.info.printIssn', $context->getData('printIssn'), false],
-                ['plugins.themes.journalMetrics.info.doiPrefix', $context->getData('enableDois') ? $context->getData('doiPrefix') : '', false],
+                ['plugins.themes.journalPulse.info.onlineIssn', $context->getData('onlineIssn'), false],
+                ['plugins.themes.journalPulse.info.printIssn', $context->getData('printIssn'), false],
+                ['plugins.themes.journalPulse.info.doiPrefix', $context->getData('enableDois') ? $context->getData('doiPrefix') : '', false],
             ],
             'figures' => [$option('infoFrequency'), $option('infoAcceptanceRate'), $option('infoReviewSpeed')],
             'dates' => [$option('infoPublicationDates')],
@@ -949,10 +947,6 @@ class JournalPulseThemePlugin extends ThemePlugin
     }
 }
 
-// Installs set up before the rename still name the old class in OJS's
-// versions table, and OJS checks the loaded theme against that name.
-class_alias(JournalPulseThemePlugin::class, __NAMESPACE__ . '\JournalMetricsThemePlugin');
-
 if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\themes\journalMetrics\JournalPulseThemePlugin', '\JournalPulseThemePlugin');
+    class_alias('\APP\plugins\themes\journalPulse\JournalPulseThemePlugin', '\JournalPulseThemePlugin');
 }

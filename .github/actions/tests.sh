@@ -9,14 +9,14 @@ set +e
 status=0
 
 # pkp-github-actions installs the theme as plugins/themes/<repository name>
-# (JournalPulse), but its code and version.xml call it journalMetrics, and on a
+# (JournalPulse), but its code and version.xml call it journalPulse, and on a
 # case-sensitive file system OJS only finds it there. Move it where OJS's
 # "Upload A New Plugin" would put it, then register its version.
-mv "plugins/themes/${GITHUB_REPOSITORY#*/}" plugins/themes/journalMetrics
-plugin=plugins/themes/journalMetrics
+mv "plugins/themes/${GITHUB_REPOSITORY#*/}" plugins/themes/journalPulse
+plugin=plugins/themes/journalPulse
 php lib/pkp/tools/installPluginVersion.php $plugin/version.xml
 
-npx cypress run  --headless --browser chrome  --config '{"specPattern":["plugins/themes/journalMetrics/cypress/tests/functional/*.cy.js"]}'
+npx cypress run  --headless --browser chrome  --config '{"specPattern":["plugins/themes/journalPulse/cypress/tests/functional/*.cy.js"]}'
 cypress=$?
 [ $cypress -ne 0 ] && status=$cypress
 

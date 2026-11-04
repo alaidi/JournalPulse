@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/journalMetrics/tests/WorkflowStagesTest.php
+ * @file plugins/themes/journalPulse/tests/WorkflowStagesTest.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -11,9 +11,9 @@
  *        journal's own editorial decisions.
  */
 
-namespace APP\plugins\themes\journalMetrics\tests;
+namespace APP\plugins\themes\journalPulse\tests;
 
-use APP\plugins\themes\journalMetrics\JournalPulseThemePlugin;
+use APP\plugins\themes\journalPulse\JournalPulseThemePlugin;
 use PKP\decision\Decision;
 use PKP\tests\PKPTestCase;
 

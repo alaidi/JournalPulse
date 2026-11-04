@@ -6,257 +6,257 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "plugins.themes.journalMetrics.name"
+msgid "plugins.themes.journalPulse.name"
 msgstr "Тема Journal Pulse"
 
-msgid "plugins.themes.journalMetrics.description"
+msgid "plugins.themes.journalPulse.description"
 msgstr "Дочірня тема до теми за замовчуванням. Головна сторінка з акцентом на цифри: статистика переглядів, етапи редакційного процесу та повний список статей останнього випуску; блок використання на сторінці статті; canonical-посилання та розмітка schema.org для пошукових систем."
 
-msgid "plugins.themes.journalMetrics.option.accent.label"
+msgid "plugins.themes.journalPulse.option.accent.label"
 msgstr "Акцентний колір"
 
-msgid "plugins.themes.journalMetrics.option.accent.description"
+msgid "plugins.themes.journalPulse.option.accent.description"
 msgstr "Колір кнопок, цифр і стовпчиків. Обирайте темний відтінок, щоб білий текст на ньому залишався читабельним."
 
-msgid "plugins.themes.journalMetrics.option.tagline.label"
+msgid "plugins.themes.journalPulse.option.tagline.label"
 msgstr "Слоган на головній сторінці"
 
-msgid "plugins.themes.journalMetrics.option.tagline.description"
+msgid "plugins.themes.journalPulse.option.tagline.description"
 msgstr "Необов'язкова друга частина заголовка головної сторінки; виводиться акцентним кольором після назви журналу."
 
-msgid "plugins.themes.journalMetrics.option.heroStats.label"
+msgid "plugins.themes.journalPulse.option.heroStats.label"
 msgstr "Показники використання"
 
-msgid "plugins.themes.journalMetrics.option.heroStats.option"
+msgid "plugins.themes.journalPulse.option.heroStats.option"
 msgstr "Показувати на головній сторінці кількість статей, переглядів і переглядів PDF поточного випуску."
 
-msgid "plugins.themes.journalMetrics.option.workflow.label"
+msgid "plugins.themes.journalPulse.option.workflow.label"
 msgstr "Редакційний процес"
 
-msgid "plugins.themes.journalMetrics.option.workflow.option"
+msgid "plugins.themes.journalPulse.option.workflow.option"
 msgstr "Показувати на головній сторінці смугу з етапами редакційного процесу та їх максимальною тривалістю."
 
-msgid "plugins.themes.journalMetrics.eyebrow"
+msgid "plugins.themes.journalPulse.eyebrow"
 msgstr "Діамантовий відкритий доступ"
 
-msgid "plugins.themes.journalMetrics.hero.currentIssue"
+msgid "plugins.themes.journalPulse.hero.currentIssue"
 msgstr "Поточний випуск"
 
-msgid "plugins.themes.journalMetrics.hero.forAuthors"
+msgid "plugins.themes.journalPulse.hero.forAuthors"
 msgstr "Інструкції для авторів"
 
-msgid "plugins.themes.journalMetrics.header.submit"
+msgid "plugins.themes.journalPulse.header.submit"
 msgstr "Подати рукопис"
 
-msgid "plugins.themes.journalMetrics.header.language"
+msgid "plugins.themes.journalPulse.header.language"
 msgstr "Мова"
 
-msgid "plugins.themes.journalMetrics.stats.articles"
+msgid "plugins.themes.journalPulse.stats.articles"
 msgstr "статей у випуску"
 
-msgid "plugins.themes.journalMetrics.stats.views"
+msgid "plugins.themes.journalPulse.stats.views"
 msgstr "переглядів статей"
 
-msgid "plugins.themes.journalMetrics.stats.pdf"
+msgid "plugins.themes.journalPulse.stats.pdf"
 msgstr "переглядів PDF"
 
-msgid "plugins.themes.journalMetrics.stats.source"
+msgid "plugins.themes.journalPulse.stats.source"
 msgstr "Джерело: статистика використання цього журналу, оновлюється щогодини."
 
-msgid "plugins.themes.journalMetrics.workflow.eyebrow"
+msgid "plugins.themes.journalPulse.workflow.eyebrow"
 msgstr "Редакційний процес"
 
-msgid "plugins.themes.journalMetrics.workflow.title"
+msgid "plugins.themes.journalPulse.workflow.title"
 msgstr "Від подання до публікації"
 
-msgid "plugins.themes.journalMetrics.workflow.lead"
+msgid "plugins.themes.journalPulse.workflow.lead"
 msgstr "Звичайна тривалість кожного етапу, обчислена за рукописами журналу останніх двох років."
 
-msgid "plugins.themes.journalMetrics.workflow.term"
+msgid "plugins.themes.journalPulse.workflow.term"
 msgstr "до {$days} днів"
 
-msgid "plugins.themes.journalMetrics.workflow.termOneDay"
+msgid "plugins.themes.journalPulse.workflow.termOneDay"
 msgstr "протягом одного дня"
 
-msgid "plugins.themes.journalMetrics.workflow.termTwoDays"
+msgid "plugins.themes.journalPulse.workflow.termTwoDays"
 msgstr "до 2 днів"
 
-msgid "plugins.themes.journalMetrics.workflow.termFewDays"
+msgid "plugins.themes.journalPulse.workflow.termFewDays"
 msgstr "до {$days} днів"
 
-msgid "plugins.themes.journalMetrics.workflow.note"
+msgid "plugins.themes.journalPulse.workflow.note"
 msgstr "Це типові строки, а не гарантія: 80 % рукописів пройшли кожен етап за вказаний час, решта 20 % — довше."
 
-msgid "plugins.themes.journalMetrics.workflow.screening"
+msgid "plugins.themes.journalPulse.workflow.screening"
 msgstr "Попередня оцінка"
 
-msgid "plugins.themes.journalMetrics.workflow.review"
+msgid "plugins.themes.journalPulse.workflow.review"
 msgstr "Рецензування"
 
-msgid "plugins.themes.journalMetrics.workflow.revision"
+msgid "plugins.themes.journalPulse.workflow.revision"
 msgstr "Доопрацювання"
 
-msgid "plugins.themes.journalMetrics.workflow.copyediting"
+msgid "plugins.themes.journalPulse.workflow.copyediting"
 msgstr "Редагування"
 
-msgid "plugins.themes.journalMetrics.workflow.proofreading"
+msgid "plugins.themes.journalPulse.workflow.proofreading"
 msgstr "Верстка"
 
-msgid "plugins.themes.journalMetrics.list.title"
+msgid "plugins.themes.journalPulse.list.title"
 msgstr "Усі статті випуску"
 
-msgid "plugins.themes.journalMetrics.list.views"
+msgid "plugins.themes.journalPulse.list.views"
 msgstr "переглядів"
 
-msgid "plugins.themes.journalMetrics.list.viewPdf"
+msgid "plugins.themes.journalPulse.list.viewPdf"
 msgstr "Переглянути PDF"
 
-msgid "plugins.themes.journalMetrics.list.viewPdfFor"
+msgid "plugins.themes.journalPulse.list.viewPdfFor"
 msgstr "Переглянути PDF: {$title}"
 
-msgid "plugins.themes.journalMetrics.footer.issn"
+msgid "plugins.themes.journalPulse.footer.issn"
 msgstr "ISSN {$issn}"
 
-msgid "plugins.themes.journalMetrics.usage.title"
+msgid "plugins.themes.journalPulse.usage.title"
 msgstr "Використання"
 
-msgid "plugins.themes.journalMetrics.usage.views"
+msgid "plugins.themes.journalPulse.usage.views"
 msgstr "Переглядів цієї сторінки"
 
-msgid "plugins.themes.journalMetrics.usage.pdf"
+msgid "plugins.themes.journalPulse.usage.pdf"
 msgstr "Переглядів PDF"
 
-msgid "plugins.themes.journalMetrics.usage.html"
+msgid "plugins.themes.journalPulse.usage.html"
 msgstr "Переглядів HTML"
 
-msgid "plugins.themes.journalMetrics.option.workflowCurrent.label"
+msgid "plugins.themes.journalPulse.option.workflowCurrent.label"
 msgstr "Позначка поточного етапу"
 
-msgid "plugins.themes.journalMetrics.option.workflowCurrent.option"
+msgid "plugins.themes.journalPulse.option.workflowCurrent.option"
 msgstr "Позначати на лінії етапів, де перебуває остання рукопис у роботі (показується лише етап, без назви й автора)."
 
-msgid "plugins.themes.journalMetrics.stats.pages"
+msgid "plugins.themes.journalPulse.stats.pages"
 msgstr "сторінок у випуску"
 
-msgid "plugins.themes.journalMetrics.workflow.current"
+msgid "plugins.themes.journalPulse.workflow.current"
 msgstr "Остання подана стаття зараз на цьому етапі"
 
-msgid "plugins.themes.journalMetrics.mostRead.eyebrow"
+msgid "plugins.themes.journalPulse.mostRead.eyebrow"
 msgstr "Два останні випуски"
 
-msgid "plugins.themes.journalMetrics.mostRead.title"
+msgid "plugins.themes.journalPulse.mostRead.title"
 msgstr "Найчитаніші статті"
 
-msgid "plugins.themes.journalMetrics.article.pages"
+msgid "plugins.themes.journalPulse.article.pages"
 msgstr "Сторінки"
 
-msgid "plugins.themes.journalMetrics.article.details"
+msgid "plugins.themes.journalPulse.article.details"
 msgstr "Відомості про статтю"
 
-msgid "plugins.themes.journalMetrics.article.journal"
+msgid "plugins.themes.journalPulse.article.journal"
 msgstr "Журнал"
 
-msgid "plugins.themes.journalMetrics.workflow.currentMine"
+msgid "plugins.themes.journalPulse.workflow.currentMine"
 msgstr "Ваша стаття зараз на цьому етапі"
 
-msgid "plugins.themes.journalMetrics.workflow.progress"
+msgid "plugins.themes.journalPulse.workflow.progress"
 msgstr "День {$day} з {$total} · {$percent} %"
 
-msgid "plugins.themes.journalMetrics.workflow.progressOver"
+msgid "plugins.themes.journalPulse.workflow.progressOver"
 msgstr "День {$day} · типовий строк етапу ({$total} днів) перевищено"
 
-msgid "plugins.themes.journalMetrics.workflow.progressHint"
+msgid "plugins.themes.journalPulse.workflow.progressHint"
 msgstr "Типовий строк етапу: {$total} днів"
 
-msgid "plugins.themes.journalMetrics.header.languageIcon"
+msgid "plugins.themes.journalPulse.header.languageIcon"
 msgstr "Мова"
 
-msgid "plugins.themes.journalMetrics.footer.developedBy"
+msgid "plugins.themes.journalPulse.footer.developedBy"
 msgstr "Розробка теми:"
 
-msgid "plugins.themes.journalMetrics.header.openMenu"
+msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "Відкрити меню"
 
-msgid "plugins.themes.journalMetrics.option.info.label"
+msgid "plugins.themes.journalPulse.option.info.label"
 msgstr "Інформація про журнал"
 
-msgid "plugins.themes.journalMetrics.option.info.option"
+msgid "plugins.themes.journalPulse.option.info.option"
 msgstr "Показувати розділ з інформацією про журнал на головній сторінці."
 
-msgid "plugins.themes.journalMetrics.option.info.description"
+msgid "plugins.themes.journalPulse.option.info.description"
 msgstr "Назва журналу, ISSN і префікс DOI беруться з налаштувань журналу. Заповніть поля нижче; порожні поля не показуються."
 
-msgid "plugins.themes.journalMetrics.option.info.field"
+msgid "plugins.themes.journalPulse.option.info.field"
 msgstr "Інформація про журнал: {$field}"
 
-msgid "plugins.themes.journalMetrics.option.info.onePerLine"
+msgid "plugins.themes.journalPulse.option.info.onePerLine"
 msgstr "Кожен пункт — з нового рядка."
 
-msgid "plugins.themes.journalMetrics.option.info.videoGuides"
+msgid "plugins.themes.journalPulse.option.info.videoGuides"
 msgstr "Кожне відео — з нового рядка; зробіть його назву посиланням на відео, наприклад на YouTube."
 
-msgid "plugins.themes.journalMetrics.option.info.downloads"
+msgid "plugins.themes.journalPulse.option.info.downloads"
 msgstr "Кожен файл — з нового рядка; зробіть його назву посиланням на файл. Щоб розмістити файл, завантажте його в Налаштування → Робочий процес → Бібліотека видавця, увімкніть «Публічний доступ» і скопіюйте посилання для завантаження."
 
-msgid "plugins.themes.journalMetrics.info.heading"
+msgid "plugins.themes.journalPulse.info.heading"
 msgstr "Інформація про журнал"
 
-msgid "plugins.themes.journalMetrics.info.journalTitle"
+msgid "plugins.themes.journalPulse.info.journalTitle"
 msgstr "Назва журналу"
 
-msgid "plugins.themes.journalMetrics.info.indexing"
+msgid "plugins.themes.journalPulse.info.indexing"
 msgstr "Індексування"
 
-msgid "plugins.themes.journalMetrics.info.onlineIssn"
+msgid "plugins.themes.journalPulse.info.onlineIssn"
 msgstr "ISSN (онлайн)"
 
-msgid "plugins.themes.journalMetrics.info.printIssn"
+msgid "plugins.themes.journalPulse.info.printIssn"
 msgstr "ISSN (друкований)"
 
-msgid "plugins.themes.journalMetrics.info.frequency"
+msgid "plugins.themes.journalPulse.info.frequency"
 msgstr "Періодичність"
 
-msgid "plugins.themes.journalMetrics.info.publicationDates"
+msgid "plugins.themes.journalPulse.info.publicationDates"
 msgstr "Дати виходу"
 
-msgid "plugins.themes.journalMetrics.info.doiPrefix"
+msgid "plugins.themes.journalPulse.info.doiPrefix"
 msgstr "Префікс DOI"
 
-msgid "plugins.themes.journalMetrics.info.editorInChief"
+msgid "plugins.themes.journalPulse.info.editorInChief"
 msgstr "Головний редактор"
 
-msgid "plugins.themes.journalMetrics.info.managingEditor"
+msgid "plugins.themes.journalPulse.info.managingEditor"
 msgstr "Відповідальний редактор"
 
-msgid "plugins.themes.journalMetrics.info.organizedBy"
+msgid "plugins.themes.journalPulse.info.organizedBy"
 msgstr "Організатор"
 
-msgid "plugins.themes.journalMetrics.info.citationAnalysis"
+msgid "plugins.themes.journalPulse.info.citationAnalysis"
 msgstr "Аналіз цитувань"
 
-msgid "plugins.themes.journalMetrics.info.acceptanceRate"
+msgid "plugins.themes.journalPulse.info.acceptanceRate"
 msgstr "Частка прийнятих статей"
 
-msgid "plugins.themes.journalMetrics.info.reviewSpeed"
+msgid "plugins.themes.journalPulse.info.reviewSpeed"
 msgstr "Термін рецензування"
 
-msgid "plugins.themes.journalMetrics.info.submissionNote"
+msgid "plugins.themes.journalPulse.info.submissionNote"
 msgstr "Примітка перед поданням"
 
-msgid "plugins.themes.journalMetrics.info.downloads"
+msgid "plugins.themes.journalPulse.info.downloads"
 msgstr "Шаблони та форми"
 
-msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
+msgid "plugins.themes.journalPulse.info.onlineSubmissions"
 msgstr "Онлайн-подання"
 
-msgid "plugins.themes.journalMetrics.info.goToLogin"
+msgid "plugins.themes.journalPulse.info.goToLogin"
 msgstr "Увійти"
 
-msgid "plugins.themes.journalMetrics.info.goToRegistration"
+msgid "plugins.themes.journalPulse.info.goToRegistration"
 msgstr "Зареєструватися"
 
-msgid "plugins.themes.journalMetrics.info.registrationRequired"
+msgid "plugins.themes.journalPulse.info.registrationRequired"
 msgstr "Щоб подати статтю й стежити за її статусом, потрібен обліковий запис."
 
-msgid "plugins.themes.journalMetrics.info.videoGuides"
+msgid "plugins.themes.journalPulse.info.videoGuides"
 msgstr "Відеоінструкції"

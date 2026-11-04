@@ -1,7 +1,7 @@
 {**
  * templates/frontend/components/header.tpl
  *
- * Journal Metrics theme. Based on lib/pkp/templates/frontend/components/header.tpl.
+ * Journal Pulse theme. Based on lib/pkp/templates/frontend/components/header.tpl.
  * Differences from the original:
  *  - no hidden <h1> on the home page (the hero prints the only <h1>);
  *  - a top bar with ISSN, language switch and the user menu;
@@ -37,7 +37,7 @@
 						{if $currentContext}
 							{assign var="jmLocaleLinks" value=$activeTheme->getLocaleLinks()}
 							{if $jmLocaleLinks}
-								<nav class="jm_lang" aria-label="{translate|escape key="plugins.themes.journalMetrics.header.language"}">
+								<nav class="jm_lang" aria-label="{translate|escape key="plugins.themes.journalPulse.header.language"}">
 									<svg class="jm_lang_icon" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.7 4 5.9 4 9.5s-1.4 6.8-4 9.5c-2.6-2.7-4-5.9-4-9.5s1.4-6.8 4-9.5z"/></svg>
 									<ul>
 										{foreach from=$jmLocaleLinks item=jmLink}
@@ -60,7 +60,7 @@
 
 				<div class="pkp_site_name_wrapper">
 					<button class="pkp_site_nav_toggle" aria-label="{translate|escape key="common.navigation.site"}">
-						<span>{translate key="plugins.themes.journalMetrics.header.openMenu"}</span>
+						<span>{translate key="plugins.themes.journalPulse.header.openMenu"}</span>
 					</button>
 					<div class="pkp_site_name">
 					{capture assign="homeUrl"}
@@ -81,7 +81,7 @@
 				</div>
 
 				{if $currentContext}
-					<a class="jm_cta jm_cta_desktop" href="{url page="submission"}">{translate key="plugins.themes.journalMetrics.header.submit"}</a>
+					<a class="jm_cta jm_cta_desktop" href="{url page="submission"}">{translate key="plugins.themes.journalPulse.header.submit"}</a>
 				{/if}
 
 				{capture assign="primaryMenu"}
@@ -96,7 +96,7 @@
 							{$primaryMenu}
 
 							{if $currentContext}
-								<a class="jm_cta jm_cta_mobile" href="{url page="submission"}">{translate key="plugins.themes.journalMetrics.header.submit"}</a>
+								<a class="jm_cta jm_cta_mobile" href="{url page="submission"}">{translate key="plugins.themes.journalPulse.header.submit"}</a>
 							{/if}
 						</div>
 					</div>

@@ -1,7 +1,7 @@
 {**
  * templates/frontend/components/footer.tpl
  *
- * Journal Metrics theme. Based on lib/pkp/templates/frontend/components/footer.tpl.
+ * Journal Pulse theme. Based on lib/pkp/templates/frontend/components/footer.tpl.
  * Adds a dark footer with journal identity and the main navigation links.
  *
  *
@@ -22,7 +22,7 @@
 				<div class="jm_footer_id">
 					<p class="jm_footer_name">{$currentContext->getLocalizedName()|escape}</p>
 					{assign var="jmFooterIssn" value=$currentContext->getData('onlineIssn')|default:$currentContext->getData('printIssn')}
-					{if $jmFooterIssn}<p class="jm_footer_meta">{translate key="plugins.themes.journalMetrics.footer.issn" issn=$jmFooterIssn|escape}</p>{/if}
+					{if $jmFooterIssn}<p class="jm_footer_meta">{translate key="plugins.themes.journalPulse.footer.issn" issn=$jmFooterIssn|escape}</p>{/if}
 					{if $currentContext->getData('publisherInstitution')}<p class="jm_footer_meta">{$currentContext->getData('publisherInstitution')|escape}</p>{/if}
 				</div>
 				<nav class="jm_footer_nav" aria-label="{translate|escape key="common.navigation.site"}">
@@ -53,7 +53,7 @@
 				</a>
 			</div>
 			<p class="jm_footer_credit">
-				{translate key="plugins.themes.journalMetrics.footer.developedBy"}
+				{translate key="plugins.themes.journalPulse.footer.developedBy"}
 				<a href="https://orcid.org/0000-0002-2648-5726" target="_blank" rel="noopener author"><span class="jm_orcid_icon" aria-hidden="true">iD</span>Oleksandr Radkevych</a>
 			</p>
 		</div>

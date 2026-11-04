@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/journalMetrics/tests/LocaleFilesTest.php
+ * @file plugins/themes/journalPulse/tests/LocaleFilesTest.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -11,7 +11,7 @@
  *        incomplete file is worse than none.
  */
 
-namespace APP\plugins\themes\journalMetrics\tests;
+namespace APP\plugins\themes\journalPulse\tests;
 
 use PKP\tests\PKPTestCase;
 
@@ -72,7 +72,7 @@ class LocaleFilesTest extends PKPTestCase
             $sources .= file_get_contents($file);
         }
         // Keys built in the template (key="...workflow.`$x`") cannot be checked statically.
-        preg_match_all('/plugins\.themes\.journalMetrics(?:\.[a-zA-Z0-9_]+)++(?!\.[`$])/', $sources, $m);
+        preg_match_all('/plugins\.themes\.journalPulse(?:\.[a-zA-Z0-9_]+)++(?!\.[`$])/', $sources, $m);
         $this->assertNotEmpty($m[0]);
         $keys = array_keys($this->files()[self::MASTER]->entries);
 

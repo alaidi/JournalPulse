@@ -1,7 +1,7 @@
 {**
  * templates/frontend/objects/article_details.tpl
  *
- * Journal Metrics theme. Based on templates/frontend/objects/article_details.tpl
+ * Journal Pulse theme. Based on templates/frontend/objects/article_details.tpl
  * of OJS 3.5. The reading column follows one fixed order:
  * title, publication date, authors, DOI and issue, galleys (PDF), abstract,
  * keywords, author biographies, references. The side column holds, from the top:
@@ -53,7 +53,7 @@
 						{if $section}{$section->getLocalizedTitle()|escape}{/if}
 						{if $section && $issue} · {/if}
 						{if $issue}{$issue->getIssueIdentification()|escape}{/if}
-						{if $publication->getData('pages')} · {translate key="plugins.themes.journalMetrics.article.pages"} {$publication->getData('pages')|escape}{/if}
+						{if $publication->getData('pages')} · {translate key="plugins.themes.journalPulse.article.pages"} {$publication->getData('pages')|escape}{/if}
 					</p>
 				{/if}
 				<h1 class="page_title">
@@ -230,7 +230,7 @@
 
 		</div><!-- .jm_article_body -->
 
-		<aside class="jm_article_aside" aria-label="{translate|escape key="plugins.themes.journalMetrics.article.details"}">
+		<aside class="jm_article_aside" aria-label="{translate|escape key="plugins.themes.journalPulse.article.details"}">
 
 			{* Cover image *}
 			{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
@@ -259,9 +259,9 @@
 			{/if}
 
 			<section class="jm_card">
-				<h2>{translate key="plugins.themes.journalMetrics.article.details"}</h2>
+				<h2>{translate key="plugins.themes.journalPulse.article.details"}</h2>
 				<dl class="jm_facts">
-					<dt>{translate key="plugins.themes.journalMetrics.article.journal"}</dt>
+					<dt>{translate key="plugins.themes.journalPulse.article.journal"}</dt>
 					<dd>{$currentContext->getLocalizedName()|escape}</dd>
 					{if $issue}
 						<dt>{translate key="issue.issue"}</dt>
@@ -272,7 +272,7 @@
 						<dd>{$section->getLocalizedTitle()|escape}</dd>
 					{/if}
 					{if $publication->getData('pages')}
-						<dt>{translate key="plugins.themes.journalMetrics.article.pages"}</dt>
+						<dt>{translate key="plugins.themes.journalPulse.article.pages"}</dt>
 						<dd>{$publication->getData('pages')|escape}</dd>
 					{/if}
 					{assign var="jmIssn" value=$currentContext->getData('onlineIssn')|default:$currentContext->getData('printIssn')}
@@ -315,21 +315,21 @@
 			{assign var="jmStats" value=$activeTheme->getArticleStats($article->getId())}
 			{if $jmStats.views || $jmStats.pdf || $jmStats.html}
 				<section class="jm_card jm_usage">
-					<h2>{translate key="plugins.themes.journalMetrics.usage.title"}</h2>
+					<h2>{translate key="plugins.themes.journalPulse.usage.title"}</h2>
 					<dl class="jm_usage_list">
 						<div>
-							<dt>{translate key="plugins.themes.journalMetrics.usage.views"}</dt>
+							<dt>{translate key="plugins.themes.journalPulse.usage.views"}</dt>
 							<dd>{$jmStats.views|escape}</dd>
 						</div>
 						{if $jmStats.pdf}
 							<div>
-								<dt>{translate key="plugins.themes.journalMetrics.usage.pdf"}</dt>
+								<dt>{translate key="plugins.themes.journalPulse.usage.pdf"}</dt>
 								<dd>{$jmStats.pdf|escape}</dd>
 							</div>
 						{/if}
 						{if $jmStats.html}
 							<div>
-								<dt>{translate key="plugins.themes.journalMetrics.usage.html"}</dt>
+								<dt>{translate key="plugins.themes.journalPulse.usage.html"}</dt>
 								<dd>{$jmStats.html|escape}</dd>
 							</div>
 						{/if}

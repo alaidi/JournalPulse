@@ -5,14 +5,16 @@
 <a id="english"></a>
 ## English
 
-A child theme of the default theme. Implements the "Journal in numbers" variant. Developed from [Journal Metrics](https://github.com/Radkevych/JournalMetrics) by Oleksandr Radkevych; the code, folder and package keep the name `journalMetrics`.
+A child theme of the default theme. Implements the "Journal in numbers" variant. Developed from [Journal Metrics](https://github.com/Radkevych/JournalMetrics) by Oleksandr Radkevych.
 
 ### Installation
-1. Copy the `journalMetrics` folder into `plugins/themes/` of your OJS so you get `plugins/themes/journalMetrics/version.xml`.
-2. Permissions: files must be readable by the web server (`chmod -R a+rX plugins/themes/journalMetrics`).
+1. Copy the `journalPulse` folder into `plugins/themes/` of your OJS so you get `plugins/themes/journalPulse/version.xml`.
+2. Permissions: files must be readable by the web server (`chmod -R a+rX plugins/themes/journalPulse`).
 3. Clear the template cache: Administration → Site → "Clear Template Cache" and "Clear Data Caches".
 4. Settings → Website → Appearance → Theme → choose "Journal Pulse Theme" → Save.
 5. On the same page, set the accent color, tagline, and the "Usage metrics" and "Editorial workflow" toggles.
+
+Upgrading from the theme's former name, `journalMetrics`: install `journalPulse` as above. Installing it copies the theme settings and switches the journals that used `journalMetrics` to it; then delete `plugins/themes/journalMetrics`.
 
 ### What it does
 - Layout: wide container (up to 1560 px) with no sidebar; header: ISSN, language switcher, user menu (dropdown), journal title, "Submit a manuscript" button and the main menu in one row; on screens up to 992 px the menu becomes a burger. Skip links are invisible and appear only for keyboard users.
@@ -21,7 +23,7 @@ A child theme of the default theme. Implements the "Journal in numbers" variant.
 - SEO: canonical for the home, issue and article pages (separately for each language); JSON-LD (Periodical on the home page, ScholarlyArticle on the article page); semantic markup; a single H1; hreflang and Google Scholar meta tags are left to OJS core and the Google Scholar plugin.
 
 ### Editorial workflow stages
-The term under each stage is measured from the journal's own submissions of the last two years: the day of the stage by which 80% of the manuscripts had left it (the share OJS uses for its "days to first decision"). A stage starts with the editorial decision that moved the manuscript into it (screening starts at submission), and production ends at publication. The same numbers set the segment widths and are recalculated once a day. A stage with fewer than 5 finished manuscripts uses its default from `STAGE_DAYS` in `JournalPulseThemePlugin.php`. A note under the line says these are typical times, not guarantees. Stage names are in `locale/*/locale.po` (keys `plugins.themes.journalMetrics.workflow.*`).
+The term under each stage is measured from the journal's own submissions of the last two years: the day of the stage by which 80% of the manuscripts had left it (the share OJS uses for its "days to first decision"). A stage starts with the editorial decision that moved the manuscript into it (screening starts at submission), and production ends at publication. The same numbers set the segment widths and are recalculated once a day. A stage with fewer than 5 finished manuscripts uses its default from `STAGE_DAYS` in `JournalPulseThemePlugin.php`. A note under the line says these are typical times, not guarantees. Stage names are in `locale/*/locale.po` (keys `plugins.themes.journalPulse.workflow.*`).
 
 ![Editorial workflow line on the home page](docs/editorial-workflow.png)
 
@@ -43,14 +45,16 @@ License: GNU GPL v3.
 
 ## العربية
 
-«نبض المجلة» قالب فرعي مبني على القالب الافتراضي (default). يطبّق نمط «المجلة بالأرقام». وهو مطوَّر عن [Journal Metrics](https://github.com/Radkevych/JournalMetrics) لـ Oleksandr Radkevych؛ ويحتفظ الكود والمجلد والحزمة بالاسم `journalMetrics`.
+«نبض المجلة» قالب فرعي مبني على القالب الافتراضي (default). يطبّق نمط «المجلة بالأرقام». وهو مطوَّر عن [Journal Metrics](https://github.com/Radkevych/JournalMetrics) لـ Oleksandr Radkevych.
 
 ### التثبيت
-1. انسخ مجلد `journalMetrics` إلى `plugins/themes/` في نظام OJS لديك ليصبح المسار `plugins/themes/journalMetrics/version.xml`.
-2. الصلاحيات: يجب أن يتمكن خادم الويب من قراءة الملفات (`chmod -R a+rX plugins/themes/journalMetrics`).
+1. انسخ مجلد `journalPulse` إلى `plugins/themes/` في نظام OJS لديك ليصبح المسار `plugins/themes/journalPulse/version.xml`.
+2. الصلاحيات: يجب أن يتمكن خادم الويب من قراءة الملفات (`chmod -R a+rX plugins/themes/journalPulse`).
 3. امسح ذاكرة التخزين المؤقت للقوالب: الإدارة ← الموقع (Administration) ← «Clear Template Cache» و«Clear Data Caches».
 4. الإعدادات ← الموقع الإلكتروني ← المظهر (Appearance) ← القالب ← اختر «قالب نبض المجلة» ← حفظ.
 5. في الصفحة نفسها، حدّد اللون المميّز والشعار ومفتاحي «مؤشرات الاستخدام» و«سير العمل التحريري».
+
+الترقية من الاسم السابق للقالب `journalMetrics`: ثبّت `journalPulse` كما سبق. ينسخ التثبيت إعدادات القالب وينقل المجلات التي كانت تستخدم `journalMetrics` إليه؛ ثم احذف `plugins/themes/journalMetrics`.
 
 ### ماذا يفعل
 - الهيكل: حاوية عريضة (حتى 1560 px) بلا عمود جانبي؛ الترويسة: ISSN، ومبدّل اللغة، وقائمة المستخدم (منسدلة)، واسم المجلة، وزر «إرسال مخطوطة»، والقائمة الرئيسية في سطر واحد؛ على الشاشات حتى 992 px تتحول القائمة إلى زر همبرغر. روابط التخطي مخفية ولا تظهر إلا لمستخدمي لوحة المفاتيح.
@@ -59,7 +63,7 @@ License: GNU GPL v3.
 - تحسين محركات البحث (SEO): رابط canonical للصفحة الرئيسية والعدد والمقالة (لكل لغة على حدة)؛ JSON-LD (Periodical في الرئيسية، وScholarlyArticle في المقالة)؛ ترميز دلالي؛ عنوان H1 واحد؛ أما hreflang ووسوم Google Scholar الوصفية فتبقى من مسؤولية نواة OJS وإضافة Google Scholar.
 
 ### مراحل سير العمل التحريري
-تُقاس المدة تحت كل مرحلة من مخطوطات المجلة نفسها في السنتين الأخيرتين: اليوم الذي كان 80% من المخطوطات قد غادر المرحلة بحلوله (وهي النسبة التي يعتمدها OJS في إحصائية «أيام حتى القرار الأول»). تبدأ المرحلة بالقرار التحريري الذي نقل المخطوطة إليها (ويبدأ الفحص الأولي بتاريخ التقديم)، وينتهي الإنتاج بالنشر. الأرقام نفسها تحدد عرض المقاطع، ويُعاد حسابها مرة كل يوم. المرحلة التي أنهتها أقل من 5 مخطوطات تستخدم قيمتها الافتراضية من `STAGE_DAYS` في `JournalPulseThemePlugin.php`. وتوضح ملاحظة تحت الخط أن هذه مدد معتادة وليست مضمونة. أسماء المراحل في `locale/*/locale.po` (المفاتيح `plugins.themes.journalMetrics.workflow.*`).
+تُقاس المدة تحت كل مرحلة من مخطوطات المجلة نفسها في السنتين الأخيرتين: اليوم الذي كان 80% من المخطوطات قد غادر المرحلة بحلوله (وهي النسبة التي يعتمدها OJS في إحصائية «أيام حتى القرار الأول»). تبدأ المرحلة بالقرار التحريري الذي نقل المخطوطة إليها (ويبدأ الفحص الأولي بتاريخ التقديم)، وينتهي الإنتاج بالنشر. الأرقام نفسها تحدد عرض المقاطع، ويُعاد حسابها مرة كل يوم. المرحلة التي أنهتها أقل من 5 مخطوطات تستخدم قيمتها الافتراضية من `STAGE_DAYS` في `JournalPulseThemePlugin.php`. وتوضح ملاحظة تحت الخط أن هذه مدد معتادة وليست مضمونة. أسماء المراحل في `locale/*/locale.po` (المفاتيح `plugins.themes.journalPulse.workflow.*`).
 
 ![خط مراحل سير العمل التحريري في الصفحة الرئيسية](docs/editorial-workflow-ar.png)
 

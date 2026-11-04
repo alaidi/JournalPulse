@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/journalMetrics/tests/PoFile.php
+ * @file plugins/themes/journalPulse/tests/PoFile.php
  *
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -10,7 +10,7 @@
  * @brief Minimal reader for the plugin's gettext files, used by the locale tests.
  */
 
-namespace APP\plugins\themes\journalMetrics\tests;
+namespace APP\plugins\themes\journalPulse\tests;
 
 class PoFile
 {

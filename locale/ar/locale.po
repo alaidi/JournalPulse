@@ -6,257 +6,257 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "plugins.themes.journalMetrics.name"
+msgid "plugins.themes.journalPulse.name"
 msgstr "قالب نبض المجلة"
 
-msgid "plugins.themes.journalMetrics.description"
+msgid "plugins.themes.journalPulse.description"
 msgstr "قالب فرعي مبني على القالب الافتراضي. صفحة رئيسية تتصدّرها الأرقام مع إحصاءات الاستخدام وسير العمل التحريري والقائمة الكاملة لآخر عدد؛ وكتلة الاستخدام في صفحات المقالات؛ وروابط canonical وترميز schema.org لمحركات البحث."
 
-msgid "plugins.themes.journalMetrics.option.accent.label"
+msgid "plugins.themes.journalPulse.option.accent.label"
 msgstr "اللون المميّز"
 
-msgid "plugins.themes.journalMetrics.option.accent.description"
+msgid "plugins.themes.journalPulse.option.accent.description"
 msgstr "لون الأزرار والأرقام والأشرطة. استخدم درجة داكنة ليبقى النص الأبيض فوقه مقروءًا."
 
-msgid "plugins.themes.journalMetrics.option.tagline.label"
+msgid "plugins.themes.journalPulse.option.tagline.label"
 msgstr "شعار الصفحة الرئيسية"
 
-msgid "plugins.themes.journalMetrics.option.tagline.description"
+msgid "plugins.themes.journalPulse.option.tagline.description"
 msgstr "جزء ثانٍ اختياري من عنوان الصفحة الرئيسية، يُطبع باللون المميّز بعد اسم المجلة."
 
-msgid "plugins.themes.journalMetrics.option.heroStats.label"
+msgid "plugins.themes.journalPulse.option.heroStats.label"
 msgstr "أرقام الاستخدام"
 
-msgid "plugins.themes.journalMetrics.option.heroStats.option"
+msgid "plugins.themes.journalPulse.option.heroStats.option"
 msgstr "عرض عدّادات المقالات والمشاهدات وPDF للعدد الحالي في الصفحة الرئيسية."
 
-msgid "plugins.themes.journalMetrics.option.workflow.label"
+msgid "plugins.themes.journalPulse.option.workflow.label"
 msgstr "سير العمل التحريري"
 
-msgid "plugins.themes.journalMetrics.option.workflow.option"
+msgid "plugins.themes.journalPulse.option.workflow.option"
 msgstr "عرض شريط المراحل التحريرية ومددها القصوى في الصفحة الرئيسية."
 
-msgid "plugins.themes.journalMetrics.eyebrow"
+msgid "plugins.themes.journalPulse.eyebrow"
 msgstr "وصول مفتوح ماسي"
 
-msgid "plugins.themes.journalMetrics.hero.currentIssue"
+msgid "plugins.themes.journalPulse.hero.currentIssue"
 msgstr "العدد الحالي"
 
-msgid "plugins.themes.journalMetrics.hero.forAuthors"
+msgid "plugins.themes.journalPulse.hero.forAuthors"
 msgstr "إرشادات للمؤلفين"
 
-msgid "plugins.themes.journalMetrics.header.submit"
+msgid "plugins.themes.journalPulse.header.submit"
 msgstr "إرسال مخطوطة"
 
-msgid "plugins.themes.journalMetrics.header.language"
+msgid "plugins.themes.journalPulse.header.language"
 msgstr "اللغة"
 
-msgid "plugins.themes.journalMetrics.stats.articles"
+msgid "plugins.themes.journalPulse.stats.articles"
 msgstr "مقالة في العدد"
 
-msgid "plugins.themes.journalMetrics.stats.views"
+msgid "plugins.themes.journalPulse.stats.views"
 msgstr "مشاهدة للمقالات"
 
-msgid "plugins.themes.journalMetrics.stats.pdf"
+msgid "plugins.themes.journalPulse.stats.pdf"
 msgstr "مشاهدة PDF"
 
-msgid "plugins.themes.journalMetrics.stats.source"
+msgid "plugins.themes.journalPulse.stats.source"
 msgstr "المصدر: إحصاءات استخدام هذه المجلة، تُحدَّث كل ساعة."
 
-msgid "plugins.themes.journalMetrics.workflow.eyebrow"
+msgid "plugins.themes.journalPulse.workflow.eyebrow"
 msgstr "سير العمل التحريري"
 
-msgid "plugins.themes.journalMetrics.workflow.title"
+msgid "plugins.themes.journalPulse.workflow.title"
 msgstr "من الإرسال إلى النشر"
 
-msgid "plugins.themes.journalMetrics.workflow.lead"
+msgid "plugins.themes.journalPulse.workflow.lead"
 msgstr "المدة المعتادة لكل مرحلة، محسوبة من مخطوطات المجلة في السنتين الأخيرتين."
 
-msgid "plugins.themes.journalMetrics.workflow.term"
+msgid "plugins.themes.journalPulse.workflow.term"
 msgstr "حتى {$days} يومًا"
 
-msgid "plugins.themes.journalMetrics.workflow.termOneDay"
+msgid "plugins.themes.journalPulse.workflow.termOneDay"
 msgstr "خلال يوم واحد"
 
-msgid "plugins.themes.journalMetrics.workflow.termTwoDays"
+msgid "plugins.themes.journalPulse.workflow.termTwoDays"
 msgstr "حتى يومين"
 
-msgid "plugins.themes.journalMetrics.workflow.termFewDays"
+msgid "plugins.themes.journalPulse.workflow.termFewDays"
 msgstr "حتى {$days} أيام"
 
-msgid "plugins.themes.journalMetrics.workflow.note"
+msgid "plugins.themes.journalPulse.workflow.note"
 msgstr "هذه مدد معتادة وليست مضمونة: أنهى 80% من المخطوطات كل مرحلة خلال المدة المبيّنة، واستغرقت الـ 20% الباقية وقتًا أطول."
 
-msgid "plugins.themes.journalMetrics.workflow.screening"
+msgid "plugins.themes.journalPulse.workflow.screening"
 msgstr "الفحص الأولي"
 
-msgid "plugins.themes.journalMetrics.workflow.review"
+msgid "plugins.themes.journalPulse.workflow.review"
 msgstr "التحكيم"
 
-msgid "plugins.themes.journalMetrics.workflow.revision"
+msgid "plugins.themes.journalPulse.workflow.revision"
 msgstr "المراجعة والتعديل"
 
-msgid "plugins.themes.journalMetrics.workflow.copyediting"
+msgid "plugins.themes.journalPulse.workflow.copyediting"
 msgstr "التدقيق اللغوي"
 
-msgid "plugins.themes.journalMetrics.workflow.proofreading"
+msgid "plugins.themes.journalPulse.workflow.proofreading"
 msgstr "التصحيح والإخراج"
 
-msgid "plugins.themes.journalMetrics.list.title"
+msgid "plugins.themes.journalPulse.list.title"
 msgstr "جميع مقالات العدد"
 
-msgid "plugins.themes.journalMetrics.list.views"
+msgid "plugins.themes.journalPulse.list.views"
 msgstr "مشاهدة"
 
-msgid "plugins.themes.journalMetrics.list.viewPdf"
+msgid "plugins.themes.journalPulse.list.viewPdf"
 msgstr "عرض PDF"
 
-msgid "plugins.themes.journalMetrics.list.viewPdfFor"
+msgid "plugins.themes.journalPulse.list.viewPdfFor"
 msgstr "عرض PDF: {$title}"
 
-msgid "plugins.themes.journalMetrics.footer.issn"
+msgid "plugins.themes.journalPulse.footer.issn"
 msgstr "ISSN {$issn}"
 
-msgid "plugins.themes.journalMetrics.usage.title"
+msgid "plugins.themes.journalPulse.usage.title"
 msgstr "الاستخدام"
 
-msgid "plugins.themes.journalMetrics.usage.views"
+msgid "plugins.themes.journalPulse.usage.views"
 msgstr "مشاهدات هذه الصفحة"
 
-msgid "plugins.themes.journalMetrics.usage.pdf"
+msgid "plugins.themes.journalPulse.usage.pdf"
 msgstr "مشاهدات PDF"
 
-msgid "plugins.themes.journalMetrics.usage.html"
+msgid "plugins.themes.journalPulse.usage.html"
 msgstr "مشاهدات HTML"
 
-msgid "plugins.themes.journalMetrics.option.workflowCurrent.label"
+msgid "plugins.themes.journalPulse.option.workflowCurrent.label"
 msgstr "مؤشّر المرحلة الحالية"
 
-msgid "plugins.themes.journalMetrics.option.workflowCurrent.option"
+msgid "plugins.themes.journalPulse.option.workflowCurrent.option"
 msgstr "الإشارة على خط سير العمل إلى مرحلة أحدث مخطوطة قيد العمل (تُعرض المرحلة فقط، دون العنوان أو المؤلف أبدًا)."
 
-msgid "plugins.themes.journalMetrics.stats.pages"
+msgid "plugins.themes.journalPulse.stats.pages"
 msgstr "صفحة في العدد"
 
-msgid "plugins.themes.journalMetrics.workflow.current"
+msgid "plugins.themes.journalPulse.workflow.current"
 msgstr "أحدث مخطوطة في هذه المرحلة"
 
-msgid "plugins.themes.journalMetrics.mostRead.eyebrow"
+msgid "plugins.themes.journalPulse.mostRead.eyebrow"
 msgstr "آخر عددين"
 
-msgid "plugins.themes.journalMetrics.mostRead.title"
+msgid "plugins.themes.journalPulse.mostRead.title"
 msgstr "المقالات الأكثر قراءة"
 
-msgid "plugins.themes.journalMetrics.article.pages"
+msgid "plugins.themes.journalPulse.article.pages"
 msgstr "الصفحات"
 
-msgid "plugins.themes.journalMetrics.article.details"
+msgid "plugins.themes.journalPulse.article.details"
 msgstr "بيانات المقالة"
 
-msgid "plugins.themes.journalMetrics.article.journal"
+msgid "plugins.themes.journalPulse.article.journal"
 msgstr "المجلة"
 
-msgid "plugins.themes.journalMetrics.workflow.currentMine"
+msgid "plugins.themes.journalPulse.workflow.currentMine"
 msgstr "مخطوطتك في هذه المرحلة"
 
-msgid "plugins.themes.journalMetrics.workflow.progress"
+msgid "plugins.themes.journalPulse.workflow.progress"
 msgstr "اليوم {$day} من {$total} · {$percent}%"
 
-msgid "plugins.themes.journalMetrics.workflow.progressOver"
+msgid "plugins.themes.journalPulse.workflow.progressOver"
 msgstr "اليوم {$day} · تجاوز المدة المعتادة التي تنتهي في اليوم {$total}"
 
-msgid "plugins.themes.journalMetrics.workflow.progressHint"
+msgid "plugins.themes.journalPulse.workflow.progressHint"
 msgstr "تنتهي المدة المعتادة للمرحلة في اليوم {$total}"
 
-msgid "plugins.themes.journalMetrics.header.languageIcon"
+msgid "plugins.themes.journalPulse.header.languageIcon"
 msgstr "اللغة"
 
-msgid "plugins.themes.journalMetrics.footer.developedBy"
+msgid "plugins.themes.journalPulse.footer.developedBy"
 msgstr "تطوير القالب:"
 
-msgid "plugins.themes.journalMetrics.header.openMenu"
+msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "فتح القائمة"
 
-msgid "plugins.themes.journalMetrics.option.info.label"
+msgid "plugins.themes.journalPulse.option.info.label"
 msgstr "معلومات المجلة"
 
-msgid "plugins.themes.journalMetrics.option.info.option"
+msgid "plugins.themes.journalPulse.option.info.option"
 msgstr "إظهار قسم معلومات المجلة في الصفحة الرئيسية."
 
-msgid "plugins.themes.journalMetrics.option.info.description"
+msgid "plugins.themes.journalPulse.option.info.description"
 msgstr "يُؤخذ عنوان المجلة ورقم ISSN وبادئة DOI من إعدادات المجلة. املأ الحقول أدناه؛ الحقول الفارغة لا تظهر."
 
-msgid "plugins.themes.journalMetrics.option.info.field"
+msgid "plugins.themes.journalPulse.option.info.field"
 msgstr "معلومات المجلة: {$field}"
 
-msgid "plugins.themes.journalMetrics.option.info.onePerLine"
+msgid "plugins.themes.journalPulse.option.info.onePerLine"
 msgstr "ضع كل عنصر في سطر مستقل."
 
-msgid "plugins.themes.journalMetrics.option.info.videoGuides"
+msgid "plugins.themes.journalPulse.option.info.videoGuides"
 msgstr "ضع كل فيديو في سطر مستقل، واجعل عنوانه رابطاً إلى الفيديو (على YouTube مثلاً)."
 
-msgid "plugins.themes.journalMetrics.option.info.downloads"
+msgid "plugins.themes.journalPulse.option.info.downloads"
 msgstr "ضع كل ملف في سطر مستقل واجعل اسمه رابطاً إلى الملف. لاستضافة ملف، ارفعه في المكتبة الناشرة (الإعدادات، ثم المخطط الانسيابي)، وفعّل الإتاحة للعامة، ثم انسخ رابط تنزيله."
 
-msgid "plugins.themes.journalMetrics.info.heading"
+msgid "plugins.themes.journalPulse.info.heading"
 msgstr "معلومات المجلة"
 
-msgid "plugins.themes.journalMetrics.info.journalTitle"
+msgid "plugins.themes.journalPulse.info.journalTitle"
 msgstr "عنوان المجلة"
 
-msgid "plugins.themes.journalMetrics.info.indexing"
+msgid "plugins.themes.journalPulse.info.indexing"
 msgstr "الفهرسة"
 
-msgid "plugins.themes.journalMetrics.info.onlineIssn"
+msgid "plugins.themes.journalPulse.info.onlineIssn"
 msgstr "ISSN الإلكتروني"
 
-msgid "plugins.themes.journalMetrics.info.printIssn"
+msgid "plugins.themes.journalPulse.info.printIssn"
 msgstr "ISSN المطبوع"
 
-msgid "plugins.themes.journalMetrics.info.frequency"
+msgid "plugins.themes.journalPulse.info.frequency"
 msgstr "دورية الصدور"
 
-msgid "plugins.themes.journalMetrics.info.publicationDates"
+msgid "plugins.themes.journalPulse.info.publicationDates"
 msgstr "مواعيد الصدور"
 
-msgid "plugins.themes.journalMetrics.info.doiPrefix"
+msgid "plugins.themes.journalPulse.info.doiPrefix"
 msgstr "بادئة DOI"
 
-msgid "plugins.themes.journalMetrics.info.editorInChief"
+msgid "plugins.themes.journalPulse.info.editorInChief"
 msgstr "رئيس التحرير"
 
-msgid "plugins.themes.journalMetrics.info.managingEditor"
+msgid "plugins.themes.journalPulse.info.managingEditor"
 msgstr "مدير التحرير"
 
-msgid "plugins.themes.journalMetrics.info.organizedBy"
+msgid "plugins.themes.journalPulse.info.organizedBy"
 msgstr "الجهة المنظِّمة"
 
-msgid "plugins.themes.journalMetrics.info.citationAnalysis"
+msgid "plugins.themes.journalPulse.info.citationAnalysis"
 msgstr "تحليل الاستشهادات"
 
-msgid "plugins.themes.journalMetrics.info.acceptanceRate"
+msgid "plugins.themes.journalPulse.info.acceptanceRate"
 msgstr "نسبة القبول"
 
-msgid "plugins.themes.journalMetrics.info.reviewSpeed"
+msgid "plugins.themes.journalPulse.info.reviewSpeed"
 msgstr "مدة التحكيم"
 
-msgid "plugins.themes.journalMetrics.info.submissionNote"
+msgid "plugins.themes.journalPulse.info.submissionNote"
 msgstr "ملاحظة قبل الإرسال"
 
-msgid "plugins.themes.journalMetrics.info.downloads"
+msgid "plugins.themes.journalPulse.info.downloads"
 msgstr "القوالب والنماذج"
 
-msgid "plugins.themes.journalMetrics.info.onlineSubmissions"
+msgid "plugins.themes.journalPulse.info.onlineSubmissions"
 msgstr "الإرسال الإلكتروني"
 
-msgid "plugins.themes.journalMetrics.info.goToLogin"
+msgid "plugins.themes.journalPulse.info.goToLogin"
 msgstr "تسجيل الدخول"
 
-msgid "plugins.themes.journalMetrics.info.goToRegistration"
+msgid "plugins.themes.journalPulse.info.goToRegistration"
 msgstr "إنشاء حساب"
 
-msgid "plugins.themes.journalMetrics.info.registrationRequired"
+msgid "plugins.themes.journalPulse.info.registrationRequired"
 msgstr "تحتاج إلى حساب لإرسال بحثك ومتابعة حالته."
 
-msgid "plugins.themes.journalMetrics.info.videoGuides"
+msgid "plugins.themes.journalPulse.info.videoGuides"
 msgstr "شروحات بالفيديو"
