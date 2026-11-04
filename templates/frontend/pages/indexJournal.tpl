@@ -18,15 +18,23 @@
 
 	{call_hook name="Templates::Index::journal"}
 
+	{assign var="jmCover" value=null}
 	{if $issue}
 		{assign var="jmStats" value=$activeTheme->getIssueStats($publishedSubmissions)}
+		{assign var="jmCover" value=$issue->getLocalizedCoverImageUrl()}
 	{/if}
 	{assign var="jmIssn" value=$currentJournal->getData('onlineIssn')|default:$currentJournal->getData('printIssn')}
 	{assign var="jmTagline" value=$activeTheme->getLocalizedText('heroTagline')}
 
 	{* ---------- Hero: the only <h1> of the page ---------- *}
 	<section class="jm_hero" aria-labelledby="jm-hero-title">
-		<div class="jm_wrap jm_hero_grid">
+		<div class="jm_wrap jm_hero_grid{if $jmCover} jm_hero_has_cover{/if}">
+			{if $jmCover}
+				{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
+				<a class="jm_hero_cover" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+					<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
+				</a>
+			{/if}
 			<div class="jm_hero_text">
 				<p class="jm_eyebrow">
 					{if $currentJournal->getData('publishingMode') == APP\journal\Journal::PUBLISHING_MODE_OPEN}{translate key="plugins.themes.journalPulse.eyebrow"}{/if}
