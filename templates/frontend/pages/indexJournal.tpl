@@ -28,13 +28,7 @@
 
 	{* ---------- Hero: the only <h1> of the page ---------- *}
 	<section class="jm_hero" aria-labelledby="jm-hero-title">
-		<div class="jm_wrap jm_hero_grid{if $jmCover} jm_hero_has_cover{/if}">
-			{if $jmCover}
-				{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
-				<a class="jm_hero_cover" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-					<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
-				</a>
-			{/if}
+		<div class="jm_wrap jm_hero_grid">
 			<div class="jm_hero_text">
 				<p class="jm_eyebrow">
 					{if $currentJournal->getData('publishingMode') == APP\journal\Journal::PUBLISHING_MODE_OPEN}{translate key="plugins.themes.journalPulse.eyebrow"}{/if}
@@ -163,29 +157,39 @@
 			{assign var="jmStage" value=$activeTheme->getCurrentStage()}
 		{/if}
 		<section class="jm_band jm_workflow" aria-labelledby="jm-workflow-title">
-			<div class="jm_wrap">
-				<div class="jm_band_head">
-					<div>
-						<p class="jm_eyebrow jm_eyebrow_muted">{translate key="plugins.themes.journalPulse.workflow.eyebrow"}</p>
-						<h2 id="jm-workflow-title">{translate key="plugins.themes.journalPulse.workflow.title"}</h2>
+			<div class="jm_wrap jm_workflow_grid">
+				<div class="jm_workflow_main">
+					<div class="jm_band_head">
+						<div>
+							<p class="jm_eyebrow jm_eyebrow_muted">{translate key="plugins.themes.journalPulse.workflow.eyebrow"}</p>
+							<h2 id="jm-workflow-title">{translate key="plugins.themes.journalPulse.workflow.title"}</h2>
+						</div>
+						<p class="jm_band_lead">{translate key="plugins.themes.journalPulse.workflow.lead"}</p>
 					</div>
-					<p class="jm_band_lead">{translate key="plugins.themes.journalPulse.workflow.lead"}</p>
+
+					{assign var="jmStageDays" value=$activeTheme->getStageDays()}
+					<ol class="jm_flow{if $jmStage} jm_flow_tracked{/if}">
+						{foreach from=['screening','review','revision','copyediting','proofreading'] key=jmIdx item=jmKey}
+							{assign var="jmDays" value=$jmStageDays[$jmIdx]}
+							<li style="flex-grow:{$jmDays}"{if $jmStage && $jmStage.index == $jmIdx} class="is_current" aria-current="step"{elseif $jmStage && $jmStage.index > $jmIdx} class="is_done"{/if}>
+								<span class="jm_flow_bar"{if $jmStage && $jmStage.index == $jmIdx} style="--jm-p:{$jmStage.percent|intval}"{/if}>{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_fill" aria-hidden="true"></span><span class="jm_flow_dot" aria-hidden="true"></span>{/if}</span>
+								<span class="jm_flow_name">{translate key="plugins.themes.journalPulse.workflow.`$jmKey`"}</span>
+								<span class="jm_flow_term">{* Arabic counts days differently for 1, 2, 3-10 and 11 or more *}{if $jmDays == 1}{translate key="plugins.themes.journalPulse.workflow.termOneDay"}{elseif $jmDays == 2}{translate key="plugins.themes.journalPulse.workflow.termTwoDays"}{elseif $jmDays <= 10}{translate key="plugins.themes.journalPulse.workflow.termFewDays" days=$jmDays}{else}{translate key="plugins.themes.journalPulse.workflow.term" days=$jmDays}{/if}</span>
+								{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_now">{if $jmStage.mine}{translate key="plugins.themes.journalPulse.workflow.currentMine"}{else}{translate key="plugins.themes.journalPulse.workflow.current"}{/if}</span>
+									<span class="jm_flow_progress" title="{translate|escape key="plugins.themes.journalPulse.workflow.progressHint" total=$jmStage.total}">{if $jmStage.over}{translate key="plugins.themes.journalPulse.workflow.progressOver" day=$jmStage.day total=$jmStage.total}{else}{translate key="plugins.themes.journalPulse.workflow.progress" day=$jmStage.day total=$jmStage.total percent=$jmStage.percent}{/if}</span>{/if}
+							</li>
+						{/foreach}
+					</ol>
+					<p class="jm_source">{translate key="plugins.themes.journalPulse.workflow.note"}</p>
 				</div>
 
-				{assign var="jmStageDays" value=$activeTheme->getStageDays()}
-				<ol class="jm_flow{if $jmStage} jm_flow_tracked{/if}">
-					{foreach from=['screening','review','revision','copyediting','proofreading'] key=jmIdx item=jmKey}
-						{assign var="jmDays" value=$jmStageDays[$jmIdx]}
-						<li style="flex-grow:{$jmDays}"{if $jmStage && $jmStage.index == $jmIdx} class="is_current" aria-current="step"{elseif $jmStage && $jmStage.index > $jmIdx} class="is_done"{/if}>
-							<span class="jm_flow_bar"{if $jmStage && $jmStage.index == $jmIdx} style="--jm-p:{$jmStage.percent|intval}"{/if}>{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_fill" aria-hidden="true"></span><span class="jm_flow_dot" aria-hidden="true"></span>{/if}</span>
-							<span class="jm_flow_name">{translate key="plugins.themes.journalPulse.workflow.`$jmKey`"}</span>
-							<span class="jm_flow_term">{* Arabic counts days differently for 1, 2, 3-10 and 11 or more *}{if $jmDays == 1}{translate key="plugins.themes.journalPulse.workflow.termOneDay"}{elseif $jmDays == 2}{translate key="plugins.themes.journalPulse.workflow.termTwoDays"}{elseif $jmDays <= 10}{translate key="plugins.themes.journalPulse.workflow.termFewDays" days=$jmDays}{else}{translate key="plugins.themes.journalPulse.workflow.term" days=$jmDays}{/if}</span>
-							{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_now">{if $jmStage.mine}{translate key="plugins.themes.journalPulse.workflow.currentMine"}{else}{translate key="plugins.themes.journalPulse.workflow.current"}{/if}</span>
-								<span class="jm_flow_progress" title="{translate|escape key="plugins.themes.journalPulse.workflow.progressHint" total=$jmStage.total}">{if $jmStage.over}{translate key="plugins.themes.journalPulse.workflow.progressOver" day=$jmStage.day total=$jmStage.total}{else}{translate key="plugins.themes.journalPulse.workflow.progress" day=$jmStage.day total=$jmStage.total percent=$jmStage.percent}{/if}</span>{/if}
-						</li>
-					{/foreach}
-				</ol>
-				<p class="jm_source">{translate key="plugins.themes.journalPulse.workflow.note"}</p>
+				{* The line runs from submission to publication: the published issue sits at its end *}
+				{if $jmCover}
+					{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
+					<a class="jm_workflow_cover" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+						<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
+					</a>
+				{/if}
 			</div>
 		</section>
 	{/if}

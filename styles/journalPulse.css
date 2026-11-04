@@ -773,33 +773,6 @@ button:focus-visible {
 	min-width: 0;
 }
 
-/* With a cover of the current issue: cover beside the title, the numbers in one row below */
-.jm_hero_cover {
-	flex: 0 1 auto;
-}
-
-.jm_hero_cover img {
-	display: block;
-	max-width: 100%;
-	max-height: clamp(220px, 24vw, 340px);
-	border-radius: 6px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.14);
-}
-
-.jm_hero_has_cover .jm_hero_text {
-	flex-basis: 400px;
-}
-
-.jm_hero_has_cover .jm_hero_stats {
-	flex-basis: 100%;
-}
-
-@media (min-width: 992px) {
-	.jm_hero_has_cover .jm_stats {
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	}
-}
-
 .jm_hero h1 {
 	margin: 0 0 24px;
 	font-size: clamp(34px, 5vw, 60px);
@@ -1302,6 +1275,32 @@ button:focus-visible {
 	font-size: 15px;
 	line-height: 1.5;
 	color: var(--jm-ink-soft);
+}
+
+/* Workflow band: the cover of the current issue at the end of the line, beside
+   it on wide screens and under it when the line needs the room */
+.jm_workflow_grid {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 32px clamp(32px, 4vw, 64px);
+}
+
+.jm_workflow_main {
+	flex: 1 1 640px;
+	min-width: 0;
+}
+
+.jm_workflow_cover {
+	flex: 0 1 auto;
+}
+
+.jm_workflow_cover img {
+	display: block;
+	max-width: 100%;
+	max-height: clamp(160px, 16vw, 240px);
+	border-radius: 6px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.14);
 }
 
 /* Workflow line */
@@ -2163,6 +2162,337 @@ input[type="submit"] {
 .obj_galley_link {
 	border-radius: 8px;
 	font-weight: 700;
+}
+
+/* ---------- Login, registration, lost password ---------- */
+
+/* CSS only: the OJS templates stay as they are, so captcha, ORCID and the
+   plugins that add to these forms keep working. From 600px the page is a
+   white sheet on a grey desk. The sheet rules are scoped to the page element,
+   so a plugin page that nests a .page_login (OpenID) keeps its own layout. */
+
+.pkp_structure_main > :is(.page_login, .page_lost_password, .page_register) {
+	position: relative;
+	box-sizing: border-box;
+	max-width: 480px;
+	margin: 0 auto;
+}
+
+.pkp_structure_main > .page_register {
+	max-width: 880px;
+}
+
+:is(.page_login, .page_lost_password, .page_register) > .cmp_breadcrumbs ol {
+	margin: 0;
+	padding: 0;
+}
+
+:is(.page_login, .page_lost_password, .page_register) > h1 {
+	margin: 0 0 10px;
+	font-size: clamp(30px, 3.2vw, 40px);
+}
+
+:is(.page_login, .page_lost_password, .page_register) > p {
+	margin: 0 0 28px;
+	font-size: 14px;
+	line-height: 1.55;
+	color: var(--jm-ink-soft);
+}
+
+/* Why the visitor was sent here, e.g. to download a file */
+.page_login > p:nth-of-type(2) {
+	margin-top: -12px;
+	padding: 12px 16px;
+	border-radius: 8px;
+	background: color-mix(in srgb, var(--jm-accent) 8%, #fff);
+	color: var(--jm-ink);
+}
+
+:is(.page_login, .page_lost_password, .page_register) .required {
+	border: 0;
+	color: var(--jm-accent);
+	text-decoration: none;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form {
+	max-width: none;
+	margin: 0;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form fieldset {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .fields > div {
+	padding-bottom: 0;
+}
+
+/* :where() keeps this spacing weaker than the rules for single fields below */
+:is(.page_login, .page_lost_password, .page_register) .cmp_form :where(.fields > div + div, .fields > fieldset) {
+	margin-top: 20px;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .fields + .fields {
+	margin-top: 14px;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .label {
+	display: block;
+	margin: 0 0 8px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: var(--jm-ink);
+}
+
+/* Field edges keep 3:1 contrast with white, as WCAG asks of form controls */
+:is(.page_login, .page_lost_password, .page_register) .cmp_form :is(input[type="text"], input[type="email"], input[type="password"], select) {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: none;
+	height: 48px;
+	padding: 0 14px;
+	border: 1px solid #8C8C8C;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: none;
+	font: inherit;
+	font-size: 16px;
+	line-height: normal;
+	color: var(--jm-ink);
+	transition: border-color 0.15s, outline-color 0.15s;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form :is(input[type="text"], input[type="email"], input[type="password"], select):hover {
+	border-color: var(--jm-ink-soft);
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form :is(input[type="text"], input[type="email"], input[type="password"], select):focus {
+	border-color: var(--jm-accent);
+	outline: 3px solid color-mix(in srgb, var(--jm-accent) 28%, transparent);
+	outline-offset: 0;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form select:not([multiple]) {
+	appearance: none;
+	padding-inline-end: 42px;
+	background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23141414' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E") no-repeat right 14px center / 16px 16px;
+}
+
+[dir="rtl"] :is(.page_login, .page_lost_password, .page_register) .cmp_form select:not([multiple]) {
+	background-position: left 14px center;
+}
+
+/* Login: "Forgot your password?" on the label line, the field below */
+.page_login .cmp_form .password label {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	column-gap: 16px;
+}
+
+.page_login .cmp_form .password input {
+	order: 1;
+}
+
+.page_login .cmp_form .password a {
+	margin-bottom: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.page_login .cmp_form .password a:hover {
+	text-decoration: underline;
+}
+
+/* Checkboxes hang at the start of the line, so wrapped text stays aligned */
+:is(.page_login, .page_lost_password, .page_register) .cmp_form :is(.remember, .optin, .context_privacy) label {
+	position: relative;
+	padding-inline-start: 30px;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form :is(.remember, .optin, .context_privacy) input[type="checkbox"] {
+	position: absolute;
+	top: 2px;
+	inset-inline-start: 0;
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	accent-color: var(--jm-accent);
+}
+
+.page_login .cmp_form .remember .label {
+	display: inline;
+	margin: 0;
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+/* Registration: Profile and Login sections, fields in pairs from 640px */
+.page_register .cmp_form legend {
+	margin: 0 0 16px;
+	padding: 0;
+	font-size: 18px;
+	font-weight: 800;
+	line-height: 1.3;
+	letter-spacing: -0.01em;
+	color: var(--jm-ink);
+}
+
+.page_register .cmp_form > :is(fieldset.identity, fieldset.login) {
+	margin-bottom: 28px;
+	padding-bottom: 28px;
+	border-bottom: 1px solid var(--jm-line);
+}
+
+.page_register .cmp_form > fieldset.reviewer {
+	margin-top: 14px;
+}
+
+.page_register .cmp_form .fields > .reviewer_interests {
+	margin-top: 0;
+}
+
+.page_register .cmp_form .fields > .reviewer_interests.is_visible {
+	margin-top: 16px;
+	padding-bottom: 0;
+}
+
+@media (min-width: 640px) {
+	.page_register .cmp_form :is(fieldset.identity, fieldset.login) .fields {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 20px 24px;
+	}
+
+	.page_register .cmp_form :is(fieldset.identity, fieldset.login) .fields > div {
+		margin-top: 0;
+	}
+}
+
+/* Buttons: the theme's primary and outline buttons */
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	margin-top: 28px;
+	padding: 0;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons::before,
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons::after {
+	content: none;
+}
+
+:is(.page_login, .page_lost_password) .cmp_form .buttons {
+	flex-direction: column;
+	align-items: stretch;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons :is(button, a) {
+	float: none;
+	box-sizing: border-box;
+	height: auto;
+	margin: 0;
+	padding: 13px 24px;
+	border: 2px solid var(--jm-ink);
+	border-radius: 8px;
+	box-shadow: none;
+	text-shadow: none;
+	font: inherit;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons button {
+	background: var(--jm-ink);
+	color: #fff;
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons button:hover,
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons button:focus-visible {
+	background: var(--jm-accent);
+	border-color: var(--jm-accent);
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons a {
+	background: #fff;
+	color: var(--jm-ink);
+}
+
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons a:hover,
+:is(.page_login, .page_lost_password, .page_register) .cmp_form .buttons a:focus-visible {
+	background: var(--jm-ink);
+	color: #fff;
+}
+
+/* Errors: the login error, and the list of errors after a failed registration */
+:is(.page_login, .page_lost_password, .page_register) .pkp_form_error,
+.page_register #formErrors {
+	margin: 0 0 24px;
+	padding: 12px 16px;
+	border: 1px solid #F3C4BE;
+	border-radius: 8px;
+	background: #FEF3F2;
+	color: #A3190D;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.5;
+	/* the page opens at #formErrors: leave room above the box */
+	scroll-margin-top: 32px;
+}
+
+.page_register #formErrors .pkp_form_error {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+}
+
+.page_register #formErrors .pkp_form_error_list {
+	margin: 6px 0 0;
+	padding: 0;
+	padding-inline-start: 20px;
+	font-weight: 400;
+}
+
+.page_register #formErrors .pkp_form_error_list a {
+	color: inherit;
+}
+
+@media (min-width: 600px) {
+	.pkp_structure_page:has(.pkp_structure_main > :is(.page_login, .page_lost_password, .page_register)) {
+		background: var(--jm-neutral);
+	}
+
+	.pkp_structure_main > :is(.page_login, .page_lost_password, .page_register) {
+		margin-top: 44px;
+		padding: clamp(28px, 4vw, 48px);
+		border: 1px solid var(--jm-line);
+		border-radius: 16px;
+		background: #fff;
+		box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04), 0 12px 32px rgba(20, 20, 20, 0.06);
+	}
+
+	/* The breadcrumbs sit on the desk, above the sheet */
+	.pkp_structure_main > :is(.page_login, .page_lost_password, .page_register) > .cmp_breadcrumbs {
+		position: absolute;
+		bottom: 100%;
+		inset-inline-start: 0;
+		margin: 0 0 12px;
+	}
 }
 
 /* ---------- Footer ---------- */
