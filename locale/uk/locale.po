@@ -30,6 +30,24 @@ msgstr "Показники використання"
 msgid "plugins.themes.journalPulse.option.heroStats.option"
 msgstr "Показувати на головній сторінці кількість статей, переглядів і переглядів PDF поточного випуску."
 
+msgid "plugins.themes.journalPulse.option.heroLayout.label"
+msgstr "Розташування обкладинки на головній сторінці"
+
+msgid "plugins.themes.journalPulse.option.heroLayout.coverUnder"
+msgstr "Обкладинка під назвою журналу, показники використання поруч"
+
+msgid "plugins.themes.journalPulse.option.heroLayout.coverBeside"
+msgstr "Показники використання під назвою журналу, обкладинка поруч"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.label"
+msgstr "Розмір обкладинки на головній сторінці"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.normal"
+msgstr "Звичайний (до 320 px заввишки)"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.large"
+msgstr "Великий (до 480 px заввишки)"
+
 msgid "plugins.themes.journalPulse.option.workflow.label"
 msgstr "Редакційний процес"
 

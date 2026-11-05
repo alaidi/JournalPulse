@@ -26,6 +26,59 @@
 	{assign var="jmIssn" value=$currentJournal->getData('onlineIssn')|default:$currentJournal->getData('printIssn')}
 	{assign var="jmTagline" value=$activeTheme->getLocalizedText('heroTagline')}
 
+	{* The buttons sit under the usage numbers; without them, under the cover (or the lead when the cover is beside) *}
+	{capture assign="jmHeroActions"}
+		<p class="jm_hero_actions">
+			<a class="jm_btn jm_btn_primary" href="{url page="issue" op="current"}">{translate key="plugins.themes.journalPulse.hero.currentIssue"}</a>
+			<a class="jm_btn jm_btn_ghost" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalPulse.hero.forAuthors"}</a>
+		</p>
+	{/capture}
+	{assign var="jmShowStats" value=false}
+	{if $issue && $activeTheme->getOption('showHeroStats')}
+		{assign var="jmShowStats" value=true}
+	{/if}
+	{capture assign="jmHeroCover"}
+		{if $jmCover}
+			{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
+			<a class="jm_hero_cover{if $activeTheme->getOption('heroCoverSize') == 'large'} jm_hero_cover_large{/if}" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+				<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
+			</a>
+		{/if}
+	{/capture}
+	{capture assign="jmHeroStats"}
+		{if $jmShowStats}
+			<div class="jm_hero_stats">
+				<ul class="jm_stats">
+					<li>
+						<span class="jm_stat_value">{$jmStats.views|escape}</span>
+						<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.views"} · {$issue->getIssueIdentification()|escape}</span>
+					</li>
+					<li>
+						<span class="jm_stat_value jm_accent">{$jmStats.pdf|escape}</span>
+						<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.pdf"}</span>
+					</li>
+					<li>
+						<span class="jm_stat_value">{$jmStats.count|escape}</span>
+						<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.articles"}</span>
+					</li>
+					{if $jmStats.pages}
+						<li>
+							<span class="jm_stat_value">{$jmStats.pages|escape}</span>
+							<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.pages"} ({$jmStats.firstPage|escape}–{$jmStats.lastPage|escape})</span>
+						</li>
+					{/if}
+				</ul>
+				<p class="jm_source">{translate key="plugins.themes.journalPulse.stats.source"}</p>
+				{$jmHeroActions}
+			</div>
+		{/if}
+	{/capture}
+	{* Layout option: cover under the journal name with the usage numbers beside it, or the other way round *}
+	{assign var="jmCoverBeside" value=false}
+	{if $jmCover && $activeTheme->getOption('heroLayout') == 'coverBeside'}
+		{assign var="jmCoverBeside" value=true}
+	{/if}
+
 	{* ---------- Hero: the only <h1> of the page ---------- *}
 	<section class="jm_hero" aria-labelledby="jm-hero-title">
 		<div class="jm_wrap jm_hero_grid">
@@ -42,51 +95,13 @@
 				{if $jmLead}
 					<p class="jm_lead">{$jmLead|truncate:320:"…":true}</p>
 				{/if}
-				{if $jmCover}
-					{capture assign="jmCoverAlt"}{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()}{/capture}
-					<a class="jm_hero_cover" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-						<img src="{$jmCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|default:$jmCoverAlt|escape}">
-					</a>
-				{/if}
-				{* The buttons sit under the usage numbers; without them, under the cover *}
-				{capture assign="jmHeroActions"}
-					<p class="jm_hero_actions">
-						<a class="jm_btn jm_btn_primary" href="{url page="issue" op="current"}">{translate key="plugins.themes.journalPulse.hero.currentIssue"}</a>
-						<a class="jm_btn jm_btn_ghost" href="{url page="about" op="submissions"}">{translate key="plugins.themes.journalPulse.hero.forAuthors"}</a>
-					</p>
-				{/capture}
-				{assign var="jmShowStats" value=false}
-				{if $issue && $activeTheme->getOption('showHeroStats')}
-					{assign var="jmShowStats" value=true}
-				{/if}
+				{if $jmCoverBeside}{$jmHeroStats}{else}{$jmHeroCover}{/if}
 				{if !$jmShowStats}{$jmHeroActions}{/if}
 			</div>
-
-			{if $jmShowStats}
-				<div class="jm_hero_stats">
-					<ul class="jm_stats">
-						<li>
-							<span class="jm_stat_value">{$jmStats.views|escape}</span>
-							<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.views"} · {$issue->getIssueIdentification()|escape}</span>
-						</li>
-						<li>
-							<span class="jm_stat_value jm_accent">{$jmStats.pdf|escape}</span>
-							<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.pdf"}</span>
-						</li>
-						<li>
-							<span class="jm_stat_value">{$jmStats.count|escape}</span>
-							<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.articles"}</span>
-						</li>
-						{if $jmStats.pages}
-							<li>
-								<span class="jm_stat_value">{$jmStats.pages|escape}</span>
-								<span class="jm_stat_label">{translate key="plugins.themes.journalPulse.stats.pages"} ({$jmStats.firstPage|escape}–{$jmStats.lastPage|escape})</span>
-							</li>
-						{/if}
-					</ul>
-					<p class="jm_source">{translate key="plugins.themes.journalPulse.stats.source"}</p>
-					{$jmHeroActions}
-				</div>
+			{if $jmCoverBeside}
+				<div class="jm_hero_side">{$jmHeroCover}</div>
+			{else}
+				{$jmHeroStats}
 			{/if}
 		</div>
 	</section>

@@ -30,6 +30,24 @@ msgstr "Usage numbers"
 msgid "plugins.themes.journalPulse.option.heroStats.option"
 msgstr "Show article, view and PDF counters of the current issue on the home page."
 
+msgid "plugins.themes.journalPulse.option.heroLayout.label"
+msgstr "Home page cover position"
+
+msgid "plugins.themes.journalPulse.option.heroLayout.coverUnder"
+msgstr "Cover under the journal name, usage numbers beside it"
+
+msgid "plugins.themes.journalPulse.option.heroLayout.coverBeside"
+msgstr "Usage numbers under the journal name, cover beside them"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.label"
+msgstr "Home page cover size"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.normal"
+msgstr "Normal (up to 320 px tall)"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.large"
+msgstr "Large (up to 480 px tall)"
+
 msgid "plugins.themes.journalPulse.option.workflow.label"
 msgstr "Editorial workflow"
 

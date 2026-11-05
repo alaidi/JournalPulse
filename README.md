@@ -12,7 +12,7 @@ A child theme of the default theme. Implements the "Journal in numbers" variant.
 2. Permissions: files must be readable by the web server (`chmod -R a+rX plugins/themes/journalPulse`).
 3. Clear the template cache: Administration → Site → "Clear Template Cache" and "Clear Data Caches".
 4. Settings → Website → Appearance → Theme → choose "Journal Pulse Theme" → Save.
-5. On the same page, set the accent color, tagline, the open access model shown above the journal name (open, gold or diamond), and the "Usage metrics" and "Editorial workflow" toggles.
+5. On the same page, set the accent color, tagline, the open access model shown above the journal name (open, gold or diamond), where the home page cover goes (under the journal name, or beside it with the usage numbers taking its place) and its size (normal, up to 320 px tall, or large, up to 480 px), and the "Usage metrics" and "Editorial workflow" toggles.
 
 Upgrading from the theme's former name, `journalMetrics`: install `journalPulse` as above. Installing it copies the theme settings and switches the journals that used `journalMetrics` to it; then delete `plugins/themes/journalMetrics`.
 

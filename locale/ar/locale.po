@@ -30,6 +30,24 @@ msgstr "أرقام الاستخدام"
 msgid "plugins.themes.journalPulse.option.heroStats.option"
 msgstr "عرض عدّادات المقالات والمشاهدات وPDF للعدد الحالي في الصفحة الرئيسية."
 
+msgid "plugins.themes.journalPulse.option.heroLayout.label"
+msgstr "موضع الغلاف في الصفحة الرئيسية"
+
+msgid "plugins.themes.journalPulse.option.heroLayout.coverUnder"
+msgstr "الغلاف تحت اسم المجلة، وأرقام الاستخدام بجانبه"
+
+msgid "plugins.themes.journalPulse.option.heroLayout.coverBeside"
+msgstr "أرقام الاستخدام تحت اسم المجلة، والغلاف بجانبها"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.label"
+msgstr "حجم الغلاف في الصفحة الرئيسية"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.normal"
+msgstr "عادي (حتى 320 بكسل ارتفاعًا)"
+
+msgid "plugins.themes.journalPulse.option.heroCoverSize.large"
+msgstr "كبير (حتى 480 بكسل ارتفاعًا)"
+
 msgid "plugins.themes.journalPulse.option.workflow.label"
 msgstr "سير العمل التحريري"
 

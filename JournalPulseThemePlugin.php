@@ -146,6 +146,24 @@ class JournalPulseThemePlugin extends ThemePlugin
             ],
             'default' => true,
         ]);
+        $this->addOption('heroLayout', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.journalPulse.option.heroLayout.label'),
+            'options' => [
+                ['value' => 'coverUnder', 'label' => __('plugins.themes.journalPulse.option.heroLayout.coverUnder')],
+                ['value' => 'coverBeside', 'label' => __('plugins.themes.journalPulse.option.heroLayout.coverBeside')],
+            ],
+            'default' => 'coverUnder',
+        ]);
+        $this->addOption('heroCoverSize', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.journalPulse.option.heroCoverSize.label'),
+            'options' => [
+                ['value' => 'normal', 'label' => __('plugins.themes.journalPulse.option.heroCoverSize.normal')],
+                ['value' => 'large', 'label' => __('plugins.themes.journalPulse.option.heroCoverSize.large')],
+            ],
+            'default' => 'normal',
+        ]);
         $this->addOption('showWorkflowStrip', 'FieldOptions', [
             'label' => __('plugins.themes.journalPulse.option.workflow.label'),
             'options' => [
