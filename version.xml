@@ -11,8 +11,8 @@
 <version>
 	<application>journalPulse</application>
 	<type>plugins.themes</type>
-	<release>2.3.2.0</release>
-	<date>2026-11-04</date>
+	<release>2.4.0.0</release>
+	<date>2026-11-05</date>
 	<lazy-load>1</lazy-load>
 	<class>JournalPulseThemePlugin</class>
 </version>
