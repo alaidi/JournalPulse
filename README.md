@@ -36,6 +36,20 @@ A "Journal information" section under the top of the home page lists the journal
 
 ![Journal information section on the home page](docs/journal-information.png)
 
+The option "Editors in Journal information" sets how the editors look: **Compact** (default; small photo beside each editor, in one row with the organizer, as above) or **Profile cards** (a card for each editor with a large photo, role, name, affiliation and email; "Organized by" stays a plain line under the cards).
+
+![Editors as profile cards](docs/editors-cards.png)
+
+### Display settings (new in 2.5.1.0)
+One "Aa" button in the top bar replaces the six round text size and colour buttons. It opens a small panel: text size (A−, the current size in %, A+) and page colours (Auto, Light, Dark). The panel closes on Esc or a click outside it; Esc returns the focus to the button. Theme options "Text size" and "Day and night" hide either row, and the button disappears when both are off.
+
+![Display settings panel opened from the "Aa" button](docs/display-settings.png)
+
+### Footer (new in 2.5.1.0)
+Four columns: the journal name with its online and print ISSN and publisher; "The journal" links; "Authors & readers" links (pages without text are left out); and the journal's own footer text from Settings → Website → Appearance, such as the licence. A bottom bar holds the copyright, "Back to top" and a small OJS logo. On phones the name and the footer text take full rows and the two link columns stay side by side.
+
+![Redesigned footer](docs/footer.png)
+
 ### Statistics
 Views come from the OJS statistics service (`publicationStats`) and are cached for 1 hour. If statistics are disabled or empty, the metrics will be zero.
 
@@ -79,6 +93,20 @@ License: GNU GPL v3.
 يعرض قسم «معلومات المجلة» أعلى الصفحة الرئيسية عنوان المجلة ورقم ISSN وبادئة DOI (من إعدادات المجلة)، والحقول التي تُملأ في الإعدادات ← الموقع الإلكتروني ← المظهر ← القالب: الفهرسة، ودورية الصدور، ومواعيد النشر، ورئيس التحرير، ومدير التحرير، والجهة المنظِّمة، وتحليل الاستشهادات، ونسبة القبول، ومدة التحكيم، وملاحظة تظهر فوق زرّي الدخول والتسجيل، وملفات للتنزيل تحت تلك الملاحظة (قوالب، نماذج)، وأدلة الفيديو. يقبل حقلا رئيس التحرير ومدير التحرير صورة شخصية (زر الصورة، صورة مربعة) تظهر دائرية بجانب الاسم. ضع كل جهة فهرسة وكل موعد نشر وكل ملف وكل فيديو في سطر مستقل، واربط اسم كل ملف وعنوان كل فيديو به. يمكن استضافة الملفات في الإعدادات ← سير العمل ← مكتبة الناشر مع تفعيل «الوصول العام». الحقول الفارغة لا تظهر؛ ألغِ تحديد «معلومات المجلة» لإخفاء القسم.
 
 ![قسم معلومات المجلة في الصفحة الرئيسية](docs/journal-information-ar.png)
+
+يحدد خيار «المحررون في معلومات المجلة» شكل عرض المحررين: **مضغوط** (الافتراضي؛ صورة صغيرة بجانب كل محرر، في صف واحد مع الجهة المنظِّمة، كما في الصورة أعلاه) أو **بطاقات تعريفية** (بطاقة لكل محرر فيها صورة كبيرة والمنصب والاسم وجهة الانتساب والبريد الإلكتروني؛ وتبقى «الجهة المنظِّمة» سطراً عادياً تحت البطاقات).
+
+![المحررون في بطاقات تعريفية](docs/editors-cards-ar.png)
+
+### إعدادات العرض (جديد في 2.5.1.0)
+زر واحد «Aa» في الشريط العلوي يحل محل الأزرار الدائرية الستة لحجم النص والألوان. يفتح لوحة صغيرة فيها: حجم النص (A−، والحجم الحالي بالنسبة المئوية، A+) وألوان الصفحة (تلقائي، فاتح، داكن). تُغلق اللوحة بمفتاح Esc أو بالنقر خارجها، ويعيد Esc التركيز إلى الزر. يُخفي خيارا القالب «حجم النص» و«النهار والليل» أيّاً من الصفين، ويختفي الزر إذا أُطفئ الاثنان.
+
+![لوحة إعدادات العرض مفتوحة من زر «Aa»](docs/display-settings-ar.png)
+
+### التذييل (جديد في 2.5.1.0)
+أربعة أعمدة: اسم المجلة ورقما ISSN الإلكتروني والمطبوع والناشر؛ وروابط «المجلة»؛ وروابط «المؤلفون والقرّاء» (تُحذف الصفحات التي لا نص فيها)؛ ونص التذييل الخاص بالمجلة من الإعدادات ← الموقع الإلكتروني ← المظهر، مثل الترخيص. وفي الشريط السفلي حقوق النشر و«العودة إلى الأعلى» وشعار OJS صغير. على الهاتف يأخذ الاسم ونص التذييل سطراً كاملاً، ويبقى عمودا الروابط متجاورين.
+
+![التذييل الجديد](docs/footer-ar.png)
 
 ### الإحصاءات
 تُؤخذ المشاهدات من خدمة إحصاءات OJS (`publicationStats`) وتُخزَّن مؤقتًا لمدة ساعة واحدة. إذا كانت الإحصاءات معطّلة أو فارغة، فستظهر المؤشرات أصفارًا.

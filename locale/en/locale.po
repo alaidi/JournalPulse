@@ -447,3 +447,14 @@ msgstr "Authors & readers"
 
 msgid "plugins.themes.journalPulse.footer.backToTop"
 msgstr "Back to top"
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.label"
+msgstr "Editors in Journal information"
+
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.compact"
+msgstr "Compact: small photo beside each editor, in one row with the organizer"
+
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.cards"
+msgstr "Profile cards: a card for each editor with a large photo"

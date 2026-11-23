@@ -1677,6 +1677,17 @@ button:focus-visible {
 	list-style: none;
 }
 
+/* Several links typed on one line ("Scopus Google Scholar") still get a tag each */
+.jm_info_indexing dd p:has(> a + a) {
+	display: contents;
+}
+
+.jm_info_indexing dd p:has(> a + a) > a {
+	padding: 4px 12px;
+	border-radius: 6px;
+	background: var(--jm-neutral);
+}
+
 /* Editors and organizer: the first line (the name) leads, the rest is quieter */
 .jm_info_people dd p + p {
 	font-size: 1.071rem;
@@ -1707,6 +1718,121 @@ button:focus-visible {
 /* A photo alone in its paragraph leaves no empty line behind */
 .jm_info_people dd p:has(> img:only-child) {
 	display: contents;
+}
+
+/* Editors as profile cards (theme option editorsLayout = cards): each editor gets a card with a large
+   photo beside the role, name, affiliation and email; "Organized by" stays a plain line under them */
+.jm_editors_cards .jm_info_people {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+	padding: 20px;
+	background: var(--jm-neutral);
+}
+
+.jm_editors_cards .jm_info_people .jm_info_row {
+	margin: 0;
+	padding: 22px;
+	border: 1px solid var(--jm-line);
+	border-radius: 12px;
+	background: var(--jm-bg);
+}
+
+.jm_editors_cards .jm_info_people .jm_info_row_organizedBy {
+	grid-column: 1 / -1;
+	padding: 0 4px;
+	border: 0;
+	background: none;
+}
+
+.jm_editors_cards .jm_info_people .jm_info_row:has(img) {
+	display: grid;
+	grid-template-columns: 96px minmax(0, 1fr);
+	align-content: start;
+	column-gap: 20px;
+}
+
+.jm_editors_cards .jm_info_people .jm_info_row:has(img) > dd {
+	display: contents;
+}
+
+.jm_editors_cards .jm_info_people .jm_info_row:has(img) > dt,
+.jm_editors_cards .jm_info_people .jm_info_row:has(img) > dd > * {
+	grid-column: 2;
+}
+
+.jm_editors_cards .jm_info_people dd img {
+	grid-column: 1;
+	grid-row: 1 / span 6;
+	width: 96px;
+	height: 96px;
+	box-shadow: 0 0 0 3px var(--jm-bg), 0 0 0 5px var(--jm-line);
+}
+
+/* Role as a small label, the name large */
+.jm_editors_cards .jm_info_people .jm_info_row:not(.jm_info_row_organizedBy) dt {
+	margin-bottom: 4px;
+	font-size: 0.786rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--jm-accent-text);
+}
+
+.jm_editors_cards .jm_info_people dd > p:not(:has(img)):first-child,
+.jm_editors_cards .jm_info_people dd > p:has(> img:only-child) + p {
+	margin-bottom: 6px;
+	font-size: 1.286rem;
+	font-weight: 800;
+	line-height: 1.3;
+}
+
+.jm_editors_cards .jm_info_people dd > p:not(:has(img)):first-child a,
+.jm_editors_cards .jm_info_people dd > p:has(> img:only-child) + p a {
+	color: var(--jm-ink);
+	text-decoration: none;
+}
+
+/* Email under the photo across the whole card: the column beside the photo is too narrow and
+   split addresses mid-word ("…@uowasit.e / du.iq") */
+.jm_editors_cards .jm_info_people .jm_info_row:has(img) > dd > a[href^="mailto:"] {
+	grid-column: 1 / -1;
+	margin-top: 10px;
+}
+
+.jm_editors_cards .jm_info_people a[href^="mailto:"]::before {
+	content: "✉\00a0";
+	text-decoration: none;
+	display: inline-block;
+}
+
+.jm_editors_cards .jm_info_people .jm_info_row_organizedBy dd {
+	font-size: 1rem;
+}
+
+[dir="rtl"] .jm_editors_cards .jm_info_people .jm_info_row:not(.jm_info_row_organizedBy) dt {
+	letter-spacing: 0;
+}
+
+/* Phones: one card per row and a smaller photo. Must come after the rules above to win over them.
+   The affiliation is often bare text after the name (no element to select), so it stays beside the
+   photo; only the email takes the full width of the card */
+@media (max-width: 700px) {
+	.jm_editors_cards .jm_info_people {
+		grid-template-columns: minmax(0, 1fr);
+		padding: 14px;
+	}
+
+	.jm_editors_cards .jm_info_people .jm_info_row:has(img) {
+		grid-template-columns: 72px minmax(0, 1fr);
+		column-gap: 14px;
+		padding: 18px;
+	}
+
+	.jm_editors_cards .jm_info_people dd img {
+		width: 72px;
+		height: 72px;
+	}
 }
 
 /* Online submissions */

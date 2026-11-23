@@ -130,11 +130,11 @@
 				<h2 id="jm-info-title">{translate key="plugins.themes.journalPulse.info.heading"}</h2>
 
 				{* One sheet of facts in groups: title, identifiers, key figures, publication dates, indexing, people *}
-				<div class="jm_info_sheet">
+				<div class="jm_info_sheet jm_editors_{$activeTheme->getOption('editorsLayout')|escape}">
 					{foreach from=$activeTheme->getJournalInfo() key=jmGroup item=jmRows}
 						<dl class="jm_info_group jm_info_{$jmGroup|escape}">
 							{foreach from=$jmRows item=jmRow}
-								<div class="jm_info_row">
+								<div class="jm_info_row jm_info_row_{$jmRow.label|replace:'plugins.themes.journalPulse.info.':''|escape}">
 									<dt>{translate key=$jmRow.label}</dt>
 									<dd>{if $jmGroup == 'figures'}<span class="jm_info_number">{$jmRow.figure|escape}</span> {$jmRow.unit|escape}{elseif $jmRow.html}{$jmRow.value|strip_unsafe_html}{else}{$jmRow.value|escape}{/if}</dd>
 								</div>

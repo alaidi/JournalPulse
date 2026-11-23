@@ -447,3 +447,14 @@ msgstr "Авторам і читачам"
 
 msgid "plugins.themes.journalPulse.footer.backToTop"
 msgstr "Догори"
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.label"
+msgstr "Редактори в інформації про журнал"
+
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.compact"
+msgstr "Компактно: маленьке фото біля кожного редактора, в одному рядку з організатором"
+
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.cards"
+msgstr "Картки профілю: картка для кожного редактора з великим фото"

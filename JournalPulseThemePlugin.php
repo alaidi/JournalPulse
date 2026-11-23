@@ -237,6 +237,15 @@ class JournalPulseThemePlugin extends ThemePlugin
             ],
             'default' => true,
         ]);
+        $this->addOption('editorsLayout', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.journalPulse.option.editorsLayout.label'),
+            'options' => [
+                ['value' => 'compact', 'label' => __('plugins.themes.journalPulse.option.editorsLayout.compact')],
+                ['value' => 'cards', 'label' => __('plugins.themes.journalPulse.option.editorsLayout.cards')],
+            ],
+            'default' => 'compact',
+        ]);
         $this->addOption('showAnnouncementBand', 'FieldOptions', [
             'label' => __('plugins.themes.journalPulse.option.announcement.label'),
             'options' => [['value' => true, 'label' => __('plugins.themes.journalPulse.option.announcement.option')]],

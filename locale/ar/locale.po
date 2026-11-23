@@ -447,3 +447,14 @@ msgstr "المؤلفون والقرّاء"
 
 msgid "plugins.themes.journalPulse.footer.backToTop"
 msgstr "العودة إلى الأعلى"
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.label"
+msgstr "المحررون في معلومات المجلة"
+
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.compact"
+msgstr "مضغوط: صورة صغيرة بجانب كل محرر، في صف واحد مع الجهة المنظِّمة"
+
+
+msgid "plugins.themes.journalPulse.option.editorsLayout.cards"
+msgstr "بطاقات تعريفية: بطاقة لكل محرر مع صورة كبيرة"
