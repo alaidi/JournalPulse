@@ -144,9 +144,6 @@ msgstr "View PDF"
 msgid "plugins.themes.journalPulse.list.viewPdfFor"
 msgstr "View PDF: {$title}"
 
-msgid "plugins.themes.journalPulse.footer.issn"
-msgstr "ISSN {$issn}"
-
 msgid "plugins.themes.journalPulse.usage.title"
 msgstr "Usage"
 
@@ -428,3 +425,25 @@ msgstr "Hide password"
 
 msgid "plugins.themes.journalPulse.option.info.photo"
 msgstr "To add a photo, use the image button and upload a square picture: it is shown round beside the name."
+
+msgid "plugins.themes.journalPulse.prefs.autoShort"
+msgstr "Auto"
+
+
+msgid "plugins.themes.journalPulse.prefs.dayShort"
+msgstr "Light"
+
+
+msgid "plugins.themes.journalPulse.prefs.nightShort"
+msgstr "Dark"
+
+msgid "plugins.themes.journalPulse.footer.journal"
+msgstr "The journal"
+
+
+msgid "plugins.themes.journalPulse.footer.authors"
+msgstr "Authors & readers"
+
+
+msgid "plugins.themes.journalPulse.footer.backToTop"
+msgstr "Back to top"

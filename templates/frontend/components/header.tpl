@@ -56,11 +56,22 @@
 		}
 		el = d.querySelector('[data-jm-size-reset]');
 		if (el) { el.setAttribute('aria-pressed', size === 0 ? 'true' : 'false'); }
+		el = d.querySelector('[data-jm-size-label]');
+		if (el) { el.textContent = [90, 100, 112, 125, 150][size + 1] + '%'; }
+	}
+	function panel(open) {
+		var btn = d.querySelector('[data-jm-prefs-toggle]'), box = btn && d.getElementById(btn.getAttribute('aria-controls'));
+		if (!box) { return; }
+		box.hidden = !open;
+		btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 	}
 	apply();
 	d.addEventListener('DOMContentLoaded', function () {
 		apply();
 		d.addEventListener('click', function (e) {
+			var toggle = e.target.closest ? e.target.closest('[data-jm-prefs-toggle]') : null;
+			if (toggle) { panel(toggle.getAttribute('aria-expanded') !== 'true'); return; }
+			if (!e.target.closest || !e.target.closest('.jm_prefs')) { panel(false); }
 			var t = e.target.closest ? e.target.closest('[data-jm-size-step],[data-jm-size-reset],[data-jm-mode-btn]') : null;
 			if (!t) { return; }
 			if (t.hasAttribute('data-jm-size-step')) {
@@ -74,6 +85,10 @@
 				set('jm_mode', mode);
 			}
 			apply();
+		});
+		d.addEventListener('keydown', function (e) {
+			var btn = d.querySelector('[data-jm-prefs-toggle]');
+			if (e.key === 'Escape' && btn && btn.getAttribute('aria-expanded') === 'true') { panel(false); btn.focus(); }
 		});
 		// In the automatic mode the theme follows the hour of the day
 		w.setInterval(function () { if (mode === 'auto') { apply(); } }, 60000);
@@ -96,21 +111,27 @@
 					<span class="jm_topbar_issn">{if $currentContext && $jmIssn}ISSN {$jmIssn|escape}{/if}</span>
 					<div class="jm_topbar_right">
 						{if $jmPrefs.textSize || $jmPrefs.themeSwitch}
-							<div class="jm_prefs" role="group" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.label"}">
-								{if $jmPrefs.textSize}
-									<div class="jm_prefs_group" role="group" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.textSize"}">
-										<button type="button" class="jm_pref_btn jm_pref_text" data-jm-size-step="-1" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.smaller"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.smaller"}"><span aria-hidden="true" class="jm_pref_a jm_pref_a_small">A</span></button>
-										<button type="button" class="jm_pref_btn jm_pref_text" data-jm-size-reset aria-pressed="true" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.reset"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.reset"}"><span aria-hidden="true" class="jm_pref_a">A</span></button>
-										<button type="button" class="jm_pref_btn jm_pref_text" data-jm-size-step="1" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.larger"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.larger"}"><span aria-hidden="true" class="jm_pref_a jm_pref_a_large">A</span></button>
-									</div>
-								{/if}
-								{if $jmPrefs.themeSwitch}
-									<div class="jm_prefs_group" role="group" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.theme"}">
-										<button type="button" class="jm_pref_btn" data-jm-mode-btn="auto" aria-pressed="false" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.auto"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.auto"}"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
-										<button type="button" class="jm_pref_btn" data-jm-mode-btn="day" aria-pressed="false" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.day"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.day"}"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
-										<button type="button" class="jm_pref_btn" data-jm-mode-btn="night" aria-pressed="false" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.night"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.night"}"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2A8 8 0 1 1 9.8 4a6.3 6.3 0 0 0 10.2 10.2z"/></svg></button>
-									</div>
-								{/if}
+							{* Display settings: one "Aa" button in the top bar opens a small panel *}
+							<div class="jm_prefs">
+								<button type="button" class="jm_prefs_toggle" data-jm-prefs-toggle aria-expanded="false" aria-controls="jmPrefsPanel" title="{translate|escape key="plugins.themes.journalPulse.prefs.label"}"><span aria-hidden="true">Aa</span><span class="jm_screen_reader">{translate key="plugins.themes.journalPulse.prefs.label"}</span></button>
+								<div class="jm_prefs_panel" id="jmPrefsPanel" role="group" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.label"}" hidden>
+									{if $jmPrefs.textSize}
+										<p class="jm_prefs_label" id="jmPrefsSize">{translate key="plugins.themes.journalPulse.prefs.textSize"}</p>
+										<div class="jm_prefs_row" role="group" aria-labelledby="jmPrefsSize">
+											<button type="button" class="jm_pref_btn" data-jm-size-step="-1" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.smaller"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.smaller"}"><span aria-hidden="true">A−</span></button>
+											<button type="button" class="jm_pref_btn" data-jm-size-reset aria-pressed="true" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.reset"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.reset"}"><span aria-hidden="true" data-jm-size-label>100%</span></button>
+											<button type="button" class="jm_pref_btn" data-jm-size-step="1" aria-label="{translate|escape key="plugins.themes.journalPulse.prefs.larger"}" title="{translate|escape key="plugins.themes.journalPulse.prefs.larger"}"><span aria-hidden="true">A+</span></button>
+										</div>
+									{/if}
+									{if $jmPrefs.themeSwitch}
+										<p class="jm_prefs_label" id="jmPrefsTheme">{translate key="plugins.themes.journalPulse.prefs.theme"}</p>
+										<div class="jm_prefs_row" role="group" aria-labelledby="jmPrefsTheme">
+											<button type="button" class="jm_pref_btn" data-jm-mode-btn="auto" aria-pressed="false" title="{translate|escape key="plugins.themes.journalPulse.prefs.auto"}"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg><span>{translate key="plugins.themes.journalPulse.prefs.autoShort"}</span></button>
+											<button type="button" class="jm_pref_btn" data-jm-mode-btn="day" aria-pressed="false" title="{translate|escape key="plugins.themes.journalPulse.prefs.day"}"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><span>{translate key="plugins.themes.journalPulse.prefs.dayShort"}</span></button>
+											<button type="button" class="jm_pref_btn" data-jm-mode-btn="night" aria-pressed="false" title="{translate|escape key="plugins.themes.journalPulse.prefs.night"}"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2A8 8 0 1 1 9.8 4a6.3 6.3 0 0 0 10.2 10.2z"/></svg><span>{translate key="plugins.themes.journalPulse.prefs.nightShort"}</span></button>
+										</div>
+									{/if}
+								</div>
 							</div>
 						{/if}
 						{if $currentContext}

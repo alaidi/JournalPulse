@@ -144,9 +144,6 @@ msgstr "Переглянути PDF"
 msgid "plugins.themes.journalPulse.list.viewPdfFor"
 msgstr "Переглянути PDF: {$title}"
 
-msgid "plugins.themes.journalPulse.footer.issn"
-msgstr "ISSN {$issn}"
-
 msgid "plugins.themes.journalPulse.usage.title"
 msgstr "Використання"
 
@@ -428,3 +425,25 @@ msgstr "Сховати пароль"
 
 msgid "plugins.themes.journalPulse.option.info.photo"
 msgstr "Щоб додати фото, натисніть кнопку зображення й завантажте квадратне фото: воно з’явиться круглим поруч з іменем."
+
+msgid "plugins.themes.journalPulse.prefs.autoShort"
+msgstr "Авто"
+
+
+msgid "plugins.themes.journalPulse.prefs.dayShort"
+msgstr "Світла"
+
+
+msgid "plugins.themes.journalPulse.prefs.nightShort"
+msgstr "Темна"
+
+msgid "plugins.themes.journalPulse.footer.journal"
+msgstr "Журнал"
+
+
+msgid "plugins.themes.journalPulse.footer.authors"
+msgstr "Авторам і читачам"
+
+
+msgid "plugins.themes.journalPulse.footer.backToTop"
+msgstr "Догори"

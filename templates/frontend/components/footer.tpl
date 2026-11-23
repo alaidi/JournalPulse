@@ -2,7 +2,8 @@
  * templates/frontend/components/footer.tpl
  *
  * Journal Pulse theme. Based on lib/pkp/templates/frontend/components/footer.tpl.
- * Adds a dark footer with journal identity and the main navigation links.
+ * Dark footer: journal identity, two columns of links, the journal's own footer text,
+ * then a bar with the copyright, a link back to the top and the OJS logo.
  *
  *
  * @hook Templates::Common::Footer::PageFooter []
@@ -19,34 +20,55 @@
 
 		{if $currentContext}
 			<div class="jm_footer_grid">
+				{* Journal identity *}
 				<div class="jm_footer_id">
-					<p class="jm_footer_name">{$currentContext->getLocalizedName()|escape}</p>
-					{assign var="jmFooterIssn" value=$currentContext->getData('onlineIssn')|default:$currentContext->getData('printIssn')}
-					{if $jmFooterIssn}<p class="jm_footer_meta">{translate key="plugins.themes.journalPulse.footer.issn" issn=$jmFooterIssn|escape}</p>{/if}
+					<p class="jm_footer_name"><a href="{url page="index"}">{$currentContext->getLocalizedName()|escape}</a></p>
+					<dl class="jm_footer_issn">
+						{if $currentContext->getData('onlineIssn')}<div><dt>{translate key="plugins.themes.journalPulse.info.onlineIssn"}</dt><dd>{$currentContext->getData('onlineIssn')|escape}</dd></div>{/if}
+						{if $currentContext->getData('printIssn')}<div><dt>{translate key="plugins.themes.journalPulse.info.printIssn"}</dt><dd>{$currentContext->getData('printIssn')|escape}</dd></div>{/if}
+					</dl>
 					{if $currentContext->getData('publisherInstitution')}<p class="jm_footer_meta">{$currentContext->getData('publisherInstitution')|escape}</p>{/if}
 				</div>
-				<nav class="jm_footer_nav" aria-label="{translate|escape key="common.navigation.site"}">
+
+				<nav class="jm_footer_col" aria-labelledby="jm-footer-journal">
+					<h2 id="jm-footer-journal">{translate key="plugins.themes.journalPulse.footer.journal"}</h2>
 					<ul>
 						<li><a href="{url page="issue" op="current"}">{translate key="journal.currentIssue"}</a></li>
 						<li><a href="{url page="issue" op="archive"}">{translate key="navigation.archives"}</a></li>
-						<li><a href="{url page="about" op="submissions"}">{translate key="about.submissions"}</a></li>
+						{if $currentContext->getData('enableAnnouncements')}<li><a href="{url page="announcement"}">{translate key="announcement.announcements"}</a></li>{/if}
 						<li><a href="{url page="about" op="editorialMasthead"}">{translate key="common.editorialMasthead"}</a></li>
 						<li><a href="{url page="about" op="contact"}">{translate key="about.contact"}</a></li>
-						{if $currentContext->getLocalizedData('readerInformation')}<li><a href="{url page="information" op="readers"}">{translate key="navigation.infoForReaders"}</a></li>{/if}
-						{if $currentContext->getLocalizedData('authorInformation')}<li><a href="{url page="information" op="authors"}">{translate key="navigation.infoForAuthors"}</a></li>{/if}
-						{if $currentContext->getLocalizedData('librarianInformation')}<li><a href="{url page="information" op="librarians"}">{translate key="navigation.infoForLibrarians"}</a></li>{/if}
 					</ul>
 				</nav>
-			</div>
-		{/if}
 
-		{if $pageFooter}
+				<nav class="jm_footer_col" aria-labelledby="jm-footer-authors">
+					<h2 id="jm-footer-authors">{translate key="plugins.themes.journalPulse.footer.authors"}</h2>
+					<ul>
+						<li><a href="{url page="about"}">{translate key="about.aboutContext"}</a></li>
+						<li><a href="{url page="about" op="submissions"}">{translate key="about.submissions"}</a></li>
+						{if $currentContext->getLocalizedData('authorInformation')}<li><a href="{url page="information" op="authors"}">{translate key="navigation.infoForAuthors"}</a></li>{/if}
+						{if $currentContext->getLocalizedData('readerInformation')}<li><a href="{url page="information" op="readers"}">{translate key="navigation.infoForReaders"}</a></li>{/if}
+						{if $currentContext->getLocalizedData('librarianInformation')}<li><a href="{url page="information" op="librarians"}">{translate key="navigation.infoForLibrarians"}</a></li>{/if}
+						{if $currentContext->getLocalizedData('privacyStatement')}<li><a href="{url page="about" op="privacy"}">{translate key="about.privacyStatement"}</a></li>{/if}
+					</ul>
+				</nav>
+
+				{* The journal's own footer text (Settings > Website > Appearance), e.g. the licence *}
+				{if $pageFooter}
+					<div class="jm_footer_col pkp_footer_content">
+						{$pageFooter}
+					</div>
+				{/if}
+			</div>
+		{elseif $pageFooter}
 			<div class="pkp_footer_content">
 				{$pageFooter}
 			</div>
 		{/if}
 
 		<div class="jm_footer_bottom">
+			<p class="jm_footer_copy">© {$smarty.now|date_format:"Y"}{if $currentContext} {$currentContext->getLocalizedName()|escape}{/if}</p>
+			<a class="jm_footer_top" href="#headerNavigationContainer">{translate key="plugins.themes.journalPulse.footer.backToTop"} <span aria-hidden="true">↑</span></a>
 			<div class="pkp_brand_footer">
 				<a href="{url page="about" op="aboutThisPublishingSystem"}">
 					<img alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">

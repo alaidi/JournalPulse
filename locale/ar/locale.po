@@ -144,9 +144,6 @@ msgstr "عرض PDF"
 msgid "plugins.themes.journalPulse.list.viewPdfFor"
 msgstr "عرض PDF: {$title}"
 
-msgid "plugins.themes.journalPulse.footer.issn"
-msgstr "ISSN {$issn}"
-
 msgid "plugins.themes.journalPulse.usage.title"
 msgstr "الاستخدام"
 
@@ -428,3 +425,25 @@ msgstr "إخفاء كلمة المرور"
 
 msgid "plugins.themes.journalPulse.option.info.photo"
 msgstr "لإضافة صورة، استخدم زر الصورة وارفع صورة مربعة: تظهر دائرية بجانب الاسم."
+
+msgid "plugins.themes.journalPulse.prefs.autoShort"
+msgstr "تلقائي"
+
+
+msgid "plugins.themes.journalPulse.prefs.dayShort"
+msgstr "فاتح"
+
+
+msgid "plugins.themes.journalPulse.prefs.nightShort"
+msgstr "داكن"
+
+msgid "plugins.themes.journalPulse.footer.journal"
+msgstr "المجلة"
+
+
+msgid "plugins.themes.journalPulse.footer.authors"
+msgstr "المؤلفون والقرّاء"
+
+
+msgid "plugins.themes.journalPulse.footer.backToTop"
+msgstr "العودة إلى الأعلى"
