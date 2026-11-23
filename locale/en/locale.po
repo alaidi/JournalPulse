@@ -171,6 +171,12 @@ msgstr "pages in the issue"
 msgid "plugins.themes.journalPulse.workflow.current"
 msgstr "The latest submission is at this stage"
 
+msgid "plugins.themes.journalPulse.specialty.title"
+msgstr "Number of Research Articles by Specialty"
+
+msgid "plugins.themes.journalPulse.specialty.total"
+msgstr "Total published articles: {$total}"
+
 msgid "plugins.themes.journalPulse.mostRead.eyebrow"
 msgstr "Two latest issues"
 
@@ -203,6 +209,27 @@ msgstr "Language"
 
 msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "Open Menu"
+
+msgid "plugins.themes.journalPulse.option.specialty.label"
+msgstr "Articles by specialty"
+
+msgid "plugins.themes.journalPulse.option.specialty.option"
+msgstr "Show the number of published articles in each section on the home page."
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.label"
+msgstr "Home page section backgrounds"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.classic"
+msgstr "Classic: white, with light grey bands for the workflow and specialty sections"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.white"
+msgstr "All white"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.alternate"
+msgstr "Alternating: every second section light grey"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.accent"
+msgstr "Accent tint: bands tinted with the accent colour"
 
 msgid "plugins.themes.journalPulse.option.info.label"
 msgstr "Journal information"
@@ -287,3 +314,117 @@ msgstr "You need an account to submit a paper and to follow its progress."
 
 msgid "plugins.themes.journalPulse.info.videoGuides"
 msgstr "Video guides"
+
+msgid "plugins.themes.journalPulse.workflow.currentOther"
+msgstr "The journal's latest manuscript is at this stage (not yours)"
+
+msgid "plugins.themes.journalPulse.workflow.hintGuest"
+msgstr "Log in as an author to see the stage of your submission."
+
+msgid "plugins.themes.journalPulse.workflow.hintNone"
+msgstr "You have no submissions in progress."
+
+msgid "plugins.themes.journalPulse.option.markerMode.label"
+msgstr "Who sees the stage marker"
+
+msgid "plugins.themes.journalPulse.option.markerMode.description"
+msgstr "Applies when the current stage marker is on. A logged-in author always sees their own submission."
+
+msgid "plugins.themes.journalPulse.option.markerMode.ownOrLatest"
+msgstr "Author: own submission; everybody else: the journal's latest manuscript"
+
+msgid "plugins.themes.journalPulse.option.markerMode.ownOnly"
+msgstr "Only logged-in authors, for their own submission"
+
+msgid "plugins.themes.journalPulse.option.mostRead.label"
+msgstr "Most read articles"
+
+msgid "plugins.themes.journalPulse.option.mostRead.option"
+msgstr "Show the three most read articles of the two latest issues on the home page."
+
+msgid "plugins.themes.journalPulse.option.issueArticles.label"
+msgstr "Issue article list"
+
+msgid "plugins.themes.journalPulse.option.issueArticles.option"
+msgstr "Show the full list of articles of the latest issue on the home page."
+
+msgid "plugins.themes.journalPulse.option.announcement.label"
+msgstr "Announcement band"
+
+msgid "plugins.themes.journalPulse.option.announcement.option"
+msgstr "Show the latest announcement as a dark band on the home page."
+
+msgid "plugins.themes.journalPulse.option.textSize.label"
+msgstr "Text size"
+
+msgid "plugins.themes.journalPulse.option.textSize.option"
+msgstr "Show the text size buttons in the top bar."
+
+msgid "plugins.themes.journalPulse.option.themeSwitch.label"
+msgstr "Day and night"
+
+msgid "plugins.themes.journalPulse.option.themeSwitch.option"
+msgstr "Show the light/dark theme buttons in the top bar."
+
+msgid "plugins.themes.journalPulse.option.themeMode.label"
+msgstr "Default theme mode"
+
+msgid "plugins.themes.journalPulse.option.themeMode.description"
+msgstr "Used until a visitor chooses a mode. The visitor's choice is kept in their browser."
+
+msgid "plugins.themes.journalPulse.option.themeMode.auto"
+msgstr "Automatic: dark at night, light by day"
+
+msgid "plugins.themes.journalPulse.option.themeMode.day"
+msgstr "Always light"
+
+msgid "plugins.themes.journalPulse.option.themeMode.night"
+msgstr "Always dark"
+
+msgid "plugins.themes.journalPulse.option.nightFrom.label"
+msgstr "Night starts at (hour, 0–23)"
+
+msgid "plugins.themes.journalPulse.option.nightFrom.description"
+msgstr "For the automatic mode. Hour of the visitor's device clock."
+
+msgid "plugins.themes.journalPulse.option.nightTo.label"
+msgstr "Night ends at (hour, 0–23)"
+
+msgid "plugins.themes.journalPulse.option.nightTo.description"
+msgstr "For the automatic mode. Hour of the visitor's device clock."
+
+msgid "plugins.themes.journalPulse.prefs.label"
+msgstr "Display settings"
+
+msgid "plugins.themes.journalPulse.prefs.textSize"
+msgstr "Text size"
+
+msgid "plugins.themes.journalPulse.prefs.smaller"
+msgstr "Smaller text"
+
+msgid "plugins.themes.journalPulse.prefs.reset"
+msgstr "Default text size"
+
+msgid "plugins.themes.journalPulse.prefs.larger"
+msgstr "Larger text"
+
+msgid "plugins.themes.journalPulse.prefs.theme"
+msgstr "Page colours"
+
+msgid "plugins.themes.journalPulse.prefs.auto"
+msgstr "Automatic by time of day"
+
+msgid "plugins.themes.journalPulse.prefs.day"
+msgstr "Light theme (day)"
+
+msgid "plugins.themes.journalPulse.prefs.night"
+msgstr "Dark theme (night)"
+
+msgid "plugins.themes.journalPulse.password.show"
+msgstr "Show password"
+
+msgid "plugins.themes.journalPulse.password.hide"
+msgstr "Hide password"
+
+msgid "plugins.themes.journalPulse.option.info.photo"
+msgstr "To add a photo, use the image button and upload a square picture: it is shown round beside the name."

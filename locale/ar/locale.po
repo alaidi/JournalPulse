@@ -171,6 +171,12 @@ msgstr "صفحة في العدد"
 msgid "plugins.themes.journalPulse.workflow.current"
 msgstr "أحدث مخطوطة في هذه المرحلة"
 
+msgid "plugins.themes.journalPulse.specialty.title"
+msgstr "عدد البحوث حسب التخصص"
+
+msgid "plugins.themes.journalPulse.specialty.total"
+msgstr "إجمالي البحوث المنشورة: {$total}"
+
 msgid "plugins.themes.journalPulse.mostRead.eyebrow"
 msgstr "آخر عددين"
 
@@ -203,6 +209,27 @@ msgstr "اللغة"
 
 msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "فتح القائمة"
+
+msgid "plugins.themes.journalPulse.option.specialty.label"
+msgstr "البحوث حسب التخصص"
+
+msgid "plugins.themes.journalPulse.option.specialty.option"
+msgstr "إظهار عدد البحوث المنشورة في كل قسم في الصفحة الرئيسية."
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.label"
+msgstr "خلفيات أقسام الصفحة الرئيسية"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.classic"
+msgstr "كلاسيكي: أبيض، مع شريطين رماديين فاتحين لمسار التحرير والتخصصات"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.white"
+msgstr "أبيض بالكامل"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.alternate"
+msgstr "متناوب: كل قسم ثانٍ رمادي فاتح"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.accent"
+msgstr "لمسة اللون الرئيسي: الشريطان بدرجة فاتحة من اللون الرئيسي"
 
 msgid "plugins.themes.journalPulse.option.info.label"
 msgstr "معلومات المجلة"
@@ -287,3 +314,117 @@ msgstr "تحتاج إلى حساب لإرسال بحثك ومتابعة حالت
 
 msgid "plugins.themes.journalPulse.info.videoGuides"
 msgstr "شروحات بالفيديو"
+
+msgid "plugins.themes.journalPulse.workflow.currentOther"
+msgstr "أحدث مخطوطة في المجلة في هذه المرحلة (ليست مخطوطتك)"
+
+msgid "plugins.themes.journalPulse.workflow.hintGuest"
+msgstr "سجّل الدخول بصفتك مؤلفاً لترى مرحلة مخطوطتك."
+
+msgid "plugins.themes.journalPulse.workflow.hintNone"
+msgstr "ليست لديك مخطوطات قيد العمل."
+
+msgid "plugins.themes.journalPulse.option.markerMode.label"
+msgstr "من يرى علامة المرحلة"
+
+msgid "plugins.themes.journalPulse.option.markerMode.description"
+msgstr "يُطبَّق عند تفعيل علامة المرحلة الحالية. المؤلف المسجَّل دخوله يرى مخطوطته دائماً."
+
+msgid "plugins.themes.journalPulse.option.markerMode.ownOrLatest"
+msgstr "المؤلف: مخطوطته؛ وبقية الزوار: أحدث مخطوطة في المجلة"
+
+msgid "plugins.themes.journalPulse.option.markerMode.ownOnly"
+msgstr "المؤلفون المسجَّل دخولهم فقط، لمخطوطاتهم"
+
+msgid "plugins.themes.journalPulse.option.mostRead.label"
+msgstr "المقالات الأكثر قراءة"
+
+msgid "plugins.themes.journalPulse.option.mostRead.option"
+msgstr "إظهار المقالات الثلاث الأكثر قراءة من آخر عددين في الصفحة الرئيسية."
+
+msgid "plugins.themes.journalPulse.option.issueArticles.label"
+msgstr "قائمة مقالات العدد"
+
+msgid "plugins.themes.journalPulse.option.issueArticles.option"
+msgstr "إظهار القائمة الكاملة لمقالات العدد الأخير في الصفحة الرئيسية."
+
+msgid "plugins.themes.journalPulse.option.announcement.label"
+msgstr "شريط الإعلانات"
+
+msgid "plugins.themes.journalPulse.option.announcement.option"
+msgstr "إظهار آخر إعلان شريطاً داكناً في الصفحة الرئيسية."
+
+msgid "plugins.themes.journalPulse.option.textSize.label"
+msgstr "حجم النص"
+
+msgid "plugins.themes.journalPulse.option.textSize.option"
+msgstr "إظهار أزرار حجم النص في الشريط العلوي."
+
+msgid "plugins.themes.journalPulse.option.themeSwitch.label"
+msgstr "النهار والليل"
+
+msgid "plugins.themes.journalPulse.option.themeSwitch.option"
+msgstr "إظهار أزرار الوضع الفاتح والداكن في الشريط العلوي."
+
+msgid "plugins.themes.journalPulse.option.themeMode.label"
+msgstr "الوضع الافتراضي للألوان"
+
+msgid "plugins.themes.journalPulse.option.themeMode.description"
+msgstr "يُستخدم إلى أن يختار الزائر وضعاً بنفسه، ويُحفظ اختياره في متصفحه."
+
+msgid "plugins.themes.journalPulse.option.themeMode.auto"
+msgstr "تلقائي: داكن ليلاً وفاتح نهاراً"
+
+msgid "plugins.themes.journalPulse.option.themeMode.day"
+msgstr "فاتح دائماً"
+
+msgid "plugins.themes.journalPulse.option.themeMode.night"
+msgstr "داكن دائماً"
+
+msgid "plugins.themes.journalPulse.option.nightFrom.label"
+msgstr "يبدأ الليل عند الساعة (0–23)"
+
+msgid "plugins.themes.journalPulse.option.nightFrom.description"
+msgstr "للوضع التلقائي. بحسب ساعة جهاز الزائر."
+
+msgid "plugins.themes.journalPulse.option.nightTo.label"
+msgstr "ينتهي الليل عند الساعة (0–23)"
+
+msgid "plugins.themes.journalPulse.option.nightTo.description"
+msgstr "للوضع التلقائي. بحسب ساعة جهاز الزائر."
+
+msgid "plugins.themes.journalPulse.prefs.label"
+msgstr "إعدادات العرض"
+
+msgid "plugins.themes.journalPulse.prefs.textSize"
+msgstr "حجم النص"
+
+msgid "plugins.themes.journalPulse.prefs.smaller"
+msgstr "تصغير النص"
+
+msgid "plugins.themes.journalPulse.prefs.reset"
+msgstr "حجم النص الافتراضي"
+
+msgid "plugins.themes.journalPulse.prefs.larger"
+msgstr "تكبير النص"
+
+msgid "plugins.themes.journalPulse.prefs.theme"
+msgstr "ألوان الصفحة"
+
+msgid "plugins.themes.journalPulse.prefs.auto"
+msgstr "تلقائي حسب وقت اليوم"
+
+msgid "plugins.themes.journalPulse.prefs.day"
+msgstr "الوضع الفاتح (نهار)"
+
+msgid "plugins.themes.journalPulse.prefs.night"
+msgstr "الوضع الداكن (ليل)"
+
+msgid "plugins.themes.journalPulse.password.show"
+msgstr "إظهار كلمة المرور"
+
+msgid "plugins.themes.journalPulse.password.hide"
+msgstr "إخفاء كلمة المرور"
+
+msgid "plugins.themes.journalPulse.option.info.photo"
+msgstr "لإضافة صورة، استخدم زر الصورة وارفع صورة مربعة: تظهر دائرية بجانب الاسم."

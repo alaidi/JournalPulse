@@ -14,7 +14,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
 
-<div class="page_index_journal jm_home">
+<div class="page_index_journal jm_home jm_sections_{$activeTheme->getOption('sectionStyle')|escape}">
 
 	{call_hook name="Templates::Index::journal"}
 
@@ -204,11 +204,16 @@
 							<span class="jm_flow_bar"{if $jmStage && $jmStage.index == $jmIdx} style="--jm-p:{$jmStage.percent|intval}"{/if}>{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_fill" aria-hidden="true"></span><span class="jm_flow_dot" aria-hidden="true"></span>{/if}</span>
 							<span class="jm_flow_name">{translate key="plugins.themes.journalPulse.workflow.`$jmKey`"}</span>
 							<span class="jm_flow_term">{* Arabic counts days differently for 1, 2, 3-10 and 11 or more *}{if $jmDays == 1}{translate key="plugins.themes.journalPulse.workflow.termOneDay"}{elseif $jmDays == 2}{translate key="plugins.themes.journalPulse.workflow.termTwoDays"}{elseif $jmDays <= 10}{translate key="plugins.themes.journalPulse.workflow.termFewDays" days=$jmDays}{else}{translate key="plugins.themes.journalPulse.workflow.term" days=$jmDays}{/if}</span>
-							{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_now">{if $jmStage.mine}{translate key="plugins.themes.journalPulse.workflow.currentMine"}{else}{translate key="plugins.themes.journalPulse.workflow.current"}{/if}</span>
+							{if $jmStage && $jmStage.index == $jmIdx}<span class="jm_flow_now">{if $jmStage.mine}{translate key="plugins.themes.journalPulse.workflow.currentMine"}{elseif $isUserLoggedIn}{translate key="plugins.themes.journalPulse.workflow.currentOther"}{else}{translate key="plugins.themes.journalPulse.workflow.current"}{/if}</span>
 								<span class="jm_flow_progress" title="{translate|escape key="plugins.themes.journalPulse.workflow.progressHint" total=$jmStage.total}">{if $jmStage.over}{translate key="plugins.themes.journalPulse.workflow.progressOver" day=$jmStage.day total=$jmStage.total}{else}{translate key="plugins.themes.journalPulse.workflow.progress" day=$jmStage.day total=$jmStage.total percent=$jmStage.percent}{/if}</span>{/if}
 						</li>
 					{/foreach}
 				</ol>
+				{if $activeTheme->getOption('showWorkflowCurrent') && !$jmStage && $activeTheme->getWorkflowMarkerMode() == 'own_only'}
+					<p class="jm_flow_hint">
+						{if $isUserLoggedIn}{translate key="plugins.themes.journalPulse.workflow.hintNone"}{else}<a href="{url page="login"}">{translate key="plugins.themes.journalPulse.workflow.hintGuest"}</a>{/if}
+					</p>
+				{/if}
 				<p class="jm_source">{translate key="plugins.themes.journalPulse.workflow.note"}</p>
 			</div>
 		</section>
@@ -225,7 +230,8 @@
 	{/if}
 
 	{* ---------- Most read articles of the two latest issues ---------- *}
-	{assign var="jmMostRead" value=$activeTheme->getMostRead(3, 2)}
+	{assign var="jmMostRead" value=null}
+	{if $activeTheme->getOption('showMostRead')}{assign var="jmMostRead" value=$activeTheme->getMostRead(3, 2)}{/if}
 	{if $jmMostRead}
 		<section class="jm_wrap jm_block jm_mostread" aria-labelledby="jm-mostread-title">
 			<p class="jm_eyebrow jm_eyebrow_muted">{translate key="plugins.themes.journalPulse.mostRead.eyebrow"}</p>
@@ -246,8 +252,30 @@
 		</section>
 	{/if}
 
+	{* ---------- Published articles per section ("specialty") ---------- *}
+	{if $activeTheme->getOption('showSpecialtyCounts')}
+		{assign var="jmSpecialty" value=$activeTheme->getSectionCounts()}
+		{if $jmSpecialty.total}
+			<section class="jm_band jm_specialty" aria-labelledby="jm-specialty-title">
+				<div class="jm_wrap">
+					<p class="jm_eyebrow jm_eyebrow_muted">{translate key="plugins.themes.journalPulse.specialty.total" total=$jmSpecialty.total}</p>
+					<h2 id="jm-specialty-title">{translate key="plugins.themes.journalPulse.specialty.title"}</h2>
+					<ul class="jm_specialty_list">
+						{foreach from=$jmSpecialty.sections item=jmSection}
+							<li>
+								<span class="jm_specialty_name">{$jmSection.title|escape}</span>
+								<span class="jm_specialty_num"><strong>{$jmSection.count}</strong> ({$jmSection.percent}%)</span>
+								<span class="jm_specialty_bar" style="--jm-p:{$jmSection.percent}" aria-hidden="true"></span>
+							</li>
+						{/foreach}
+					</ul>
+				</div>
+			</section>
+		{/if}
+	{/if}
+
 	{* ---------- Latest announcement as a call-to-action band ---------- *}
-	{if $numAnnouncementsHomepage && $announcements|@count}
+	{if $activeTheme->getOption('showAnnouncementBand') && $numAnnouncementsHomepage && $announcements|@count}
 		{foreach from=$announcements item=jmAnnouncement name=jmAnn}
 			{if $smarty.foreach.jmAnn.first}
 				<section class="jm_band jm_band_dark jm_cta_band" aria-labelledby="jm-announcement-title">
@@ -269,7 +297,7 @@
 	{/if}
 
 	{* ---------- Latest issue: every article with authors, DOI, views and PDF ---------- *}
-	{if $issue}
+	{if $issue && $activeTheme->getOption('showIssueArticles')}
 		<section class="jm_wrap jm_block jm_issue current_issue" aria-labelledby="jm-issue-title">
 			<a id="homepageIssue"></a>
 			<p class="jm_eyebrow jm_eyebrow_muted">{translate key="journal.currentIssue"} · {$issue->getIssueIdentification()|escape}{if $issue->getDatePublished()} · <time datetime="{$issue->getDatePublished()|date_format:"%Y-%m-%d"}">{$issue->getDatePublished()|date_format:$dateFormatShort}</time>{/if}</p>

@@ -171,6 +171,12 @@ msgstr "сторінок у випуску"
 msgid "plugins.themes.journalPulse.workflow.current"
 msgstr "Остання подана стаття зараз на цьому етапі"
 
+msgid "plugins.themes.journalPulse.specialty.title"
+msgstr "Кількість наукових статей за спеціальністю"
+
+msgid "plugins.themes.journalPulse.specialty.total"
+msgstr "Усього опублікованих статей: {$total}"
+
 msgid "plugins.themes.journalPulse.mostRead.eyebrow"
 msgstr "Два останні випуски"
 
@@ -203,6 +209,27 @@ msgstr "Мова"
 
 msgid "plugins.themes.journalPulse.header.openMenu"
 msgstr "Відкрити меню"
+
+msgid "plugins.themes.journalPulse.option.specialty.label"
+msgstr "Статті за спеціальністю"
+
+msgid "plugins.themes.journalPulse.option.specialty.option"
+msgstr "Показувати на головній сторінці кількість опублікованих статей у кожному розділі."
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.label"
+msgstr "Тло розділів головної сторінки"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.classic"
+msgstr "Класичне: біле, зі світло-сірими смугами для редакційного процесу та спеціальностей"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.white"
+msgstr "Усе біле"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.alternate"
+msgstr "Почергове: кожен другий розділ світло-сірий"
+
+msgid "plugins.themes.journalPulse.option.sectionStyle.accent"
+msgstr "Акцентний відтінок: смуги з відтінком акцентного кольору"
 
 msgid "plugins.themes.journalPulse.option.info.label"
 msgstr "Інформація про журнал"
@@ -287,3 +314,117 @@ msgstr "Щоб подати статтю й стежити за її стату�
 
 msgid "plugins.themes.journalPulse.info.videoGuides"
 msgstr "Відеоінструкції"
+
+msgid "plugins.themes.journalPulse.workflow.currentOther"
+msgstr "Остання стаття журналу зараз на цьому етапі (не ваша)"
+
+msgid "plugins.themes.journalPulse.workflow.hintGuest"
+msgstr "Увійдіть як автор, щоб побачити, на якому етапі ваша стаття."
+
+msgid "plugins.themes.journalPulse.workflow.hintNone"
+msgstr "У вас немає статей у роботі."
+
+msgid "plugins.themes.journalPulse.option.markerMode.label"
+msgstr "Кому показувати позначку етапу"
+
+msgid "plugins.themes.journalPulse.option.markerMode.description"
+msgstr "Діє, коли ввімкнено позначку поточного етапу. Автор, що увійшов, завжди бачить свою статтю."
+
+msgid "plugins.themes.journalPulse.option.markerMode.ownOrLatest"
+msgstr "Автору — його статтю, решті — останню рукопис журналу"
+
+msgid "plugins.themes.journalPulse.option.markerMode.ownOnly"
+msgstr "Лише авторам, що увійшли, — їхню статтю"
+
+msgid "plugins.themes.journalPulse.option.mostRead.label"
+msgstr "Найчитаніші статті"
+
+msgid "plugins.themes.journalPulse.option.mostRead.option"
+msgstr "Показувати на головній три найчитаніші статті двох останніх випусків."
+
+msgid "plugins.themes.journalPulse.option.issueArticles.label"
+msgstr "Список статей випуску"
+
+msgid "plugins.themes.journalPulse.option.issueArticles.option"
+msgstr "Показувати на головній повний список статей останнього випуску."
+
+msgid "plugins.themes.journalPulse.option.announcement.label"
+msgstr "Смуга оголошення"
+
+msgid "plugins.themes.journalPulse.option.announcement.option"
+msgstr "Показувати на головній останнє оголошення темною смугою."
+
+msgid "plugins.themes.journalPulse.option.textSize.label"
+msgstr "Розмір тексту"
+
+msgid "plugins.themes.journalPulse.option.textSize.option"
+msgstr "Показувати у верхній смузі кнопки зміни розміру тексту."
+
+msgid "plugins.themes.journalPulse.option.themeSwitch.label"
+msgstr "День і ніч"
+
+msgid "plugins.themes.journalPulse.option.themeSwitch.option"
+msgstr "Показувати у верхній смузі кнопки перемикання світлої та темної теми."
+
+msgid "plugins.themes.journalPulse.option.themeMode.label"
+msgstr "Режим теми за замовчуванням"
+
+msgid "plugins.themes.journalPulse.option.themeMode.description"
+msgstr "Застосовується, поки відвідувач сам не обрав режим. Вибір відвідувача зберігається в його браузері."
+
+msgid "plugins.themes.journalPulse.option.themeMode.auto"
+msgstr "Автоматично: вночі темна, вдень світла"
+
+msgid "plugins.themes.journalPulse.option.themeMode.day"
+msgstr "Завжди світла"
+
+msgid "plugins.themes.journalPulse.option.themeMode.night"
+msgstr "Завжди темна"
+
+msgid "plugins.themes.journalPulse.option.nightFrom.label"
+msgstr "Ніч починається о (година, 0–23)"
+
+msgid "plugins.themes.journalPulse.option.nightFrom.description"
+msgstr "Для автоматичного режиму. Година за часом на пристрої відвідувача."
+
+msgid "plugins.themes.journalPulse.option.nightTo.label"
+msgstr "Ніч закінчується о (година, 0–23)"
+
+msgid "plugins.themes.journalPulse.option.nightTo.description"
+msgstr "Для автоматичного режиму. Година за часом на пристрої відвідувача."
+
+msgid "plugins.themes.journalPulse.prefs.label"
+msgstr "Параметри відображення"
+
+msgid "plugins.themes.journalPulse.prefs.textSize"
+msgstr "Розмір тексту"
+
+msgid "plugins.themes.journalPulse.prefs.smaller"
+msgstr "Зменшити текст"
+
+msgid "plugins.themes.journalPulse.prefs.reset"
+msgstr "Звичайний розмір тексту"
+
+msgid "plugins.themes.journalPulse.prefs.larger"
+msgstr "Збільшити текст"
+
+msgid "plugins.themes.journalPulse.prefs.theme"
+msgstr "Колір сторінки"
+
+msgid "plugins.themes.journalPulse.prefs.auto"
+msgstr "Автоматично за часом доби"
+
+msgid "plugins.themes.journalPulse.prefs.day"
+msgstr "Світла тема (день)"
+
+msgid "plugins.themes.journalPulse.prefs.night"
+msgstr "Темна тема (ніч)"
+
+msgid "plugins.themes.journalPulse.password.show"
+msgstr "Показати пароль"
+
+msgid "plugins.themes.journalPulse.password.hide"
+msgstr "Сховати пароль"
+
+msgid "plugins.themes.journalPulse.option.info.photo"
+msgstr "Щоб додати фото, натисніть кнопку зображення й завантажте квадратне фото: воно з’явиться круглим поруч з іменем."

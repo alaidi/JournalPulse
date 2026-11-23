@@ -39,6 +39,7 @@ class JournalPulseThemePlugin extends ThemePlugin
     /** Default accent colour (passes WCAG AA contrast with white text) */
     public const DEFAULT_ACCENT = '#C2410C';
 
+
     /** Seconds to keep per-article usage numbers in the cache */
     public const STATS_CACHE_TTL = 3600;
 
@@ -78,12 +79,15 @@ class JournalPulseThemePlugin extends ThemePlugin
      * Journal information fields filled in the theme options:
      * option => [label, rich text, description of the field (optional)]
      */
+    /** Journal information fields that may hold a photo of the person */
+    public const PHOTO_OPTIONS = ['infoEditorInChief', 'infoManagingEditor'];
+
     public const INFO_OPTIONS = [
         'infoIndexing' => ['plugins.themes.journalPulse.info.indexing', true, 'plugins.themes.journalPulse.option.info.onePerLine'],
         'infoFrequency' => ['plugins.themes.journalPulse.info.frequency', false],
         'infoPublicationDates' => ['plugins.themes.journalPulse.info.publicationDates', true, 'plugins.themes.journalPulse.option.info.onePerLine'],
-        'infoEditorInChief' => ['plugins.themes.journalPulse.info.editorInChief', true],
-        'infoManagingEditor' => ['plugins.themes.journalPulse.info.managingEditor', true],
+        'infoEditorInChief' => ['plugins.themes.journalPulse.info.editorInChief', true, 'plugins.themes.journalPulse.option.info.photo'],
+        'infoManagingEditor' => ['plugins.themes.journalPulse.info.managingEditor', true, 'plugins.themes.journalPulse.option.info.photo'],
         'infoOrganizedBy' => ['plugins.themes.journalPulse.info.organizedBy', false],
         'infoCitationAnalysis' => ['plugins.themes.journalPulse.info.citationAnalysis', true, 'plugins.themes.journalPulse.option.info.onePerLine'],
         'infoAcceptanceRate' => ['plugins.themes.journalPulse.info.acceptanceRate', false],
@@ -117,6 +121,17 @@ class JournalPulseThemePlugin extends ThemePlugin
             'label' => __('plugins.themes.journalPulse.option.accent.label'),
             'description' => __('plugins.themes.journalPulse.option.accent.description'),
             'default' => self::DEFAULT_ACCENT,
+        ]);
+        $this->addOption('sectionStyle', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.journalPulse.option.sectionStyle.label'),
+            'options' => [
+                ['value' => 'classic', 'label' => __('plugins.themes.journalPulse.option.sectionStyle.classic')],
+                ['value' => 'white', 'label' => __('plugins.themes.journalPulse.option.sectionStyle.white')],
+                ['value' => 'alternate', 'label' => __('plugins.themes.journalPulse.option.sectionStyle.alternate')],
+                ['value' => 'accent', 'label' => __('plugins.themes.journalPulse.option.sectionStyle.accent')],
+            ],
+            'default' => 'classic',
         ]);
         $this->addOption('heroTagline', 'FieldText', [
             'label' => __('plugins.themes.journalPulse.option.tagline.label'),
@@ -185,6 +200,31 @@ class JournalPulseThemePlugin extends ThemePlugin
             ],
             'default' => true,
         ]);
+        $this->addOption('workflowMarkerMode', 'FieldSelect', [
+            'label' => __('plugins.themes.journalPulse.option.markerMode.label'),
+            'description' => __('plugins.themes.journalPulse.option.markerMode.description'),
+            'options' => [
+                ['value' => 'own_or_latest', 'label' => __('plugins.themes.journalPulse.option.markerMode.ownOrLatest')],
+                ['value' => 'own_only', 'label' => __('plugins.themes.journalPulse.option.markerMode.ownOnly')],
+            ],
+            'default' => 'own_or_latest',
+        ]);
+        $this->addOption('showMostRead', 'FieldOptions', [
+            'label' => __('plugins.themes.journalPulse.option.mostRead.label'),
+            'options' => [['value' => true, 'label' => __('plugins.themes.journalPulse.option.mostRead.option')]],
+            'default' => true,
+        ]);
+
+        $this->addOption('showSpecialtyCounts', 'FieldOptions', [
+            'label' => __('plugins.themes.journalPulse.option.specialty.label'),
+            'options' => [
+                [
+                    'value' => true,
+                    'label' => __('plugins.themes.journalPulse.option.specialty.option'),
+                ],
+            ],
+            'default' => true,
+        ]);
 
         $this->addOption('showJournalInfo', 'FieldOptions', [
             'label' => __('plugins.themes.journalPulse.option.info.label'),
@@ -197,12 +237,64 @@ class JournalPulseThemePlugin extends ThemePlugin
             ],
             'default' => true,
         ]);
+        $this->addOption('showAnnouncementBand', 'FieldOptions', [
+            'label' => __('plugins.themes.journalPulse.option.announcement.label'),
+            'options' => [['value' => true, 'label' => __('plugins.themes.journalPulse.option.announcement.option')]],
+            'default' => true,
+        ]);
+        $this->addOption('showIssueArticles', 'FieldOptions', [
+            'label' => __('plugins.themes.journalPulse.option.issueArticles.label'),
+            'options' => [['value' => true, 'label' => __('plugins.themes.journalPulse.option.issueArticles.option')]],
+            'default' => true,
+        ]);
+        $this->addOption('showTextSize', 'FieldOptions', [
+            'label' => __('plugins.themes.journalPulse.option.textSize.label'),
+            'options' => [['value' => true, 'label' => __('plugins.themes.journalPulse.option.textSize.option')]],
+            'default' => true,
+        ]);
+        $this->addOption('showThemeSwitch', 'FieldOptions', [
+            'label' => __('plugins.themes.journalPulse.option.themeSwitch.label'),
+            'options' => [['value' => true, 'label' => __('plugins.themes.journalPulse.option.themeSwitch.option')]],
+            'default' => true,
+        ]);
+        $this->addOption('defaultThemeMode', 'FieldSelect', [
+            'label' => __('plugins.themes.journalPulse.option.themeMode.label'),
+            'description' => __('plugins.themes.journalPulse.option.themeMode.description'),
+            'options' => [
+                ['value' => 'auto', 'label' => __('plugins.themes.journalPulse.option.themeMode.auto')],
+                ['value' => 'day', 'label' => __('plugins.themes.journalPulse.option.themeMode.day')],
+                ['value' => 'night', 'label' => __('plugins.themes.journalPulse.option.themeMode.night')],
+            ],
+            'default' => 'auto',
+        ]);
+        $this->addOption('nightFrom', 'FieldText', [
+            'label' => __('plugins.themes.journalPulse.option.nightFrom.label'),
+            'description' => __('plugins.themes.journalPulse.option.nightFrom.description'),
+            'size' => 'small',
+            'default' => '20',
+        ]);
+        $this->addOption('nightTo', 'FieldText', [
+            'label' => __('plugins.themes.journalPulse.option.nightTo.label'),
+            'description' => __('plugins.themes.journalPulse.option.nightTo.description'),
+            'size' => 'small',
+            'default' => '7',
+        ]);
+
+        // The editors' fields take a photo, uploaded to the journal's public files as in core rich text fields
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $photoUpload = $context ? [
+            'toolbar' => 'bold italic superscript subscript | link | image | code',
+            'plugins' => ['link', 'image', 'code'],
+            'uploadUrl' => $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile'),
+        ] : [];
         foreach (self::INFO_OPTIONS as $name => $field) {
             $this->addOption($name, $field[1] ? 'FieldRichTextarea' : 'FieldText', [
                 'label' => __('plugins.themes.journalPulse.option.info.field', ['field' => __($field[0])]),
                 'isMultilingual' => true,
                 'default' => '',
-            ] + (isset($field[2]) ? ['description' => __($field[2])] : []));
+            ] + (isset($field[2]) ? ['description' => __($field[2])] : [])
+              + (in_array($name, self::PHOTO_OPTIONS, true) ? $photoUpload : []));
         }
 
         // Re-skin the parent theme through its LESS variables, so that every
@@ -356,6 +448,39 @@ class JournalPulseThemePlugin extends ThemePlugin
     }
 
     /**
+     * Published articles per section ("specialty"), sections without articles left out.
+     *
+     * @return array{total: int, sections: array<array{title: string, count: int, percent: float}>}
+     */
+    public function getSectionCounts(): array
+    {
+        $context = Application::get()->getRequest()->getContext();
+        if (!$context) {
+            return ['total' => 0, 'sections' => []];
+        }
+        $counts = DB::table('submissions as s')
+            ->join('publications as p', 'p.publication_id', '=', 's.current_publication_id')
+            ->where('s.context_id', $context->getId())
+            ->where('s.status', Submission::STATUS_PUBLISHED)
+            ->groupBy('p.section_id')
+            ->pluck(DB::raw('COUNT(*)'), 'p.section_id');
+        $total = (int) $counts->sum();
+
+        $sections = [];
+        foreach (Repo::section()->getCollector()->filterByContextIds([$context->getId()])->getMany() as $section) {
+            $count = (int) ($counts[$section->getId()] ?? 0);
+            if ($count) {
+                $sections[] = [
+                    'title' => $section->getLocalizedTitle(),
+                    'count' => $count,
+                    'percent' => round($count * 100 / $total, 1),
+                ];
+            }
+        }
+        return ['total' => $total, 'sections' => $sections];
+    }
+
+    /**
      * The most read articles of the latest published issues. Returns plain
      * arrays (title, authors, url, pdfUrl, views, pdf), cached for an hour.
      */
@@ -456,12 +581,64 @@ class JournalPulseThemePlugin extends ThemePlugin
             }
         }
 
+        if ($this->getWorkflowMarkerMode() === 'own_only') {
+            return null;
+        }
+
         $stage = Cache::remember(
             "jm_stage_{$contextId}",
             self::STAGE_CACHE_TTL,
             fn (): array => $this->findStage((int) $contextId, null) ?? []
         );
         return $stage ? $stage + ['mine' => false] : null;
+    }
+
+    /**
+     * 'own_or_latest' (default): authors see their own submission, the others
+     * see the latest one of the journal. 'own_only': only authors see a marker.
+     */
+    public function getWorkflowMarkerMode(): string
+    {
+        $mode = (string) $this->getOption('workflowMarkerMode');
+        return $mode === 'own_only' ? 'own_only' : 'own_or_latest';
+    }
+
+    /**
+     * Settings of the display panel (text size, day/night) as an array.
+     *
+     * @return array{textSize: bool, themeSwitch: bool, mode: string, nightFrom: int, nightTo: int}
+     */
+    public function getDisplayPrefs(): array
+    {
+        $flag = function (string $name): bool {
+            $value = $this->getOption($name);
+            return $value === null ? true : (bool) $value;
+        };
+        $hour = function (string $name, int $default): int {
+            $value = $this->getOption($name);
+            return ($value === null || $value === '' || !is_numeric($value))
+                ? $default
+                : max(0, min(23, (int) $value));
+        };
+        $mode = (string) $this->getOption('defaultThemeMode');
+        return [
+            'textSize' => $flag('showTextSize'),
+            'themeSwitch' => $flag('showThemeSwitch'),
+            'mode' => in_array($mode, ['auto', 'day', 'night'], true) ? $mode : 'auto',
+            'nightFrom' => $hour('nightFrom', 20),
+            'nightTo' => $hour('nightTo', 7),
+        ];
+    }
+
+    /**
+     * The same settings as a JSON string that is safe inside a script element.
+     */
+    public function getDisplayPrefsJson(): string
+    {
+        return json_encode(
+            $this->getDisplayPrefs(),
+            JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT
+        );
     }
 
     /**

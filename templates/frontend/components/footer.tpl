@@ -60,6 +60,40 @@
 
 {load_script context="frontend"}
 
+{* Show/hide button on every password field (login, registration, password change); core templates stay untouched *}
+<script>window.jmPwText={ldelim}show: "{translate|escape:"javascript" key="plugins.themes.journalPulse.password.show"}", hide: "{translate|escape:"javascript" key="plugins.themes.journalPulse.password.hide"}"{rdelim};</script>
+{literal}<script>
+(function (d) {
+	var T = window.jmPwText;
+	var icons = '<svg class="jm_pw_eye" aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>'
+		+ '<svg class="jm_pw_eye_off" aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.6 5.1A10.4 10.4 0 0 1 12 5c6.4 0 10 7 10 7a17.6 17.6 0 0 1-2.9 3.8M6.6 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/><path d="m2 2 20 20"/></svg>';
+	Array.prototype.forEach.call(d.querySelectorAll('input[type="password"]'), function (input) {
+		var wrap = d.createElement('span'), btn = d.createElement('button');
+		wrap.className = 'jm_pw';
+		input.parentNode.insertBefore(wrap, input);
+		wrap.appendChild(input);
+		btn.type = 'button';
+		btn.className = 'jm_pw_toggle';
+		btn.innerHTML = icons;
+		if (input.id) { btn.setAttribute('aria-controls', input.id); }
+		function set(shown) {
+			input.type = shown ? 'text' : 'password';
+			btn.setAttribute('aria-pressed', shown ? 'true' : 'false');
+			btn.setAttribute('aria-label', shown ? T.hide : T.show);
+			btn.title = shown ? T.hide : T.show;
+		}
+		set(false);
+		btn.addEventListener('click', function () {
+			set(input.type === 'password');
+			input.focus();
+		});
+		// Password managers expect a password field when the form is sent
+		if (input.form) { input.form.addEventListener('submit', function () { set(false); }); }
+		wrap.appendChild(btn);
+	});
+})(document);
+</script>{/literal}
+
 {call_hook name="Templates::Common::Footer::PageFooter"}
 </body>
 </html>
